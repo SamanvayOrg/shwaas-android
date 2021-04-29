@@ -1,0 +1,5 @@
+Codepush
+appcenter codepush release-react -a Samanvay-Research-and-Development-Foundation/Pneumonia-App -d Staging
+
+Moving to production
+Change strings.xml to look from codepush in production instead of staging
