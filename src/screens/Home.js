@@ -1,14 +1,15 @@
 import React from 'react';
-import {Text, View, Button} from 'react-native';
+import {Button} from 'react-native-paper';
+import BaseScreen from '../components/BaseScreen';
 
 export default ({navigation}) => (
-  <View>
-    <Text>Hello world</Text>
+  <BaseScreen style={{justifyContent: 'center', alignItems: 'center'}}>
     <Button
-      title={'Get started'}
+      mode={'contained'}
       onPress={() => {
         navigation.navigate('BasicDetails');
-      }}
-    />
-  </View>
+      }}>
+      Get started
+    </Button>
+  </BaseScreen>
 );
