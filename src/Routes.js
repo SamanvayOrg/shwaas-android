@@ -1,7 +1,7 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import Home from './Home';
-import BasicDetails from './BasicDetails';
+import Home from './screens/Home';
+import BasicDetails from './screens/BasicDetails';
 
 const Stack = createStackNavigator();
 
