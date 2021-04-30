@@ -1,8 +1,43 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import BaseScreen from '../components/BaseScreen';
+import {Headline, IconButton, TextInput} from 'react-native-paper';
+import HorizontalComponent from '../components/HorizontalComponent';
+import Space from '../components/Space';
+import {connect} from 'react-redux';
+import {setValue} from '../actions/form';
 
-export default () => (
-  <View>
-    <Text>This is the basic details screen</Text>
-  </View>
-);
+const BasicDetails = ({age, sex, setValue}) => {
+  return (
+    <BaseScreen>
+      <TextInput
+        autoFocus
+        keyboardType={'number-pad'}
+        label="Age"
+        value={age}
+        onChangeText={setValue}
+      />
+      <Space height={72} />
+      <Headline>Sex</Headline>
+      <HorizontalComponent>
+        <IconButton
+          icon={'human-male'}
+          color={'red'}
+          size={40}
+          animated
+          onPress={() => setValue('sex', 'M')}
+          style={sex === 'M' ? {backgroundColor: 'grey', elevation: 2} : {}}
+        />
+        <IconButton
+          icon={'human-female'}
+          size={40}
+          color={'blue'}
+          onPress={() => setValue('sex', 'F')}
+          style={sex === 'F' ? {backgroundColor: 'grey', elevation: 2} : {}}
+        />
+      </HorizontalComponent>
+    </BaseScreen>
+  );
+};
+
+const mapStateToProps = ({form: {age, sex}}) => ({age, sex});
+export default connect(mapStateToProps, {setValue: setValue})(BasicDetails);
