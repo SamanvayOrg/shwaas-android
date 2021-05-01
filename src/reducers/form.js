@@ -14,7 +14,6 @@ const reducer = (state = createInitialState(), action) => {
 
   switch (action.type) {
     case actions.SET_VALUE: {
-      console.log(action);
       return {
         ...state,
         ...getValue(action.key, action.value),
