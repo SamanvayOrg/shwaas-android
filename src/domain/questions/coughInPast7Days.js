@@ -3,7 +3,9 @@ import questionTypes from '../questionTypes';
 
 const key = 'coughInPast7Days';
 
-const nextSteps = () => Screens.feverInPast7Days;
+const nextSteps = () => ({
+  screen: Screens.feverInPast7Days,
+});
 
 export default {
   key,
