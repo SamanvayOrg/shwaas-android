@@ -1,24 +1,18 @@
-import Screens from '../Screens';
 import questionTypes from '../questionTypes';
-const key = 'coughInPast7Days';
+import {alwaysShow, outputWeight} from './utils';
 
-const nextSteps = form => {
-  if (!form[key] && !form.feverInPast7Days) {
-    return {
-      screen: Screens.recommendations,
-      params: {
-        message: 'toolUnlikelyToHelpPerson',
-      },
-    };
+const key = 'feverInPast7Days';
+
+const output = form => {
+  if (form[key] === false && form.coughInPast7Days === false) {
+    return outputWeight.black;
   }
-
-  return {
-    screen: Screens.age,
-  };
+  return outputWeight.green;
 };
 
 export default {
   key,
   type: questionTypes.boolean,
-  nextSteps,
+  show: alwaysShow,
+  output,
 };

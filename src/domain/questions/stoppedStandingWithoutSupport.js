@@ -1,7 +1,7 @@
 import questionTypes from '../questionTypes';
 import {alwaysShow, redIfTrue} from './utils';
 
-const key = 'difficultyBreathing';
+const key = 'stoppedStandingWithoutSupport';
 
 const output = form => redIfTrue(form[key]);
 

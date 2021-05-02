@@ -1,23 +1,15 @@
-import Screens from '../Screens';
 import questionTypes from '../questionTypes';
+import {alwaysShow, outputWeight} from './utils';
 
 const key = 'age';
 
-const nextSteps = form => {
-  if (form[key] < 12) {
-    return {
-      screen: Screens.recommendations,
-      params: {
-        message: 'toolUnlikelyToHelpPerson',
-      },
-    };
-  }
-
-  return Screens.difficultyBreathing;
-};
+const output = form =>
+  form[key] > 12 ? outputWeight.black : outputWeight.green;
 
 export default {
   key,
   type: questionTypes.numeric,
-  nextSteps,
+  unit: 'years',
+  show: alwaysShow,
+  output,
 };
