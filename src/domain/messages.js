@@ -70,5 +70,6 @@ export default {
   percentage: '%',
   kg: 'kg',
   pregnant: 'Is the person pregnant?',
-  welcome: 'Welcome to Covid Calculator'
+  welcome: 'Welcome to Covid Calculator',
+    none: 'None'
 };
