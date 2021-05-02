@@ -7,7 +7,7 @@ const Stack = createStackNavigator();
 
 const Route = () => (
   <Stack.Navigator initialRouteName="Home">
-    <Stack.Screen name="Home" component={Home} />
+    <Stack.Screen name="Home" component={Home} options={{headerShown: false}} />
     <Stack.Screen name="BasicDetails" component={BasicDetails} />
   </Stack.Navigator>
 );
