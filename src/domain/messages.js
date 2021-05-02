@@ -71,5 +71,7 @@ export default {
   kg: 'kg',
   pregnant: 'Is the person pregnant?',
   welcome: 'Welcome to Covid Calculator',
-    none: 'None'
+  none: 'None',
+  previous: 'previous',
+  next: 'next',
 };
