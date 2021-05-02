@@ -20,29 +20,36 @@ const styles = StyleSheet.create({
     backgroundColor: '#38A160',
   },
   basicBox: {justifyContent: 'space-between', alignItems: 'center'},
-  answerText: {color: 'white', fontSize: 32},
+  answerText: {color: 'white', fontSize: 24},
 });
 
-const YesNoButton = ({text, color, onPress}) => (
+const YesNoButton = ({text, color, onPress, selected}) => (
   <TouchableNativeFeedback onPress={onPress}>
-    <View style={[styles.square, color]}>
-      <Text style={styles.answerText}>{text}</Text>
+    <View style={[styles.square, color, selected && {elevation: 8}]}>
+      <Text style={[styles.answerText, selected && {fontSize: 48}]}>
+        {text}
+      </Text>
     </View>
   </TouchableNativeFeedback>
 );
 
-export default ({number, question, onAnswered = () => {}}) => {
+export default ({number, question, onAnswered = () => {}, value}) => {
   return (
     <QuestionBase number={number} question={question}>
       <HorizontalComponent style={styles.basicBox}>
         <YesNoButton
           text={'Yes'}
           color={styles.green}
-          onPress={() => onAnswered(true)}
+          selected={value === true}
+          onPress={() => {
+            console.log('answering true');
+            onAnswered(true)
+          }}
         />
         <YesNoButton
           text={'No'}
           color={styles.red}
+          selected={value === false}
           onPress={() => onAnswered(false)}
         />
       </HorizontalComponent>

@@ -2,11 +2,12 @@ import React from 'react';
 import 'react-native-gesture-handler';
 import {DefaultTheme, Provider as PaperProvider} from 'react-native-paper';
 
+//#2490EF
 const theme = {
   ...DefaultTheme,
-  dark: false,
   colors: {
     ...DefaultTheme.colors,
+    primary: '#2A4965',
   },
 };
 
