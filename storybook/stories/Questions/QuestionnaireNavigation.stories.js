@@ -1,30 +1,18 @@
 import {storiesOf} from '@storybook/react-native';
 import React from 'react';
-import BooleanQuestion from '../../../src/components/questions/BooleanQuestion';
-import baseScreenDecorator from '../baseScreenDecorator';
 import themeDecorator from '../themeDecorator';
+import QuestionnaireNavigation from '../../../src/components/questions/QuestionnaireNavigation';
+import {View} from 'react-native';
 
-storiesOf('BooleanQuestion', module)
+storiesOf('Questionnaire Navigation', module)
   .addDecorator(themeDecorator)
-  .addDecorator(baseScreenDecorator)
-  .add('basic view', () => (
-    <BooleanQuestion
-      number={1}
-      question={{
-        key: 'hardToRecogniseRelatives',
-        helpText: 'directlyObserve',
-      }}
-      onAnswered={() => {}}
-    />
-  ))
-  .add('selected yes', () => (
-    <BooleanQuestion
-      number={1}
-      question={{
-        key: 'hardToRecogniseRelatives',
-        helpText: 'directlyObserve',
-      }}
-      value={true}
-      onAnswered={() => {}}
-    />
-  ));
+  .add('basic view', () => <QuestionnaireNavigation />)
+  .add('first page', () => <QuestionnaireNavigation firstPage={true} />)
+  .add('last page', () => <QuestionnaireNavigation lastPage={true} />)
+  .add('on bottom of screen', () => {
+    return (
+      <View style={{justifyContent: 'flex-end', flex: 1}}>
+        <QuestionnaireNavigation />
+      </View>
+    );
+  });
