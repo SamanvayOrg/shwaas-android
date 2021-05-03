@@ -48,7 +48,7 @@ const questionWithKey = key => questions.find(question => question.key === key);
 
 const calculateRisk = (form) => {
   const answerKeys = Object.keys(form);
-  const notUseful = answerKeys.some(answerKey => questionWithKey(answerKey).output(form) === outputWeight.black);
+  const notUseful = answerKeys.some(answerKey => {  console.log(answerKey); return questionWithKey(answerKey).output(form) === outputWeight.black});
   if (notUseful) return outputWeight.black;
 
   const red = answerKeys.some(answerKey => questionWithKey(answerKey).output(form) === outputWeight.red);

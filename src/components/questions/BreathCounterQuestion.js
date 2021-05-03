@@ -5,6 +5,7 @@ import {
   TouchableOpacity,
   Dimensions,
   Vibration,
+    ScrollView
 } from 'react-native';
 import QuestionBase from './QuestionBase';
 import {Text, Button} from 'react-native-paper';
@@ -15,8 +16,10 @@ const styles = StyleSheet.create({
   counterButton: {
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#32d16c',
+    backgroundColor: '#38A160',
     elevation: 2,
+      borderRadius: 5,
+      paddingHorizontal: 5
   },
   counterButtonText: {
     color: 'black',
@@ -32,15 +35,11 @@ const styles = StyleSheet.create({
     margin: 5,
     fontSize: 24,
   },
-  resetSubmitContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginTop: 10,
-  },
+
 });
 
 const {height} = Dimensions.get('window');
-const MAX_TIME_SECOND = 10;
+const MAX_TIME_SECOND = 60;
 
 export default ({number, question, onAnswered = () => {}}) => {
   const [timer, setTimer] = useState(MAX_TIME_SECOND);
@@ -56,7 +55,7 @@ export default ({number, question, onAnswered = () => {}}) => {
   useEffect(() => {
     if (isTimeComplete) {
       clearInterval(intervalId);
-      onAnswered(breathCount);
+      onAnswered(question,breathCount);
     }
   }, [timer]);
 
@@ -80,7 +79,7 @@ export default ({number, question, onAnswered = () => {}}) => {
     : messages.breathCounterAfterStart;
 
   return (
-    <View>
+    <ScrollView showsVerticalScrollIndicator={false}>
       <QuestionBase number={number} question={question} />
       <View style={styles.container}>
         <TouchableOpacity onPress={onCounterPress} disabled={isTimeComplete}>
@@ -108,15 +107,15 @@ export default ({number, question, onAnswered = () => {}}) => {
           )}
         </View>
         <Button
-          style={{marginTop: 20}}
-          contentStyle={{height: 70}}
+          style={{marginVertical:10}}
+          contentStyle={{height: 50}}
           disabled={isFirstPress}
-          color={'#d15434'}
+          color={'#E24C4C'}
           mode={'contained'}
           onPress={onReset}>
           {messages.reset}
         </Button>
       </View>
-    </View>
+    </ScrollView>
   );
 };
