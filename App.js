@@ -13,6 +13,7 @@ const theme = {
   dark: false,
   colors: {
     ...DefaultTheme.colors,
+    primary: '#2A4965',
   },
 };
 

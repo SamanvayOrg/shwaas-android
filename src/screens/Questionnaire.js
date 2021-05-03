@@ -14,6 +14,7 @@ import {
 import BaseScreen from '../components/common/BaseScreen';
 import {ScrollView} from 'react-native';
 import PrevNextNavigator from '../components/PrevNextNavigator';
+import {View} from 'react-native';
 
 const Questionnaire = ({
   form,
@@ -28,9 +29,8 @@ const Questionnaire = ({
   }
 
   const value = form[question.key];
-  console.log('nextQuestion(form, currentQuestionKey)', previousQuestion(form, currentQuestionKey));
   return (
-    <ScrollView>
+    <View style={{flex: 1}}>
       <BaseScreen>
         <Question
           number={1}
@@ -45,7 +45,7 @@ const Questionnaire = ({
         firstPage={!previousQuestion(form, currentQuestionKey)}
         lastPage={!nextQuestion(form, currentQuestionKey)}
       />
-    </ScrollView>
+    </View>
   );
 };
 

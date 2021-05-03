@@ -25,6 +25,7 @@ const styles = StyleSheet.create({
 });
 
 const Navigator = ({
+  style,
   theme,
   onPrevious = () => {},
   onNext = () => {},
@@ -32,7 +33,8 @@ const Navigator = ({
   lastPage,
 }) => {
   return (
-    <View style={[styles.wrapper, {backgroundColor: theme.colors.primary}]}>
+    <View
+      style={[styles.wrapper, {backgroundColor: theme.colors.primary}, style]}>
       {!firstPage && (
         <Button
           color={'white'}
