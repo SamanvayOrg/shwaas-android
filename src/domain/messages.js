@@ -91,6 +91,12 @@ const messages = {
     startTimer: 'Start timer',
     stopTimer: 'Stop timer',
     sixMinuteComplete: 'SIX MINUTES COMPLETE',
+    youAre: 'You are',
+    youNeedTo: 'You need to',
+    safe: 'SAFE',
+    notSafe: 'NOT SAFE',
+    quarantine: 'QUARANTINE',
+    notUseful: 'NOT USEFUL',
 };
 
 const get = str => messages[str] || str;

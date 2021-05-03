@@ -6,3 +6,4 @@ import './Questions/PrevNextNavigator.stories';
 import './Questions/Question.stories';
 import './Questions/BreathCounter.stories';
 import './Questions/TimerQuestion.stories';
+import './screens/Recommendations.stories';
