@@ -5,10 +5,11 @@ import React from 'react';
 import Space from '../common/Space';
 
 export default ({number, question, children}) => {
+  const headline = `${messages[question.key]} ${question.unit? `(${question.unit})`: ''}`;
   return (
     <View>
       <Caption>Question {number}</Caption>
-      <Headline>{messages[question.key]}</Headline>
+      <Headline>{headline}</Headline>
       {question.helpText && (
         <Subheading>{messages[question.helpText]}</Subheading>
       )}
