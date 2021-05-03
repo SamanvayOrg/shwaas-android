@@ -12,7 +12,7 @@ export default ({number, question, onAnswered = () => {}, value}) => {
         label=""
         placeholder={messages.get(question.unit)}
         value={value}
-        onChangeText={value => onAnswered(question, value)}
+        onChangeText={value => onAnswered(question, parseInt(value))}
       />
     </QuestionBase>
   );

@@ -44,7 +44,7 @@ const Questionnaire = ({
     if (risk !== outputWeight.green || !nextQuestion(form, currentQuestionKey)) {
       navigation.navigate('Recommendations');
     }
-  }, [navigation, form]);
+  }, [navigation, currentQuestionKey]);
 
   const question = questionWithKey(currentQuestionKey);
   if (!question) {

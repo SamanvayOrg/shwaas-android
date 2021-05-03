@@ -4,7 +4,7 @@ import {alwaysShow, outputWeight} from './utils';
 const key = 'age';
 
 const output = form =>
-  form[key] > 12 ? outputWeight.black : outputWeight.green;
+  form[key] < 12 ? outputWeight.black : outputWeight.green;
 
 export default {
   key,
