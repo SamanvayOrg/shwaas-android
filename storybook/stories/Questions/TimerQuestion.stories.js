@@ -10,6 +10,6 @@ storiesOf('TimerQuestion', module)
   .add('basic view', () => (
     <TimerQuestion
       number={1}
-      question={{key: 'sixMinuteWalkMessage', helpText: ''}}
+      question={{key: 'sixMinuteWalkMessage'}}
     />
   ));
