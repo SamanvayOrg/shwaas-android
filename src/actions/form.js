@@ -14,4 +14,6 @@ const goToPreviousQuestion = () => ({
   type: actions.GO_TO_PREVIOUS_QUESTION,
 });
 
-export {setValue, goToNextQuestion, goToPreviousQuestion};
+const resetCalculator = () => ({type: actions.START_OVER});
+
+export {resetCalculator, setValue, goToNextQuestion, goToPreviousQuestion};
