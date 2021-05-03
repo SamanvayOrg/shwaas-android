@@ -83,7 +83,7 @@ const messages = {
   percentage: '%',
   kg: 'kg',
   pregnant: 'Is the person pregnant?',
-  welcome: 'Welcome to Covid Calculator',
+  welcome: 'Welcome to Chikitsa Sahyog App',
   none: 'None',
   previous: 'previous',
   next: 'next',
