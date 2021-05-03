@@ -31,5 +31,5 @@ const App = () => {
   );
 };
 
-export default codePush(App);
-// export {default} from './storybook';
+// default codePush(App);
+export {default} from './storybook';

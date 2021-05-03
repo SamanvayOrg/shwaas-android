@@ -3,4 +3,5 @@ export default {
   numeric: 'numeric',
   multichoice: 'multichoice',
   singleChoice: 'singleChoice',
+  breathCount: 'breathCount',
 };

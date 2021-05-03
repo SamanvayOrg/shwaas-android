@@ -3,6 +3,7 @@ import questionTypes from '../../domain/questionTypes';
 import NumericQuestion from './NumericQuestion';
 import BooleanQuestion from './BooleanQuestion';
 import SelectQuestion from './SelectQuestion';
+import BreathCounterQuestion from './BreathCounterQuestion';
 
 const Question = ({question, ...props}) => {
   switch (question.type) {
@@ -17,6 +18,9 @@ const Question = ({question, ...props}) => {
     }
     case questionTypes.multichoice: {
       return <SelectQuestion question={question} {...props} />;
+    }
+    case questionTypes.breathCount: {
+      return <BreathCounterQuestion question={question} {...props} />;
     }
   }
 };

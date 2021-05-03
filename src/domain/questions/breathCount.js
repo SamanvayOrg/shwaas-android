@@ -11,7 +11,7 @@ const output = form => {
 
 export default {
   key,
-  type: questionTypes.numeric,
+  type: questionTypes.breathCount,
   unit: 'bpm',
   show: alwaysShow,
   output,
