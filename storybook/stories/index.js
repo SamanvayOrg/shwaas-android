@@ -4,3 +4,4 @@ import './Questions/SingleSelectQuestion.stories';
 import './Questions/MultiSelectQuestion.stories';
 import './Questions/PrevNextNavigator.stories';
 import './Questions/Question.stories';
+import './Questions/BreathCounter.stories';
