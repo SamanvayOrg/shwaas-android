@@ -14,4 +14,4 @@ const goToNextQuestion = () => {
   };
 };
 
-export {setValue};
+export {setValue, goToNextQuestion};

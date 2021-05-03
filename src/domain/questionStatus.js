@@ -2,8 +2,8 @@ import pneumoniaDetectionQuestions from './pneumoniaDetectionQuestions';
 
 const questions = pneumoniaDetectionQuestions;
 
-const visibleQuestions = form =>
-  pneumoniaDetectionQuestions.filter(question => question.show(form) === true);
+const visibleQuestions = (form = {}) =>
+  questions.filter(question => question.show(form) === true);
 
 const nextQuestion = (form, questionKey) => {
   let visibleQs = visibleQuestions(form);
@@ -24,10 +24,13 @@ const questionAt = (index, form) => visibleQuestions(form)[index];
 
 const numberOfQuestions = form => visibleQuestions(form).length;
 
+const questionWithKey = key => questions.find(question => question.key === key);
+
 export {
   questions,
   visibleQuestions,
   questionAt,
   numberOfQuestions,
   nextQuestion,
+  questionWithKey,
 };

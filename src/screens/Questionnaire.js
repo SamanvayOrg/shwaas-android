@@ -1,10 +1,29 @@
 import {connect} from 'react-redux';
 import React from 'react';
-import {Text} from 'react-native-paper';
+import {questionWithKey} from '../domain/questionStatus';
+import Question from '../components/questions/Question';
+import {setValue, goToNextQuestion} from '../actions/form';
 
-const Questionnaire = () => {
-  return <Text>Questionnaire</Text>;
+const Questionnaire = ({
+  form,
+  currentQuestionKey,
+  setValue,
+  goToNextQuestion,
+}) => {
+  const question = questionWithKey(currentQuestionKey);
+  const value = form[question.key];
+
+  return (
+    <Question
+      number={1}
+      question={question}
+      value={value}
+      onAnswered={setValue}
+    />
+  );
 };
 
-const mapStateToProps = ({form}) => form;
-export default connect()(Questionnaire);
+const mapStateToProps = ({form, currentQuestionKey}) => form;
+export default connect(mapStateToProps, {setValue, goToNextQuestion})(
+  Questionnaire,
+);

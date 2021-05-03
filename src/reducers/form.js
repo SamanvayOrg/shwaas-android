@@ -7,7 +7,10 @@ const actions = {
   GO_TO_NEXT_QUESTION: 'GO_TO_NEXT_QUESTION',
 };
 
-const createInitialState = () => ({form: {}});
+const createInitialState = () => ({
+  form: {},
+  currentQuestionKey: nextQuestion(),
+});
 
 const reducer = (state = createInitialState(), action) => {
   const getValue = (key, value) => {
