@@ -11,7 +11,7 @@ export default ({number, question, onAnswered = () => {}, value}) => {
         keyboardType={'number-pad'}
         label=""
         placeholder={messages.get(question.unit)}
-        value={value}
+        value={value? value.toString(): undefined}
         onChangeText={value => onAnswered(question, parseInt(value))}
       />
     </QuestionBase>

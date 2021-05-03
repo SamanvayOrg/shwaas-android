@@ -9,22 +9,22 @@ import Information from './Information';
 const Question = ({question, ...props}) => {
   switch (question.type) {
     case questionTypes.numeric: {
-      return <NumericQuestion question={question} {...props} />;
+      return <NumericQuestion key={question.key} question={question} {...props} />;
     }
     case questionTypes.boolean: {
-      return <BooleanQuestion question={question} {...props} />;
+      return <BooleanQuestion key={question.key} question={question} {...props} />;
     }
     case questionTypes.singleChoice: {
-      return <SelectQuestion question={question} {...props} />;
+      return <SelectQuestion key={question.key} question={question} {...props} />;
     }
     case questionTypes.multichoice: {
-      return <SelectQuestion question={question} {...props} />;
+      return <SelectQuestion key={question.key} question={question} {...props} />;
     }
     case questionTypes.breathCount: {
-      return <BreathCounterQuestion question={question} {...props} />;
+      return <BreathCounterQuestion key={question.key} question={question} {...props} />;
     }
     case questionTypes.information: {
-      return <Information question={question} {...props} />;
+      return <Information key={question.key} question={question} {...props} />;
     }
   }
 };

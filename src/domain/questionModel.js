@@ -8,7 +8,6 @@ const visibleQuestions = (form = {}) =>
 
 const nextQuestion = (form, questionKey) => {
   let visibleQs = visibleQuestions(form);
-
   if (!questionKey) {
     return visibleQs[0];
   }
