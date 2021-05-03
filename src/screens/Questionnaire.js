@@ -1,6 +1,12 @@
 import {connect} from 'react-redux';
 import React, {useEffect} from 'react';
-import {calculateRisk, nextQuestion, previousQuestion, questionWithKey,} from '../domain/questionModel';
+import {
+  calculateRisk,
+  indexOfQuestion,
+  nextQuestion,
+  previousQuestion,
+  questionWithKey,
+} from '../domain/questionModel';
 import Question from '../components/questions/Question';
 import {goToNextQuestion, goToPreviousQuestion, setValue,} from '../actions/form';
 import BaseScreen from '../components/common/BaseScreen';
@@ -63,7 +69,7 @@ const Questionnaire = ({
     <View style={{flex: 1}}>
       <BaseScreen>
         <Question
-          number={1}
+          number={indexOfQuestion(form, question) + 1}
           question={question}
           value={value}
           onAnswered={onAnswered}

@@ -36,6 +36,10 @@ const previousQuestion = (form, questionKey) => {
   return visibleQs[indexOfCurrentQuestion - 1];
 };
 
+const indexOfQuestion = (form, question) => {
+  return visibleQuestions(form).findIndex(q => q.key === question.key);
+};
+
 const questionAt = (index, form) => visibleQuestions(form)[index];
 
 const numberOfQuestions = form => visibleQuestions(form).length;
@@ -66,4 +70,5 @@ export {
   previousQuestion,
   questionWithKey,
   calculateRisk,
+  indexOfQuestion,
 };
