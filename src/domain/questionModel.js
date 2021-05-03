@@ -1,4 +1,5 @@
 import pneumoniaDetectionQuestions from './pneumoniaDetectionQuestions';
+import {outputWeight} from './questions/utils';
 
 const questions = pneumoniaDetectionQuestions;
 
@@ -41,6 +42,21 @@ const numberOfQuestions = form => visibleQuestions(form).length;
 
 const questionWithKey = key => questions.find(question => question.key === key);
 
+const calculateRisk = (form) => {
+  const answerKeys = Object.keys(form);
+  const notUseful = answerKeys.some(answerKey => questionWithKey(answerKey).output(form) === outputWeight.black);
+  if (notUseful) return outputWeight.black;
+
+  const red = answerKeys.some(answerKey => questionWithKey(answerKey).output(form) === outputWeight.red);
+  if (red) return outputWeight.red;
+
+  let yellowQuestions = answerKeys.filter(answerKey => questionWithKey(answerKey).output(form) === outputWeight.yellow);
+  const yellow = yellowQuestions.length <= 3 && yellowQuestions > 0;
+  if (yellow) return outputWeight.yellow;
+
+  return outputWeight.green;
+};
+
 export {
   questions,
   visibleQuestions,
@@ -49,4 +65,5 @@ export {
   nextQuestion,
   previousQuestion,
   questionWithKey,
+  calculateRisk,
 };

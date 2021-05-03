@@ -6,9 +6,11 @@ const setValue = (question, value) => ({
   value,
 });
 
-const goToNextQuestion = () => ({
-  type: actions.GO_TO_NEXT_QUESTION,
-});
+const goToNextQuestion = () => {
+  return {
+    type: actions.GO_TO_NEXT_QUESTION,
+  }
+};
 
 const goToPreviousQuestion = () => ({
   type: actions.GO_TO_PREVIOUS_QUESTION,

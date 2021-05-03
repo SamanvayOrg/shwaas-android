@@ -1,4 +1,4 @@
-import {nextQuestion, previousQuestion} from '../domain/questionStatus';
+import {nextQuestion, previousQuestion} from '../domain/questionModel';
 
 const actions = {
   SET_VALUE: 'SET_VALUE',

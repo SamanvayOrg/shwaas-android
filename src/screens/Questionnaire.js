@@ -1,21 +1,14 @@
 import {connect} from 'react-redux';
 import React, {useEffect} from 'react';
-import {
-  nextQuestion,
-  previousQuestion,
-  questionWithKey,
-} from '../domain/questionStatus';
+import {calculateRisk, nextQuestion, previousQuestion, questionWithKey,} from '../domain/questionModel';
 import Question from '../components/questions/Question';
-import {
-  goToNextQuestion,
-  goToPreviousQuestion,
-  setValue,
-} from '../actions/form';
+import {goToNextQuestion, goToPreviousQuestion, setValue,} from '../actions/form';
 import BaseScreen from '../components/common/BaseScreen';
 import {BackHandler, View} from 'react-native';
 import PrevNextNavigator from '../components/PrevNextNavigator';
 import questionTypes from '../domain/questionTypes';
-import { useFocusEffect } from '@react-navigation/native';
+import {useFocusEffect} from '@react-navigation/native';
+import {outputWeight} from '../domain/questions/utils';
 
 const Questionnaire = ({
                          form,
@@ -45,6 +38,13 @@ const Questionnaire = ({
         BackHandler.removeEventListener('hardwareBackPress', onBackPress);
     }, [form, currentQuestionKey])
   );
+
+  useEffect(() => {
+    const risk = calculateRisk(form);
+    if (risk !== outputWeight.green || !nextQuestion(form, currentQuestionKey)) {
+      navigation.navigate('Recommendations');
+    }
+  }, [navigation, form]);
 
   const question = questionWithKey(currentQuestionKey);
   if (!question) {
