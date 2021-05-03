@@ -1,7 +1,7 @@
 import React from 'react';
 import {Button, withTheme} from 'react-native-paper';
 import {View, StyleSheet} from 'react-native';
-import messages from '../../domain/messages';
+import messages from '../domain/messages';
 
 const styles = StyleSheet.create({
   wrapper: {
@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     height: 70,
   },
   previousButton: {
-    align: 'flex-start',
+    alignItems: 'flex-start',
   },
 });
 

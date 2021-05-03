@@ -1,8 +1,8 @@
 import React from 'react';
-import BaseScreen from '../components/BaseScreen';
+import BaseScreen from '../components/common/BaseScreen';
 import {Headline, IconButton, TextInput} from 'react-native-paper';
-import HorizontalComponent from '../components/HorizontalComponent';
-import Space from '../components/Space';
+import HorizontalComponent from '../components/common/HorizontalComponent';
+import Space from '../components/common/Space';
 import {connect} from 'react-redux';
 import {setValue} from '../actions/form';
 

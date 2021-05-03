@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, TouchableNativeFeedback, View} from 'react-native';
 import {Text} from 'react-native-paper';
-import HorizontalComponent from '../HorizontalComponent';
+import HorizontalComponent from '../common/HorizontalComponent';
 import QuestionBase from './QuestionBase';
 
 const styles = StyleSheet.create({
