@@ -2,7 +2,7 @@
 - Uses plain redux
 - All questions are in the domain directory
 - Stories in the storybook directory. Link [here](https://github.com/storybookjs/react-native)
-- Uses [React Native Paper] (https://callstack.github.io/react-native-paper/) for components
+- Uses [React Native Paper](https://callstack.github.io/react-native-paper/) for components
 - Use eslint cleanup in Intellij if you find too many red lines. You might need to set up node to do this.
 
 
