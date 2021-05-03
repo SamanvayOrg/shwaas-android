@@ -8,6 +8,7 @@ import {
 import {Text} from 'react-native-paper';
 import QuestionBase from './QuestionBase';
 import messages from '../../domain/messages';
+import questionTypes from '../../domain/questionTypes';
 
 const styles = StyleSheet.create({
   container: {
@@ -42,8 +43,9 @@ const styles = StyleSheet.create({
 
 const Item = ({title, onPress, selectedAnswers}) => {
   const isSelected = selectedAnswers.includes(title);
+
   return (
-    <TouchableNativeFeedback onPress={onPress}>
+    <TouchableNativeFeedback onPress={() => onPress(title)}>
       <View style={[isSelected ? styles.selectedItem : styles.nonSelectedItem]}>
         <Text
           style={[
@@ -58,14 +60,31 @@ const Item = ({title, onPress, selectedAnswers}) => {
   );
 };
 
-export default ({
-  number,
-  question,
-  onAnswered = () => {},
-  selectedAnswers = [],
-}) => {
+export default ({number, question, onAnswered = () => {}, value = []}) => {
+  const onItemSelected = key => {
+    if (question.type === questionTypes.singleChoice) {
+      onAnswered(question, [key]);
+      return;
+    }
+
+    if (value.includes(key)) {
+      onAnswered(
+        question,
+        value.filter(val => val !== key),
+      );
+      return;
+    }
+
+    onAnswered(question, value.concat(key));
+  };
+
   const renderItem = ({item}) => (
-    <Item title={item} onPress={onAnswered} selectedAnswers={selectedAnswers} />
+    <Item
+      question={question}
+      title={item}
+      onPress={onItemSelected}
+      selectedAnswers={value}
+    />
   );
 
   return (

@@ -3,8 +3,7 @@ import {outputWeight} from './utils';
 
 const key = 'heartDiseaseStatus';
 
-const show = ({comorbidities = []}) =>
-  comorbidities.find(comorbidity => comorbidity === 'heartDisease');
+const show = ({comorbidities = []}) => comorbidities.includes('heartDisease');
 
 const output = form =>
   form[key] === 'symptomsPresent' ? outputWeight.red : outputWeight.yellow;

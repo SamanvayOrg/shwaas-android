@@ -13,7 +13,7 @@ const Question = ({question, ...props}) => {
       return <BooleanQuestion question={question} {...props} />;
     }
     case questionTypes.singleChoice: {
-      return <SelectQuestion question={question} number={1} {...props} />;
+      return <SelectQuestion question={question} {...props} />;
     }
     case questionTypes.multichoice: {
       return <SelectQuestion question={question} {...props} />;

@@ -7,14 +7,13 @@ import {
 } from '../domain/questionStatus';
 import Question from '../components/questions/Question';
 import {
-  setValue,
   goToNextQuestion,
   goToPreviousQuestion,
+  setValue,
 } from '../actions/form';
 import BaseScreen from '../components/common/BaseScreen';
-import {ScrollView} from 'react-native';
-import PrevNextNavigator from '../components/PrevNextNavigator';
 import {View} from 'react-native';
+import PrevNextNavigator from '../components/PrevNextNavigator';
 import questionTypes from '../domain/questionTypes';
 
 const Questionnaire = ({
