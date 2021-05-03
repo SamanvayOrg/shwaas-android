@@ -15,6 +15,7 @@ import BaseScreen from '../components/common/BaseScreen';
 import {ScrollView} from 'react-native';
 import PrevNextNavigator from '../components/PrevNextNavigator';
 import {View} from 'react-native';
+import questionTypes from '../domain/questionTypes';
 
 const Questionnaire = ({
   form,
@@ -27,8 +28,15 @@ const Questionnaire = ({
   if (!question) {
     return null;
   }
-
   const value = form[question.key];
+
+  const onAnswered = (question, value) => {
+    setValue(question, value);
+    if (question.type === questionTypes.boolean) {
+      goToNextQuestion();
+    }
+  };
+
   return (
     <View style={{flex: 1}}>
       <BaseScreen>
@@ -36,7 +44,7 @@ const Questionnaire = ({
           number={1}
           question={question}
           value={value}
-          onAnswered={setValue}
+          onAnswered={onAnswered}
         />
       </BaseScreen>
       <PrevNextNavigator
