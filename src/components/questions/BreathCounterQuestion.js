@@ -5,7 +5,7 @@ import {
   TouchableOpacity,
   Dimensions,
   Vibration,
-    ScrollView
+  ScrollView,
 } from 'react-native';
 import QuestionBase from './QuestionBase';
 import {Text, Button} from 'react-native-paper';
@@ -18,8 +18,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: '#38A160',
     elevation: 2,
-      borderRadius: 5,
-      paddingHorizontal: 5
+    borderRadius: 5,
+    paddingHorizontal: 5,
   },
   counterButtonText: {
     color: 'black',
@@ -35,15 +35,14 @@ const styles = StyleSheet.create({
     margin: 5,
     fontSize: 24,
   },
-
 });
 
 const {height} = Dimensions.get('window');
-const MAX_TIME_SECOND = 60;
+const MAX_TIME_SECOND = 10;
 
-export default ({number, question, onAnswered = () => {}}) => {
-  const [timer, setTimer] = useState(MAX_TIME_SECOND);
-  const [breathCount, setBreathCount] = useState(0);
+export default ({number, question, onAnswered = () => {}, value = 0}) => {
+  const [timer, setTimer] = useState(value === 0 ? MAX_TIME_SECOND : 0);
+  const [breathCount, setBreathCount] = useState(value);
   const [intervalId, setIntervalId] = useState();
   const isFirstPress = timer === MAX_TIME_SECOND;
   const isTimeComplete = timer === 0;
@@ -55,7 +54,7 @@ export default ({number, question, onAnswered = () => {}}) => {
   useEffect(() => {
     if (isTimeComplete) {
       clearInterval(intervalId);
-      onAnswered(question,breathCount);
+      onAnswered(question, breathCount);
     }
   }, [timer]);
 
@@ -107,7 +106,7 @@ export default ({number, question, onAnswered = () => {}}) => {
           )}
         </View>
         <Button
-          style={{marginVertical:10}}
+          style={{marginVertical: 10}}
           contentStyle={{height: 50}}
           disabled={isFirstPress}
           color={'#E24C4C'}
