@@ -25,7 +25,7 @@ If you want to run the app, uncomment the first line. Else uncomment the second 
 
 ### Links
 [Design](https://www.figma.com/file/vbo6MYrubpJwtVpUizrQMk/covid-tool?node-id=0%3A1)
+
 [Trello](https://trello.com/b/WbzPBJrf/pneumonia-app)
-[Documentation] (https://drive.google.com/drive/folders/16lVSZA2ki3nhjJ35WkUwU6Zy7Tky_Ohx)
 
-
+[Documentation](https://drive.google.com/drive/folders/16lVSZA2ki3nhjJ35WkUwU6Zy7Tky_Ohx)
