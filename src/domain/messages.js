@@ -1,34 +1,46 @@
 const messages = {
-  toolUnlikelyToHelpPerson: 'This tool will less likely help the person. If they are feeling unwell kindly consult nearby health care provider',
+  toolUnlikelyToHelpPerson:
+    'This tool will less likely help the person. If they are feeling unwell kindly consult nearby health care provider',
   coughInPast7Days: 'Does the person have cough in the past 7 days',
   feverInPast7Days: 'Does the person have fever in the past 7 days',
   age: 'Age',
-  difficultyBreathing: 'Does the person have breathlessness/Difficulty in breathing?',
+  difficultyBreathing:
+    'Does the person have breathlessness/Difficulty in breathing?',
   admitToHospital: 'Red zone. Admit to hospital',
-  hardToRecogniseRelatives: 'Is person finding it difficult to recognise relatives?',
-  directlyObserve: 'Please directly observe, check with the patient or a relative if the patient has the following symptoms in the past few hours',
+  hardToRecogniseRelatives:
+    'Is person finding it difficult to recognise relatives?',
+  directlyObserve:
+    'Please directly observe, check with the patient or a relative if the patient has the following symptoms in the past few hours',
   soiledClothes: 'Is there cloths soiling by urine or stool ?',
-  stoppedStandingWithoutSupport: 'Has person stopped standing without support ? ',
-  cantTellBetweenDayAndNight: 'Is person finding it difficult to tell if its day or night?',
-  accessToPulseOximeter: 'Does the person have access to pulse oximeter to measure oxygen Saturation ?',
+  stoppedStandingWithoutSupport:
+    'Has person stopped standing without support ? ',
+  cantTellBetweenDayAndNight:
+    'Is person finding it difficult to tell if its day or night?',
+  accessToPulseOximeter:
+    'Does the person have access to pulse oximeter to measure oxygen Saturation ?',
   oxygenSaturation: 'What is the oxygen saturation reading in pulse oximeter ?',
   blueLips: 'Does lips of the  person look blueish to you',
   blueFingerTips: 'Does finger tips of the  person look blueish to you ?',
   blueTongue: 'Does tongue of the  person look blueish to you ?',
   breathCount: 'Count the respirations through breathcounter',
-  accessToBPMachine: 'Do you have access to BP machine to measure blood pressure ?',
+  accessToBPMachine:
+    'Do you have access to BP machine to measure blood pressure ?',
   systolic: 'Blood Pressure (systolic- upper value)',
   diastolic: 'Blood Pressure (Diastolic- lower value)',
-  passingLessUrine: 'Is the person passing very less amount of urine than usual ?',
-  coolPalms: 'Are palms and soles of the person appear very cool to you than usual ?',
+  passingLessUrine:
+    'Is the person passing very less amount of urine than usual ?',
+  coolPalms:
+    'Are palms and soles of the person appear very cool to you than usual ?',
   comorbidities: 'Do you have any of comorbidities?',
-  recentBloodSugarReport: 'Does the person have a recent blood sugar report (past 3 months)?',
+  recentBloodSugarReport:
+    'Does the person have a recent blood sugar report (past 3 months)?',
   bloodSugarValue: 'what was the value tested?',
   fbs: 'FBS ( empty stomach, after 6 hours of fastin)',
   pp2bs: 'PP2BS (after 2 hours of food)',
   rbs: 'RBS (sugar value other than above 2 options)',
   hba1c: 'HbA1C',
-  healthProviderDiabetesAdvice: 'What did your health provider tell you about sugar control?',
+  healthProviderDiabetesAdvice:
+    'What did your health provider tell you about sugar control?',
   heartDiseaseStatus: 'What is the status of heart disease ?',
   liverDiseaseStatus: 'What is the status of liver disease ?',
   sickleDiseaseStatus: 'What is the  status of sickle cell disease',
@@ -37,7 +49,8 @@ const messages = {
   height: 'Height',
   weight: 'Weight',
   bmi: 'BMI',
-  highRiskDelivery: 'Is the pregnancy termed "high risk" or expected date of delivery within next 2 weeks ?',
+  highRiskDelivery:
+    'Is the pregnancy termed "high risk" or expected date of delivery within next 2 weeks ?',
   diabetes: 'Diabetes',
   hypertension: 'Hypertension',
   heartDisease: 'Heart Disease',
