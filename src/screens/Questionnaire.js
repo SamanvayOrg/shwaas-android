@@ -48,7 +48,8 @@ const Questionnaire = ({
   useEffect(() => {
     const risk = calculateRisk(form);
     if (risk !== outputWeight.green || !nextQuestion(form, currentQuestionKey)) {
-      navigation.navigate('Recommendations');
+      console.log("Questionnaire", risk);
+      navigation.navigate('Recommendations', {risk: risk});
     }
   }, [navigation, currentQuestionKey]);
 
@@ -78,7 +79,9 @@ const Questionnaire = ({
       <PrevNextNavigator
         onPrevious={goToPreviousQuestion}
         onNext={() => {
-          return nextQuestion(form, currentQuestionKey) ? goToNextQuestion() : navigation.navigate('Recommendations')
+          let calculatedRisk = calculateRisk(form);
+          console.log("Questionnaire-2", calculatedRisk);
+          return nextQuestion(form, currentQuestionKey) ? goToNextQuestion() : navigation.navigate('Recommendations', {risk: calculatedRisk});
         }}
         firstPage={!previousQuestion(form, currentQuestionKey)}
         lastPage={false}
@@ -91,6 +94,7 @@ const mapStateToProps = ({form: {form, currentQuestionKey}}) => ({
   form,
   currentQuestionKey,
 });
+
 export default connect(mapStateToProps, {
   setValue,
   goToNextQuestion,

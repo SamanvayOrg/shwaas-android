@@ -1,12 +1,9 @@
 import React from 'react';
 import Recommendation from '../components/Recommendation';
-import {connect} from 'react-redux';
 import RecommendationType from '../domain/RecommendationType';
 
-const RecommendationScreen = () => <Recommendation data={RecommendationType.NotUseful}/>;
+const RecommendationScreen = ({route}) => {
+  return <Recommendation data={RecommendationType.getRecommendationType(route.params.risk)}/>;
+};
 
-const mapStateToProps = ({recommendation}) => ({
-    recommendation
-});
-
-export default connect(mapStateToProps)(RecommendationScreen);
+export default RecommendationScreen;
