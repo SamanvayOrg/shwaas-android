@@ -1,28 +1,32 @@
 import {storiesOf} from '@storybook/react-native';
 import React from 'react';
-import BooleanQuestion from '../../../src/components/questions/BooleanQuestion';
 import baseScreenDecorator from '../baseScreenDecorator';
 import themeDecorator from '../themeDecorator';
+import Question from '../../../src/components/questions/Question';
+import questionTypes from '../../../src/domain/questionTypes';
 
-storiesOf('Boolean Question', module)
+storiesOf('Question wrapper', module)
   .addDecorator(themeDecorator)
   .addDecorator(baseScreenDecorator)
-  .add('No selection', () => (
-    <BooleanQuestion
+  .add('wrapped boolean question', () => (
+    <Question
       number={1}
       question={{
         key: 'hardToRecogniseRelatives',
         helpText: 'directlyObserve',
+        type: questionTypes.boolean,
       }}
       onAnswered={() => {}}
     />
   ))
-  .add('Selected Yes', () => (
-    <BooleanQuestion
+  .add('wrapped numeric question', () => (
+    <Question
       number={1}
       question={{
-        key: 'hardToRecogniseRelatives',
+        key: 'systolic',
         helpText: 'directlyObserve',
+        type: questionTypes.numeric,
+        unit: 'cm',
       }}
       value={true}
       onAnswered={() => {}}

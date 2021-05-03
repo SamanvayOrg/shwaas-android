@@ -32,7 +32,7 @@ export default ({navigation}) => (
       color="#2A4965"
       mode={'contained'}
       onPress={() => {
-        navigation.navigate('BasicDetails');
+        navigation.navigate('Questionnaire');
       }}>
       Get started
     </Button>

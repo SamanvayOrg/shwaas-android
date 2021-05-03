@@ -9,8 +9,10 @@ export default ({number, question, children}) => {
     <View>
       <Caption>Question {number}</Caption>
       <Headline>{messages[question.key]}</Headline>
-      <Subheading>{messages[question.helpText]}</Subheading>
-      <Space height={16}/>
+      {question.helpText && (
+        <Subheading>{messages[question.helpText]}</Subheading>
+      )}
+      <Space height={16} />
       {children}
     </View>
   );

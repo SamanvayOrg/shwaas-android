@@ -1,7 +1,28 @@
 import React from 'react';
-import {Button, Text, withTheme} from 'react-native-paper';
-import {View} from 'react-native';
+import {Button, withTheme} from 'react-native-paper';
+import {View, StyleSheet} from 'react-native';
 import messages from '../../domain/messages';
+
+const styles = StyleSheet.create({
+  wrapper: {
+    height: 70,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  nextButton: {
+    marginLeft: 'auto',
+  },
+  nextButtonContent: {
+    height: 70,
+    flexDirection: 'row-reverse',
+  },
+  previousButtonContent: {
+    height: 70,
+  },
+  previousButton: {
+    align: 'flex-start',
+  },
+});
 
 const Navigator = ({
   theme,
@@ -11,36 +32,25 @@ const Navigator = ({
   lastPage,
 }) => {
   return (
-    <View
-      style={{
-        height: 70,
-        backgroundColor: theme.colors.primary,
-        flexDirection: 'row',
-        alignItems: 'center',
-      }}>
+    <View style={[styles.wrapper, {backgroundColor: theme.colors.primary}]}>
       {!firstPage && (
         <Button
           color={'white'}
           icon={'arrow-left'}
-          style={{align: 'flex-start'}}
-          contentStyle={{
-            height: 70,
-          }}
+          style={styles.previousButton}
+          contentStyle={styles.previousButtonContent}
           onPress={onPrevious}>
-          {messages.previous}
+          {messages.get('previous')}
         </Button>
       )}
       {!lastPage && (
         <Button
           color={'white'}
           icon={'arrow-right'}
-          style={{marginLeft: 'auto'}}
-          contentStyle={{
-            height: 70,
-            flexDirection: 'row-reverse',
-          }}
+          style={styles.nextButton}
+          contentStyle={styles.nextButtonContent}
           onPress={onNext}>
-          {messages.next}
+          {messages.get('next')}
         </Button>
       )}
     </View>

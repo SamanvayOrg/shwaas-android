@@ -41,16 +41,13 @@ export default ({number, question, onAnswered = () => {}, value}) => {
           text={'Yes'}
           color={styles.green}
           selected={value === true}
-          onPress={() => {
-            console.log('answering true');
-            onAnswered(true)
-          }}
+          onPress={() => onAnswered(true)}
         />
         <YesNoButton
           text={'No'}
           color={styles.red}
           selected={value === false}
-          onPress={() => onAnswered(false)}
+          onPress={() => onAnswered(question, false)}
         />
       </HorizontalComponent>
     </QuestionBase>

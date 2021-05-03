@@ -4,7 +4,7 @@ import themeDecorator from '../themeDecorator';
 import QuestionnaireNavigation from '../../../src/components/questions/QuestionnaireNavigation';
 import {View} from 'react-native';
 
-storiesOf('Questionnaire Navigation', module)
+storiesOf('Navigator', module)
   .addDecorator(themeDecorator)
   .add('basic view', () => <QuestionnaireNavigation />)
   .add('first page', () => <QuestionnaireNavigation firstPage={true} />)

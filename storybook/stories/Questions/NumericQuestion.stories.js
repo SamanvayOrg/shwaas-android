@@ -4,12 +4,24 @@ import baseScreenDecorator from '../baseScreenDecorator';
 import NumericQuestion from '../../../src/components/questions/NumericQuestion';
 import themeDecorator from '../themeDecorator';
 
-storiesOf('NumericQuestion', module)
+storiesOf('Numeric Question', module)
   .addDecorator(baseScreenDecorator)
   .addDecorator(themeDecorator)
-  .add('basic view', () => (
+  .add('With everything', () => (
     <NumericQuestion
       number={1}
-      question={{key: 'hardToRecogniseRelatives', helpText: 'directlyObserve'}}
+      question={{
+        key: 'systolic',
+        helpText: 'directlyObserve',
+        unit: 'cm',
+      }}
+    />
+  ))
+  .add('Without unit and help text', () => (
+    <NumericQuestion
+      number={1}
+      question={{
+        key: 'systolic',
+      }}
     />
   ));

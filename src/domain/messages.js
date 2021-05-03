@@ -1,4 +1,4 @@
-export default {
+const messages = {
   toolUnlikelyToHelpPerson: 'This tool will less likely help the person. If they are feeling unwell kindly consult nearby health care provider',
   coughInPast7Days: 'Does the person have cough in the past 7 days',
   feverInPast7Days: 'Does the person have fever in the past 7 days',
@@ -74,4 +74,11 @@ export default {
   none: 'None',
   previous: 'previous',
   next: 'next',
+};
+
+const get = str => messages[str] || str;
+
+export default {
+  ...messages,
+  get,
 };
