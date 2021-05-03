@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import React from 'react';
+import React, {useEffect} from 'react';
 import {
   nextQuestion,
   previousQuestion,
@@ -12,17 +12,40 @@ import {
   setValue,
 } from '../actions/form';
 import BaseScreen from '../components/common/BaseScreen';
-import {View} from 'react-native';
+import {BackHandler, View} from 'react-native';
 import PrevNextNavigator from '../components/PrevNextNavigator';
 import questionTypes from '../domain/questionTypes';
+import { useFocusEffect } from '@react-navigation/native';
 
 const Questionnaire = ({
-  form,
-  currentQuestionKey,
-  setValue,
-  goToNextQuestion,
-  goToPreviousQuestion,
-}) => {
+                         form,
+                         currentQuestionKey,
+                         setValue,
+                         goToNextQuestion,
+                         goToPreviousQuestion,
+                         navigation,
+                       }) => {
+
+  useFocusEffect(
+    React.useCallback(() => {
+      const onBackPress = () => {
+        const hasPreviousQuestion = previousQuestion(form, currentQuestionKey);
+
+        if (hasPreviousQuestion) {
+          goToPreviousQuestion();
+          return true;
+        } else {
+          return false;
+        }
+      };
+
+      BackHandler.addEventListener('hardwareBackPress', onBackPress);
+
+      return () =>
+        BackHandler.removeEventListener('hardwareBackPress', onBackPress);
+    }, [form, currentQuestionKey])
+  );
+
   const question = questionWithKey(currentQuestionKey);
   if (!question) {
     return null;
@@ -48,9 +71,11 @@ const Questionnaire = ({
       </BaseScreen>
       <PrevNextNavigator
         onPrevious={goToPreviousQuestion}
-        onNext={goToNextQuestion}
+        onNext={() => {
+          return nextQuestion(form, currentQuestionKey) ? goToNextQuestion() : navigation.navigate('Recommendations')
+        }}
         firstPage={!previousQuestion(form, currentQuestionKey)}
-        lastPage={!nextQuestion(form, currentQuestionKey)}
+        lastPage={false}
       />
     </View>
   );
