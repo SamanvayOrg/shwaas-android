@@ -41,7 +41,7 @@ export default ({number, question, onAnswered = () => {}, value}) => {
           text={'Yes'}
           color={styles.green}
           selected={value === true}
-          onPress={() => onAnswered(true)}
+          onPress={() => onAnswered(question, true)}
         />
         <YesNoButton
           text={'No'}

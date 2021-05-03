@@ -7,7 +7,8 @@ const visibleQuestions = (form = {}) =>
 
 const nextQuestion = (form, questionKey) => {
   let visibleQs = visibleQuestions(form);
-  if (questionKey) {
+
+  if (!questionKey) {
     return visibleQs[0];
   }
 
@@ -18,6 +19,20 @@ const nextQuestion = (form, questionKey) => {
     return null;
   }
   return visibleQs[indexOfCurrentQuestion + 1];
+};
+
+const previousQuestion = (form, questionKey) => {
+  let visibleQs = visibleQuestions(form);
+
+  const indexOfCurrentQuestion = visibleQs.findIndex(
+    q => q.key === questionKey,
+  );
+
+  if (indexOfCurrentQuestion === 0) {
+    return null;
+  }
+
+  return visibleQs[indexOfCurrentQuestion - 1];
 };
 
 const questionAt = (index, form) => visibleQuestions(form)[index];
@@ -32,5 +47,6 @@ export {
   questionAt,
   numberOfQuestions,
   nextQuestion,
+  previousQuestion,
   questionWithKey,
 };

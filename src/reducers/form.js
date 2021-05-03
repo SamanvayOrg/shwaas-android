@@ -1,15 +1,16 @@
-import {nextQuestion} from '../domain/questionStatus';
+import {nextQuestion, previousQuestion} from '../domain/questionStatus';
 
 const actions = {
   SET_VALUE: 'SET_VALUE',
   START_OVER: 'START_OVER',
   SET_CURRENT_QUESTION_KEY: 'SET_CURRENT_QUESTION_KEY',
   GO_TO_NEXT_QUESTION: 'GO_TO_NEXT_QUESTION',
+  GO_TO_PREVIOUS_QUESTION: 'GO_TO_PREVIOUS_QUESTION',
 };
 
 const createInitialState = () => ({
   form: {},
-  currentQuestionKey: nextQuestion(),
+  currentQuestionKey: nextQuestion().key,
 });
 
 const reducer = (state = createInitialState(), action) => {
@@ -39,9 +40,23 @@ const reducer = (state = createInitialState(), action) => {
       };
     }
     case actions.GO_TO_NEXT_QUESTION: {
+      const nextQ = nextQuestion(state.form, state.currentQuestionKey);
+      const nextQuestionKey = nextQ ? nextQ.key : state.currentQuestionKey;
+
       return {
         ...state,
-        currentQuestionKey: nextQuestion(state.form, state.currentQuestionKey),
+        currentQuestionKey: nextQuestionKey,
+      };
+    }
+    case actions.GO_TO_PREVIOUS_QUESTION: {
+      const previousQ = previousQuestion(state.form, state.currentQuestionKey);
+      const previousQuestionKey = previousQ
+        ? previousQ.key
+        : state.currentQuestionKey;
+
+      return {
+        ...state,
+        currentQuestionKey: previousQuestionKey,
       };
     }
     default: {
