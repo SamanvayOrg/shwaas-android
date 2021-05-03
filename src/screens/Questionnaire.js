@@ -57,6 +57,13 @@ const Questionnaire = ({
   if (!question) {
     return null;
   }
+
+  useEffect(() => {
+    if (question.type === questionTypes.information) {
+      setValue(question, question.value(form));
+    }
+  });
+
   const value = form[question.key];
 
   const onAnswered = (question, value) => {

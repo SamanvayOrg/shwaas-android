@@ -4,6 +4,7 @@ import NumericQuestion from './NumericQuestion';
 import BooleanQuestion from './BooleanQuestion';
 import SelectQuestion from './SelectQuestion';
 import BreathCounterQuestion from './BreathCounterQuestion';
+import Information from './Information';
 
 const Question = ({question, ...props}) => {
   switch (question.type) {
@@ -21,6 +22,9 @@ const Question = ({question, ...props}) => {
     }
     case questionTypes.breathCount: {
       return <BreathCounterQuestion question={question} {...props} />;
+    }
+    case questionTypes.information: {
+      return <Information question={question} {...props} />;
     }
   }
 };
