@@ -6,6 +6,7 @@ import {
   nextQuestion,
   previousQuestion,
   questionWithKey,
+  visibleQuestions,
 } from '../domain/questionModel';
 import Question from '../components/questions/Question';
 import {
@@ -19,6 +20,7 @@ import PrevNextNavigator from '../components/PrevNextNavigator';
 import questionTypes from '../domain/questionTypes';
 import {useFocusEffect} from '@react-navigation/native';
 import {outputWeight} from '../domain/questions/utils';
+import Breadcrumb from '../components/Breadcrumb';
 
 const Questionnaire = ({
   form,
@@ -77,6 +79,7 @@ const Questionnaire = ({
 
   return (
     <View style={{flex: 1}}>
+      <Breadcrumb form={form} currentIndex={indexOfQuestion(form, question)} />
       <BaseScreen>
         <Question
           number={indexOfQuestion(form, question) + 1}

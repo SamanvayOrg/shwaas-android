@@ -1,3 +1,5 @@
+import {outputColors} from './questions/utils';
+
 export default class RecommendationType {
   shortMessageTextAndOuterBoxColor;
   shortMessageKey;
@@ -13,17 +15,21 @@ export default class RecommendationType {
     this.shortMessageTextAndOuterBoxColor = shortMessageTextAndOuterBoxColor;
   }
 
-  static Safe = new RecommendationType('safe', 'youAre', '#38A160');
-  static NotSafe = new RecommendationType('notSafe', 'youAre', '#E24C4C');
+  static Safe = new RecommendationType('safe', 'youAre', outputColors.green);
+  static NotSafe = new RecommendationType(
+    'notSafe',
+    'youAre',
+    outputColors.red,
+  );
   static Quarantine = new RecommendationType(
     'quarantine',
     'youNeedTo',
-    '#D6932E',
+    outputColors.yellow,
   );
   static NotUseful = new RecommendationType(
     'notUseful',
     'forThisPerson',
-    '#D6932E',
+    outputColors.yellow,
   );
 
   static mapping = {

@@ -3,6 +3,7 @@ import {StyleSheet, TouchableNativeFeedback, View} from 'react-native';
 import {Text} from 'react-native-paper';
 import HorizontalComponent from '../common/HorizontalComponent';
 import QuestionBase from './QuestionBase';
+import {outputColors} from '../../domain/questions/utils';
 
 const styles = StyleSheet.create({
   square: {
@@ -14,10 +15,10 @@ const styles = StyleSheet.create({
     borderRadius: 16,
   },
   red: {
-    backgroundColor: '#E24C4C',
+    backgroundColor: outputColors.red,
   },
   green: {
-    backgroundColor: '#38A160',
+    backgroundColor: outputColors.green,
   },
   basicBox: {justifyContent: 'space-between', alignItems: 'center'},
   answerText: {color: 'white', fontSize: 24},

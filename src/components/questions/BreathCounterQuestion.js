@@ -10,13 +10,14 @@ import {
 import QuestionBase from './QuestionBase';
 import {Text, Button, TextInput, Card} from 'react-native-paper';
 import messages from '../../domain/messages';
+import {outputColors} from '../../domain/questions/utils';
 
 const styles = StyleSheet.create({
   container: {flexDirection: 'column'},
   counterButton: {
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#38A160',
+    backgroundColor: outputColors.green,
     elevation: 2,
     borderRadius: 5,
     paddingHorizontal: 5,

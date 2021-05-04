@@ -7,8 +7,15 @@ const outputWeight = {
   black: 'black', //The tool cannot be used in such a scenario
 };
 
+const outputColors = {
+  green: '#38A160',
+  yellow: '#D6932E',
+  red: '#E24C4C',
+  black: '#000000',
+};
+
 const alwaysGreen = () => outputWeight.green;
 const redIfTrue = value =>
   value === true ? outputWeight.red : outputWeight.green;
 
-export {alwaysShow, alwaysGreen, outputWeight, redIfTrue};
+export {alwaysShow, alwaysGreen, outputWeight, redIfTrue, outputColors};
