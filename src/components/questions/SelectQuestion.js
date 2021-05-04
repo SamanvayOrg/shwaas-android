@@ -60,22 +60,28 @@ const Item = ({title, onPress, selectedAnswers}) => {
   );
 };
 
-export default ({number, question, onAnswered = () => {}, value = []}) => {
+export default ({number, question, onAnswered = () => {}, value}) => {
+  const answer = !value
+    ? []
+    : question.type === questionTypes.singleChoice
+    ? [value]
+    : value;
+
   const onItemSelected = key => {
     if (question.type === questionTypes.singleChoice) {
-      onAnswered(question, [key]);
+      onAnswered(question, key);
       return;
     }
 
-    if (value.includes(key)) {
+    if (answer.includes(key)) {
       onAnswered(
         question,
-        value.filter(val => val !== key),
+        answer.filter(val => val !== key),
       );
       return;
     }
 
-    onAnswered(question, value.concat(key));
+    onAnswered(question, answer.concat(key));
   };
 
   const renderItem = ({item}) => (
@@ -83,7 +89,7 @@ export default ({number, question, onAnswered = () => {}, value = []}) => {
       question={question}
       title={item}
       onPress={onItemSelected}
-      selectedAnswers={value}
+      selectedAnswers={answer}
     />
   );
 
