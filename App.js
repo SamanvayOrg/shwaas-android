@@ -59,5 +59,5 @@ class App extends Component {
   }
 }
 
-// export default codePush(App);
-export {default} from './storybook';
+export default codePush(App);
+// export {default} from './storybook';
