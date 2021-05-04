@@ -23,6 +23,7 @@ export default {
     'kidneyDisease',
     'pregnancy',
     'obesity',
+    'underNutrition',
     'anemia',
     'hiv',
     'cancer',

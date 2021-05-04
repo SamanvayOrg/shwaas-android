@@ -61,6 +61,7 @@ const messages = {
   kidneyDisease: 'Kidney Disease',
   pregnancy: 'Pregnancy',
   obesity: 'Obesity',
+  underNutrition: 'Under Nutrition',
   anemia: 'Severe Anemia',
   hiv: 'HIV',
   cancer: 'Cancer',
@@ -109,7 +110,7 @@ const messages = {
   forThisPerson: 'For this person the app is',
   diabetesStatus: 'Status of Diabetes',
   diabetesControlled: 'Controlled',
-  diabetesUncontrolled: 'Uncontrolled'
+  diabetesUncontrolled: 'Uncontrolled',
 };
 
 const get = str => messages[str] || str;
