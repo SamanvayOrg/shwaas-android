@@ -5,4 +5,5 @@ export default {
   singleChoice: 'singleChoice',
   breathCount: 'breathCount',
   information: 'information',
+  timer: 'timer',
 };

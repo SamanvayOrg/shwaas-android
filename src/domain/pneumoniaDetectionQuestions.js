@@ -35,6 +35,8 @@ import pregnant from './questions/pregnant';
 import age from './questions/age';
 import bmi from './questions/bmi';
 import diabetesStatus from './questions/diabetesStatus';
+import sixMinuteTimer from './questions/sixMinuteTimer';
+import oxygenSaturationAfter6Minutes from './questions/oxygenSaturationAfter6Minutes';
 
 export default [
   coughInPast7Days,
@@ -47,6 +49,8 @@ export default [
   cantTellBetweenDayAndNight,
   accessToPulseOximeter,
   oxygenSaturation,
+  sixMinuteTimer,
+  oxygenSaturationAfter6Minutes,
   blueLips,
   blueFingerTips,
   blueTongue,

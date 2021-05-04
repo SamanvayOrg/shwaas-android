@@ -5,6 +5,7 @@ import BooleanQuestion from './BooleanQuestion';
 import SelectQuestion from './SelectQuestion';
 import BreathCounterQuestion from './BreathCounterQuestion';
 import Information from './Information';
+import TimerQuestion from './TimerQuestion';
 
 const Question = ({question, ...props}) => {
   switch (question.type) {
@@ -39,6 +40,9 @@ const Question = ({question, ...props}) => {
     }
     case questionTypes.information: {
       return <Information key={question.key} question={question} {...props} />;
+    }
+    case questionTypes.timer: {
+      return <TimerQuestion key={question.key} question={question} {...props} />;
     }
   }
 };

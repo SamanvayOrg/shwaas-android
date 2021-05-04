@@ -24,7 +24,6 @@ export default ({number, question, onAnswered = () => {}, value}) => {
       globalSecondsValue.seconds = 0;
       const interval = setInterval(function () {
         globalSecondsValue.seconds = globalSecondsValue.seconds + 1;
-        console.log(`Called: ${globalSecondsValue.seconds}`);
         if (globalSecondsValue.seconds === 360) {
           clearInterval(intervalHandle);
         }
