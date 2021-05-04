@@ -47,8 +47,8 @@ const Questionnaire = ({
 
   useEffect(() => {
     const risk = calculateRisk(form);
-    if (risk !== outputWeight.green || !nextQuestion(form, currentQuestionKey)) {
-      navigation.navigate('Recommendations', {risk: risk});
+    if (risk === outputWeight.red) {
+      navigation.navigate('Recommendations', {risk});
     }
   }, [navigation, currentQuestionKey]);
 
@@ -86,7 +86,6 @@ const Questionnaire = ({
         onPrevious={goToPreviousQuestion}
         onNext={() => {
           let calculatedRisk = calculateRisk(form);
-          console.log('nextQuestion(form, currentQuestionKey)', nextQuestion(form, currentQuestionKey));
           return nextQuestion(form, currentQuestionKey) ? goToNextQuestion() : navigation.navigate('Recommendations', {risk: calculatedRisk});
         }}
         firstPage={!previousQuestion(form, currentQuestionKey)}
