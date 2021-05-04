@@ -9,3 +9,15 @@ clear-local-storage:
 
 start-app:
 	adb shell am start -n com.pneumoniaapp/com.pneumoniaapp.MainActivity
+
+codepush-staging:
+	appcenter codepush release-react -a Samanvay-Research-and-Development-Foundation/Pneumonia-App -d Staging
+
+codepush-production:
+	appcenter codepush release-react -a Samanvay-Research-and-Development-Foundation/Pneumonia-App -d Production
+
+create-bundle:
+	cd android && ./gradlew bundleRelease
+
+create-apk:
+	cd android && ./gradlew assembleRelease
