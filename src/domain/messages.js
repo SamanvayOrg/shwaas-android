@@ -103,6 +103,9 @@ const messages = {
   result: 'Result',
   seconds: 'Seconds',
   reset: 'Reset',
+  yes: 'Yes',
+  no: 'No',
+  unsure: 'Unsure'
 };
 
 const get = str => messages[str] || str;
