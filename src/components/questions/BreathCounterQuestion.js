@@ -9,8 +9,9 @@ import {
 } from 'react-native';
 import QuestionBase from './QuestionBase';
 import {Text, Button, TextInput, Card} from 'react-native-paper';
-import messages from '../../domain/messages';
 import {outputColors} from '../../domain/questions/utils';
+import messages from '../../messages';
+
 
 const styles = StyleSheet.create({
   container: {flexDirection: 'column'},

@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Colors, Button, Card, ProgressBar} from 'react-native-paper';
 import QuestionBase from './QuestionBase';
-import messages from '../../domain/messages';
+import messages from '../../messages';
 
 const getDisplayTime = function (seconds) {
   let sec = seconds % 60;

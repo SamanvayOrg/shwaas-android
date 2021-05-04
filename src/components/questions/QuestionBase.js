@@ -1,6 +1,6 @@
 import {View} from 'react-native';
 import {Caption, Headline, Subheading} from 'react-native-paper';
-import messages from '../../domain/messages';
+import messages from '../../messages';
 import React from 'react';
 import Space from '../common/Space';
 

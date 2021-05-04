@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 import {Text} from 'react-native-paper';
 import QuestionBase from './QuestionBase';
-import messages from '../../domain/messages';
+import messages from '../../messages';
 import questionTypes from '../../domain/questionTypes';
 
 const styles = StyleSheet.create({

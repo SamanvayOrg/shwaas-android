@@ -1,7 +1,7 @@
 import React from 'react';
 import {TextInput, Title} from 'react-native-paper';
 import QuestionBase from './QuestionBase';
-import messages from '../../domain/messages';
+import messages from '../../messages';
 
 export default ({number, question, value}) => {
   return (

@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import {Button, Text} from 'react-native-paper';
 import {Dimensions, View, StyleSheet} from 'react-native';
 import HandShow from '../assets/handShow.svg';
-import messages from '../domain/messages';
+import messages from '../messages';
 import {resetCalculator} from '../actions/form';
 import {connect} from 'react-redux';
 import {useFocusEffect} from '@react-navigation/native';

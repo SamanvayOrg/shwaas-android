@@ -1,6 +1,6 @@
 import questionTypes from '../questionTypes';
 import {outputWeight} from './utils';
-import messages from '../messages';
+import messages from '../../messages';
 
 const key = 'diabetesStatus';
 

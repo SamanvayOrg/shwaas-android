@@ -1,13 +1,13 @@
 import pneumoniaDetectionQuestions from './pneumoniaDetectionQuestions';
 import {outputWeight} from './questions/utils';
 import questionTypes from './questionTypes';
-import messages from './messages';
 import RecommendationType from './RecommendationType';
 import comorbidities from './questions/comorbidities';
 import fbs from './questions/fbs';
 import pp2bs from './questions/pp2bs';
 import rbs from './questions/rbs';
 import hba1c from './questions/hba1c';
+import messages from '../messages';
 
 const questions = pneumoniaDetectionQuestions;
 

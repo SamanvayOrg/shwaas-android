@@ -24,6 +24,7 @@
     "react-native-code-push": "^7.0.1",
     "react-native-dotenv": "^2.5.5",
     "react-native-gesture-handler": "^1.10.3",
+    "react-native-localization": "^2.1.7",
     "react-native-paper": "^4.8.1",
     "react-native-reanimated": "^2.1.0",
     "react-native-safe-area-context": "^3.2.0",

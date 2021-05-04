@@ -1,7 +1,7 @@
 import React from 'react';
 import {Button, withTheme} from 'react-native-paper';
 import {View, StyleSheet} from 'react-native';
-import messages from '../domain/messages';
+import messages from '../messages';
 
 const styles = StyleSheet.create({
   wrapper: {
