@@ -86,7 +86,7 @@ const messages = {
   pregnant: 'Is the person pregnant?',
   welcome: 'Welcome to',
   title: 'Shwaas',
-  subTitle: 'A consultation support tool',
+  subTitle: 'A Chikitsa Sathi',
   none: 'None',
   previous: 'previous',
   next: 'next',
