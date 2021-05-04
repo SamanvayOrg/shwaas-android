@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
 import React, {useEffect} from 'react';
 import {
-  calculateRisk,
+  getRecommendation,
   indexOfQuestion,
   nextQuestion,
   previousQuestion,
@@ -19,8 +19,8 @@ import {BackHandler, View} from 'react-native';
 import PrevNextNavigator from '../components/PrevNextNavigator';
 import questionTypes from '../domain/questionTypes';
 import {useFocusEffect} from '@react-navigation/native';
-import {outputWeight} from '../domain/questions/utils';
 import Breadcrumb from '../components/Breadcrumb';
+import RecommendationType from '../domain/RecommendationType';
 
 const Questionnaire = ({
   form,
@@ -52,9 +52,9 @@ const Questionnaire = ({
   );
 
   useEffect(() => {
-    const risk = calculateRisk(form);
-    if (risk === outputWeight.red) {
-      navigation.navigate('Recommendations', {risk});
+    const recommendation = getRecommendation(form);
+    if (recommendation === RecommendationType.AdmitInHospital || recommendation === RecommendationType.NotUseful) {
+      navigation.navigate('Recommendations', {recommendation});
     }
   }, [navigation, currentQuestionKey]);
 
@@ -96,10 +96,10 @@ const Questionnaire = ({
       <PrevNextNavigator
         onPrevious={goToPreviousQuestion}
         onNext={() => {
-          let calculatedRisk = calculateRisk(form);
+          let recommendation = getRecommendation(form);
           return nextQuestion(form, currentQuestionKey)
             ? goToNextQuestion()
-            : navigation.navigate('Recommendations', {risk: calculatedRisk});
+            : navigation.navigate('Recommendations', {recommendation});
         }}
         firstPage={!previousQuestion(form, currentQuestionKey)}
         lastPage={false}

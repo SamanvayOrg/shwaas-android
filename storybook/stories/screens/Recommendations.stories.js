@@ -9,7 +9,7 @@ storiesOf('Recommendations', module)
   .addDecorator(baseScreenDecorator)
   .addDecorator(themeDecorator)
   .add('quarantine', () => (
-    <Recommendation data={RecommendationType.Quarantine}/>
+    <Recommendation data={RecommendationType.ReferToDistrictHospital}/>
   ))
   .add('not useful', () => (
     <Recommendation data={RecommendationType.NotUseful}/>

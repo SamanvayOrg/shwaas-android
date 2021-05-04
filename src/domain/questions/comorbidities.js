@@ -6,6 +6,7 @@ const key = 'comorbidities';
 const output = form => {
   const values = form[key] || [];
   if (values.find(value => value === 'kidneyDisease')) return outputWeight.red;
+  if (values.length > 0) return outputWeight.yellow;
   return outputWeight.green;
 };
 

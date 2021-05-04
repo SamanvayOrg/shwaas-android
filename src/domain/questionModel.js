@@ -2,6 +2,12 @@ import pneumoniaDetectionQuestions from './pneumoniaDetectionQuestions';
 import {outputWeight} from './questions/utils';
 import questionTypes from './questionTypes';
 import messages from './messages';
+import RecommendationType from './RecommendationType';
+import comorbidities from './questions/comorbidities';
+import fbs from './questions/fbs';
+import pp2bs from './questions/pp2bs';
+import rbs from './questions/rbs';
+import hba1c from './questions/hba1c';
 
 const questions = pneumoniaDetectionQuestions;
 
@@ -11,6 +17,8 @@ const isFunction = functionToCheck => {
   );
 };
 
+//Validation of questions. Runs during startup, gives error in console.
+//This can be useful when debugging new questions that come up
 questions.map(question => {
   if (!question.key) {
     console.error(`Question does not have key - ${JSON.stringify(question)}`);
@@ -72,26 +80,49 @@ const numberOfQuestions = form => visibleQuestions(form).length;
 
 const questionWithKey = key => questions.find(question => question.key === key);
 
-const calculateRisk = form => {
-  const answerKeys = Object.keys(form);
-  const notUseful = answerKeys.some(answerKey => {
-    return questionWithKey(answerKey).output(form) === outputWeight.black;
-  });
-  if (notUseful) return outputWeight.black;
-
-  const red = answerKeys.some(
-    answerKey => questionWithKey(answerKey).output(form) === outputWeight.red,
-  );
-  if (red) return outputWeight.red;
+const numberOfYellows = (form, answerKeys) => {
+  const irrelevantQuestionKeys = [fbs, pp2bs, rbs, hba1c,].map(question => question.key);
+  const relevantQuestionKeys = visibleQuestions(form).filter(question => !irrelevantQuestionKeys.includes(question.key)).map(question => question.key);
 
   let yellowQuestions = answerKeys.filter(
     answerKey =>
       questionWithKey(answerKey).output(form) === outputWeight.yellow,
   );
-  const yellow = yellowQuestions.length <= 3 && yellowQuestions > 0;
-  if (yellow) return outputWeight.yellow;
+  const relevantYellowQuestions = yellowQuestions.filter(question => relevantQuestionKeys.includes(question.key));
+  const comorbidities = form['comorbidities'] || [];
 
-  return outputWeight.green;
+  const irrelevantComorbiditiesForYellow = ['heartDisease', 'liverDisease', 'sickleDisease', 'kidneyDisease', 'asthma', 'lungDisease'];
+  const relevantComorbiditiesForYellow = comorbidities.filter(comorbidity => irrelevantComorbiditiesForYellow.includes(comorbidity));
+
+  return relevantYellowQuestions.length + relevantComorbiditiesForYellow.length;
+};
+
+const getKeysToVisibleQuestions = form => {
+  const visibleQuestionKeys = visibleQuestions(form).map(q => q.key);
+  return Object.keys(form).filter(key => visibleQuestionKeys.includes(key));
+};
+
+const getRecommendation = form => {
+  const answerKeys = getKeysToVisibleQuestions(form);
+
+  const notUseful = answerKeys.some(answerKey => {
+    return questionWithKey(answerKey).output(form) === outputWeight.black;
+  });
+  if (notUseful) return RecommendationType.NotUseful;
+
+  const admitInHospital = answerKeys.some(
+    answerKey => questionWithKey(answerKey).output(form) === outputWeight.red,
+  );
+  if (admitInHospital) return RecommendationType.AdmitInHospital;
+
+  const yellows = numberOfYellows(form, answerKeys);
+  if (yellows === 0) {
+    return RecommendationType.ManageAtHome;
+  }
+  if (yellows <= 3) {
+    return RecommendationType.ReferToDoctor;
+  }
+  return RecommendationType.ReferToDistrictHospital;
 };
 
 export {
@@ -102,6 +133,6 @@ export {
   nextQuestion,
   previousQuestion,
   questionWithKey,
-  calculateRisk,
+  getRecommendation,
   indexOfQuestion,
 };

@@ -15,31 +15,9 @@ export default class RecommendationType {
     this.shortMessageTextAndOuterBoxColor = shortMessageTextAndOuterBoxColor;
   }
 
-  static Safe = new RecommendationType('safe', 'youAre', outputColors.green);
-  static NotSafe = new RecommendationType(
-    'notSafe',
-    'youAre',
-    outputColors.red,
-  );
-  static Quarantine = new RecommendationType(
-    'quarantine',
-    'youNeedTo',
-    outputColors.yellow,
-  );
-  static NotUseful = new RecommendationType(
-    'notUseful',
-    'forThisPerson',
-    outputColors.yellow,
-  );
-
-  static mapping = {
-    green: RecommendationType.Safe,
-    yellow: RecommendationType.Quarantine,
-    red: RecommendationType.NotSafe,
-    black: RecommendationType.NotUseful,
-  };
-
-  static getRecommendationType(color) {
-    return RecommendationType.mapping[color];
-  }
+  static NotUseful = new RecommendationType('notUseful', 'forThisPerson', outputColors.black,);
+  static ManageAtHome = new RecommendationType('safe', 'youAre', outputColors.green);
+  static ReferToDoctor = new RecommendationType('notSafe', 'youAre', outputColors.yellow);
+  static ReferToDistrictHospital = new RecommendationType('notSafe', 'youAre', outputColors.yellow,);
+  static AdmitInHospital = new RecommendationType('notSafe', 'youAre', outputColors.red);
 }
