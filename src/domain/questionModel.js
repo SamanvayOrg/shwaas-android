@@ -81,18 +81,33 @@ const numberOfQuestions = form => visibleQuestions(form).length;
 const questionWithKey = key => questions.find(question => question.key === key);
 
 const numberOfYellows = (form, answerKeys) => {
-  const irrelevantQuestionKeys = [fbs, pp2bs, rbs, hba1c,].map(question => question.key);
-  const relevantQuestionKeys = visibleQuestions(form).filter(question => !irrelevantQuestionKeys.includes(question.key)).map(question => question.key);
+  const irrelevantQuestionKeys = [fbs, pp2bs, rbs, hba1c].map(
+    question => question.key,
+  );
+  const relevantQuestionKeys = visibleQuestions(form)
+    .filter(question => !irrelevantQuestionKeys.includes(question.key))
+    .map(question => question.key);
 
   let yellowQuestions = answerKeys.filter(
     answerKey =>
       questionWithKey(answerKey).output(form) === outputWeight.yellow,
   );
-  const relevantYellowQuestions = yellowQuestions.filter(question => relevantQuestionKeys.includes(question.key));
+  const relevantYellowQuestions = yellowQuestions.filter(question =>
+    relevantQuestionKeys.includes(question.key),
+  );
   const comorbidities = form['comorbidities'] || [];
 
-  const irrelevantComorbiditiesForYellow = ['heartDisease', 'liverDisease', 'sickleDisease', 'kidneyDisease', 'asthma', 'lungDisease'];
-  const relevantComorbiditiesForYellow = comorbidities.filter(comorbidity => irrelevantComorbiditiesForYellow.includes(comorbidity));
+  const irrelevantComorbiditiesForYellow = [
+    'heartDisease',
+    'liverDisease',
+    'sickleDisease',
+    'kidneyDisease',
+    'asthma',
+    'lungDisease',
+  ];
+  const relevantComorbiditiesForYellow = comorbidities.filter(comorbidity =>
+    irrelevantComorbiditiesForYellow.includes(comorbidity),
+  );
 
   return relevantYellowQuestions.length + relevantComorbiditiesForYellow.length;
 };
@@ -102,7 +117,14 @@ const getKeysToVisibleQuestions = form => {
   return Object.keys(form).filter(key => visibleQuestionKeys.includes(key));
 };
 
-const getRecommendation = form => {
+const getRecommendation = (answers, additionalQuestion, answer) => {
+  const form = {
+    ...answers,
+  };
+  if (additionalQuestion) {
+    form[additionalQuestion.key] = answer;
+  }
+
   const answerKeys = getKeysToVisibleQuestions(form);
 
   const notUseful = answerKeys.some(answerKey => {

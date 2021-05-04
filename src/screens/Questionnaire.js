@@ -51,12 +51,18 @@ const Questionnaire = ({
     }, [form, currentQuestionKey]),
   );
 
-  useEffect(() => {
-    const recommendation = getRecommendation(form);
-    if (recommendation === RecommendationType.AdmitInHospital || recommendation === RecommendationType.NotUseful) {
+  const goToNextQuestionIfNecessary = (question, value) => {
+    const recommendation = getRecommendation(form, question, value);
+
+    if (
+      recommendation === RecommendationType.AdmitInHospital ||
+      recommendation === RecommendationType.NotUseful
+    ) {
       navigation.navigate('Recommendations', {recommendation});
+    } else {
+      goToNextQuestion();
     }
-  }, [navigation, currentQuestionKey]);
+  };
 
   const question = questionWithKey(currentQuestionKey);
   if (!question) {
@@ -74,7 +80,7 @@ const Questionnaire = ({
   const onAnswered = (question, value) => {
     setValue(question, value);
     if (question.type === questionTypes.boolean) {
-      goToNextQuestion();
+      goToNextQuestionIfNecessary(question, value);
     }
   };
 
@@ -98,7 +104,7 @@ const Questionnaire = ({
         onNext={() => {
           let recommendation = getRecommendation(form);
           return nextQuestion(form, currentQuestionKey)
-            ? goToNextQuestion()
+            ? goToNextQuestionIfNecessary()
             : navigation.navigate('Recommendations', {recommendation});
         }}
         firstPage={!previousQuestion(form, currentQuestionKey)}
