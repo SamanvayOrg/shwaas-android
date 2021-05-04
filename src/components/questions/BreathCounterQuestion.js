@@ -8,7 +8,7 @@ import {
   ScrollView,
 } from 'react-native';
 import QuestionBase from './QuestionBase';
-import {Text, Button} from 'react-native-paper';
+import {Text, Button, TextInput, Card} from 'react-native-paper';
 import messages from '../../domain/messages';
 
 const styles = StyleSheet.create({
@@ -35,14 +35,18 @@ const styles = StyleSheet.create({
     margin: 5,
     fontSize: 24,
   },
+  counterCard: {
+    marginVertical: 10,
+    padding: 10,
+  },
 });
 
 const {height} = Dimensions.get('window');
 const MAX_TIME_SECOND = 60;
 
-export default ({number, question, onAnswered = () => {}, value = 0}) => {
-  const [timer, setTimer] = useState(value === 0 ? MAX_TIME_SECOND : 0);
-  const [breathCount, setBreathCount] = useState(value);
+export default ({number, question, onAnswered = () => {}, value}) => {
+  const [timer, setTimer] = useState(value ? 0 : MAX_TIME_SECOND);
+  const [breathCount, setBreathCount] = useState(value || 0);
   const [intervalId, setIntervalId] = useState();
   const isFirstPress = timer === MAX_TIME_SECOND;
   const isTimeComplete = timer === 0;
@@ -78,43 +82,65 @@ export default ({number, question, onAnswered = () => {}, value = 0}) => {
     : messages.breathCounterAfterStart;
 
   return (
-    <ScrollView showsVerticalScrollIndicator={false}>
-      <QuestionBase number={number} question={question} />
-      <View style={styles.container}>
-        <TouchableOpacity onPress={onCounterPress} disabled={isTimeComplete}>
-          <View
-            style={[
-              styles.counterButton,
-              {height: height * 0.3},
-              isTimeComplete && {backgroundColor: '#BABABA'},
-            ]}>
-            <Text style={styles.counterButtonText}>{pressButtonMessage}</Text>
-          </View>
-        </TouchableOpacity>
-        <View style={styles.countsContainer}>
-          {isTimeComplete ? (
-            <Text style={styles.countText}>
-              {messages.result} : {`${breathCount} ${messages.bpm}`}
-            </Text>
-          ) : (
-            <View>
-              <Text style={styles.countText}>Breaths : {breathCount}</Text>
-              <Text style={styles.countText}>
-                {messages.seconds} : {timer < 10 ? `0${timer}` : timer}
-              </Text>
+    <React.Fragment>
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <QuestionBase number={number} question={question} />
+        <Card style={{padding: 10}}>
+          <TextInput
+            mode={'outlined'}
+            keyboardType={'number-pad'}
+            label=""
+            placeholder={messages.get(question.unit)}
+            value={value ? value.toString() : undefined}
+            onChangeText={text => onAnswered(question, parseInt(text))}
+          />
+        </Card>
+        <Card style={styles.counterCard}>
+          <Card.Title
+            title={messages.breathCounter}
+            titleStyle={{textAlign: 'center'}}
+          />
+          <View style={styles.container}>
+            <TouchableOpacity
+              onPress={onCounterPress}
+              disabled={isTimeComplete}>
+              <View
+                style={[
+                  styles.counterButton,
+                  {height: height * 0.3},
+                  isTimeComplete && {backgroundColor: '#BABABA'},
+                ]}>
+                <Text style={styles.counterButtonText}>
+                  {pressButtonMessage}
+                </Text>
+              </View>
+            </TouchableOpacity>
+            <View style={styles.countsContainer}>
+              {isTimeComplete ? (
+                <Text style={styles.countText}>
+                  {messages.result} : {`${breathCount} ${messages.bpm}`}
+                </Text>
+              ) : (
+                <View>
+                  <Text style={styles.countText}>Breaths : {breathCount}</Text>
+                  <Text style={styles.countText}>
+                    {messages.seconds} : {timer < 10 ? `0${timer}` : timer}
+                  </Text>
+                </View>
+              )}
             </View>
-          )}
-        </View>
-        <Button
-          style={{marginVertical: 10}}
-          contentStyle={{height: 50}}
-          disabled={isFirstPress}
-          color={'#E24C4C'}
-          mode={'contained'}
-          onPress={onReset}>
-          {messages.reset}
-        </Button>
-      </View>
-    </ScrollView>
+            <Button
+              style={{marginVertical: 10}}
+              contentStyle={{height: 50}}
+              disabled={isFirstPress}
+              color={'#E24C4C'}
+              mode={'contained'}
+              onPress={onReset}>
+              {messages.reset}
+            </Button>
+          </View>
+        </Card>
+      </ScrollView>
+    </React.Fragment>
   );
 };

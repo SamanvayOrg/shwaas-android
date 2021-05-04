@@ -111,6 +111,7 @@ const messages = {
   diabetesStatus: 'Status of Diabetes',
   diabetesControlled: 'Controlled',
   diabetesUncontrolled: 'Uncontrolled',
+  breathCounter: 'Breath Counter',
 };
 
 const get = str => messages[str] || str;
