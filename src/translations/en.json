@@ -104,8 +104,8 @@
   "disclaimer-part-2": "The mobile app doesn't store any data entered on its servers, on the mobile device, or elsewhere. Only your language preference and your consent to this disclaimer will be stored on the mobile device, but not transferred to any servers.",
   "accept": "Agree & Accept",
   "cancel": "Cancel & Exit",
-  "manageAtHomeOrVillage": "- Check this app every 24 hours\n- Eat good food (lots of rice, dal, milk, groundnuts, sugar, eggs, meat etc)\n- Drink 3-4 litres of water in a day",
-  "lessThan3YellowMessage": "3 or less yellows",
-  "moreThan3YellowMessage": "More than 3 yellows",
-  "admitAtHospital": "Admit in a hospital for oxygen, detailed management."
+  "manageAtHomeNextSteps": "\u2B24 Physical distancing, indoor mask use, strict hand hygeine.\n\u2B24 Monitoring of Oxygen saturation, Temperature, Pulse & Urine output.\n\u2B24 Adequate Hydration, Balanced nutritious diet.Steam inhalation, saline gargle.\n\u2B24 To have adquate sleep and rest.\n\u2B24 Daily practice of Yoga and meditation.\n\u2B24 Breathing Exercise (if not contraindicated)",
+  "admitInHospital":"Admit in a hospital for oxygen, detailed management.",
+  "referToDistrictHospital":"Consult at CHC/ sub district hospital.",
+  "referToDoctor":"Follow up at PHC/CHC level or covid care centres."
 }

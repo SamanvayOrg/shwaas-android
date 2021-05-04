@@ -1,65 +1,61 @@
 import React from 'react';
-import {View} from 'react-native';
-import {Surface, Text} from 'react-native-paper';
+import {StyleSheet, View} from 'react-native';
+import {Paragraph, Text} from 'react-native-paper';
 import messages from '../messages';
+
+const styles = StyleSheet.create({
+  container: {flex: 1, marginTop: 20, paddingHorizontal: 10},
+  shortMessageContainer: {
+    alignItems: 'center',
+    paddingTop: 20,
+    paddingBottom: 20,
+    paddingHorizontal: 10,
+    elevation: 2,
+    borderRadius: 5,
+  },
+  shortMessageText: {
+    fontSize: 40,
+  },
+  shortMessageTextContainer: {
+    backgroundColor: '#EEF7F1',
+    borderRadius: 8,
+    alignItems: 'center',
+    alignSelf: 'stretch',
+  },
+  nextStepsContainer: {
+    marginVertical: 10,
+    padding: 15,
+    backgroundColor: '#EEF0F2',
+    elevation: 2,
+    borderRadius: 5,
+  },
+});
 
 export default ({data}) => {
   return (
-    <View style={{flex: 1, marginTop: 20}}>
+    <View style={styles.container}>
       <View
-        style={{
-          backgroundColor: data.shortMessageTextAndOuterBoxColor,
-          alignItems: 'center',
-          paddingTop: 20,
-          paddingBottom: 20,
-          paddingHorizontal: 10,
-        }}>
+        style={[
+          styles.shortMessageContainer,
+          {backgroundColor: data.shortMessageTextAndOuterBoxColor},
+        ]}>
         <Text style={{color: '#EEF7F1', fontSize: 32}}>
           {messages[data.startingMessageKey]}
         </Text>
-        <View
-          style={{
-            backgroundColor: '#EEF7F1',
-            borderRadius: 8,
-            alignItems: 'center',
-            alignSelf: 'stretch',
-          }}>
+        <View style={styles.shortMessageTextContainer}>
           <Text
-            style={{
-              color: data.shortMessageTextAndOuterBoxColor,
-              fontSize: 40,
-            }}>
+            style={[
+              styles.shortMessageText,
+              {color: data.shortMessageTextAndOuterBoxColor},
+            ]}>
             {messages[data.shortMessageKey]}
           </Text>
         </View>
       </View>
-
-      <Surface
-        style={{
-          minHeight: 144,
-          padding: 16,
-          marginTop: 8,
-          backgroundColor: data.shortMessageTextAndOuterBoxColor,
-        }}>
-        <Text
-          style={{
-            fontSize: 24,
-            fontWeight: 'bold',
-            alignSelf: 'center',
-            color: '#EEF7F1',
-          }}>
-          Recommendation
-        </Text>
-        <Text
-          style={{
-            fontSize: 18,
-            lineHeight: 28,
-            marginTop: 8,
-            color: '#EEF7F1',
-          }}>
-          {messages[data.description]}
-        </Text>
-      </Surface>
+      <View style={styles.nextStepsContainer}>
+        <Text style={{textAlign: 'center', fontSize: 32}}>Next steps</Text>
+        <Paragraph>{messages[data.nextSteps]}</Paragraph>
+      </View>
     </View>
   );
 };

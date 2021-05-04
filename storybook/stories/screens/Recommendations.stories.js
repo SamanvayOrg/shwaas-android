@@ -8,12 +8,18 @@ import Recommendation from '../../../src/components/Recommendation';
 storiesOf('Recommendations', module)
   .addDecorator(baseScreenDecorator)
   .addDecorator(themeDecorator)
-  .add('quarantine', () => (
-    <Recommendation data={RecommendationType.ReferToDistrictHospital} />
-  ))
   .add('not useful', () => (
     <Recommendation data={RecommendationType.NotUseful} />
   ))
   .add('manage at home', () => (
     <Recommendation data={RecommendationType.ManageAtHome} />
+  ))
+  .add('district hospital', () => (
+    <Recommendation data={RecommendationType.ReferToDistrictHospital} />
+  ))
+  .add('refer to doctor', () => (
+    <Recommendation data={RecommendationType.ReferToDoctor} />
+  ))
+  .add('admit in hospital', () => (
+    <Recommendation data={RecommendationType.AdmitInHospital} />
   ));
