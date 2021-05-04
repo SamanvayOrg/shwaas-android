@@ -12,6 +12,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@react-native-async-storage/async-storage": "^1.15.4",
     "@react-native-community/masked-view": "^0.1.11",
     "@react-navigation/native": "^5.9.4",
     "@react-navigation/stack": "^5.14.4",
@@ -31,7 +32,8 @@
     "react-native-svg-transformer": "^0.14.3",
     "react-native-vector-icons": "^8.1.0",
     "react-redux": "^7.2.4",
-    "redux": "^4.1.0"
+    "redux": "^4.1.0",
+    "lodash": "4.17.21"
   },
   "devDependencies": {
     "@babel/core": "^7.13.16",
@@ -52,8 +54,7 @@
     "metro-react-native-babel-preset": "^0.66.0",
     "prettier": "^2.2.1",
     "react-dom": "17.0.1",
-    "react-test-renderer": "17.0.1",
-    "lodash": "4.17.21"
+    "react-test-renderer": "17.0.1"
   },
   "jest": {
     "preset": "react-native"
