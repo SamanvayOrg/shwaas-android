@@ -8,8 +8,5 @@ storiesOf('TimerQuestion', module)
   .addDecorator(baseScreenDecorator)
   .addDecorator(themeDecorator)
   .add('basic view', () => (
-    <TimerQuestion
-      number={1}
-      question={{key: 'sixMinuteWalkMessage'}}
-    />
+    <TimerQuestion number={1} question={{key: 'sixMinuteWalkMessage'}} />
   ));
