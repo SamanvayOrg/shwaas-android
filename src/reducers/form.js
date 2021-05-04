@@ -1,4 +1,8 @@
-import {nextQuestion, previousQuestion} from '../domain/questionModel';
+import {
+  nextQuestion,
+  previousQuestion,
+  visibleQuestions,
+} from '../domain/questionModel';
 
 const actions = {
   SET_VALUE: 'SET_VALUE',
@@ -6,6 +10,7 @@ const actions = {
   SET_CURRENT_QUESTION_KEY: 'SET_CURRENT_QUESTION_KEY',
   GO_TO_NEXT_QUESTION: 'GO_TO_NEXT_QUESTION',
   GO_TO_PREVIOUS_QUESTION: 'GO_TO_PREVIOUS_QUESTION',
+  GO_TO_CHOSEN_QUESTION: 'GO_TO_CHOSEN_QUESTION',
 };
 
 const createInitialState = () => ({
@@ -61,6 +66,12 @@ const reducer = (state = createInitialState(), action) => {
       return {
         ...state,
         currentQuestionKey: previousQuestionKey,
+      };
+    }
+    case actions.GO_TO_CHOSEN_QUESTION: {
+      return {
+        ...state,
+        currentQuestionKey: visibleQuestions(state.form)[action.index].key,
       };
     }
     default: {

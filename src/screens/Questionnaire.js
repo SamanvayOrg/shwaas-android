@@ -6,13 +6,13 @@ import {
   nextQuestion,
   previousQuestion,
   questionWithKey,
-  visibleQuestions,
 } from '../domain/questionModel';
 import Question from '../components/questions/Question';
 import {
   goToNextQuestion,
   goToPreviousQuestion,
   setValue,
+  goToChosenQuestion,
 } from '../actions/form';
 import BaseScreen from '../components/common/BaseScreen';
 import {BackHandler, View} from 'react-native';
@@ -28,6 +28,7 @@ const Questionnaire = ({
   setValue,
   goToNextQuestion,
   goToPreviousQuestion,
+  goToChosenQuestion,
   navigation,
 }) => {
   useFocusEffect(
@@ -79,7 +80,11 @@ const Questionnaire = ({
 
   return (
     <View style={{flex: 1}}>
-      <Breadcrumb form={form} currentIndex={indexOfQuestion(form, question)} />
+      <Breadcrumb
+        form={form}
+        currentIndex={indexOfQuestion(form, question)}
+        onQuestionChange={goToChosenQuestion}
+      />
       <BaseScreen>
         <Question
           number={indexOfQuestion(form, question) + 1}
@@ -112,4 +117,5 @@ export default connect(mapStateToProps, {
   setValue,
   goToNextQuestion,
   goToPreviousQuestion,
+  goToChosenQuestion,
 })(Questionnaire);

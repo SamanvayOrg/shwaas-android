@@ -28,7 +28,7 @@ const getColor = function (visibleQuestions, form, index, currentIndex) {
   return outputColors[output];
 };
 
-const Breadcrumb = ({style, theme, form, currentIndex}) => {
+const Breadcrumb = ({style, theme, form, currentIndex, onQuestionChange}) => {
   return (
     <View style={[styles.wrapper]}>
       {visibleQuestions(form).map((vq, index, arr) => {
@@ -43,7 +43,10 @@ const Breadcrumb = ({style, theme, form, currentIndex}) => {
               borderRadius: 11,
             }}>
             <Text
-              style={{color: Colors.white, alignSelf: 'center', fontSize: 18}}>
+              style={{color: Colors.white, alignSelf: 'center', fontSize: 18}}
+              onPress={() => {
+                onQuestionChange(index);
+              }}>
               {index + 1}
             </Text>
           </Surface>
