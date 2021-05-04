@@ -107,6 +107,9 @@ const messages = {
   no: 'No',
   unsure: 'Unsure',
   forThisPerson: 'For this person the app is',
+  diabetesStatus: 'Status of Diabetes',
+  diabetesControlled: 'Controlled',
+  diabetesUncontrolled: 'Uncontrolled'
 };
 
 const get = str => messages[str] || str;

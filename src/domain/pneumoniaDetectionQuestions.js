@@ -34,6 +34,7 @@ import accessToPulseOximeter from './questions/accessToPulseOxiMeter';
 import pregnant from './questions/pregnant';
 import age from './questions/age';
 import bmi from './questions/bmi';
+import diabetesStatus from './questions/diabetesStatus';
 
 export default [
   coughInPast7Days,
@@ -60,6 +61,7 @@ export default [
   fbs,
   pp2bs,
   rbs,
+  diabetesStatus,
   hba1c,
   healthProviderDiabetesAdvice,
   heartDiseaseStatus,
