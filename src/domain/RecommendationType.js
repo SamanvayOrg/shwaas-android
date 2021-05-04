@@ -20,7 +20,11 @@ export default class RecommendationType {
     'youNeedTo',
     '#D6932E',
   );
-  static NotUseful = new RecommendationType('notUseful', '', '#D6932E');
+  static NotUseful = new RecommendationType(
+    'notUseful',
+    'forThisPerson',
+    '#D6932E',
+  );
 
   static mapping = {
     green: RecommendationType.Safe,
