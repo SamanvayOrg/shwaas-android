@@ -22,7 +22,9 @@ const disclaimerAccepted = async () => {
 
 export default ({onCancel, onAccept}) => {
   return (
-    <View style={{flex: 1, margin: 20}}>
+    <ScrollView
+      showsVerticalScrollIndicator={false}
+      style={{flex: 1, margin: 20}}>
       <Text style={styles.title}>{messages.title}</Text>
       <View style={{marginTop: 10, marginBottom: 50}}>
         <HandShow height={height * 0.3} width={width * 0.9} />
@@ -31,7 +33,7 @@ export default ({onCancel, onAccept}) => {
         {messages.get('disclaimer-part-1')}
       </Text>
       <Text style={{marginTop: 10}}>{messages.get('disclaimer-part-2')}</Text>
-      <ScrollView showsVerticalScrollIndicator={false}>
+      <View showsVerticalScrollIndicator={false}>
         <View
           style={{
             flexDirection: 'row',
@@ -53,7 +55,7 @@ export default ({onCancel, onAccept}) => {
             {messages.get('cancel')}
           </Button>
         </View>
-      </ScrollView>
-    </View>
+      </View>
+    </ScrollView>
   );
 };
