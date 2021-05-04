@@ -1,6 +1,6 @@
 import React from 'react';
 import {View} from 'react-native';
-import {Text} from 'react-native-paper';
+import {Surface, Text} from 'react-native-paper';
 import messages from '../messages';
 
 export default ({data}) => {
@@ -33,6 +33,33 @@ export default ({data}) => {
           </Text>
         </View>
       </View>
+
+      <Surface
+        style={{
+          minHeight: 144,
+          padding: 16,
+          marginTop: 8,
+          backgroundColor: data.shortMessageTextAndOuterBoxColor,
+        }}>
+        <Text
+          style={{
+            fontSize: 24,
+            fontWeight: 'bold',
+            alignSelf: 'center',
+            color: '#EEF7F1',
+          }}>
+          Recommendation
+        </Text>
+        <Text
+          style={{
+            fontSize: 18,
+            lineHeight: 28,
+            marginTop: 8,
+            color: '#EEF7F1',
+          }}>
+          {messages[data.description]}
+        </Text>
+      </Surface>
     </View>
   );
 };

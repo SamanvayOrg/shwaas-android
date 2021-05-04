@@ -103,5 +103,9 @@
   "disclaimer-part-1": "This mobile app has been designed for frontline health workers who have been trained to use this app. If you are not a qualified medical professional please do not implement the advice given by this app without consulting a trained medical professional first. You should be above age of 21 to use this app.",
   "disclaimer-part-2": "The mobile app doesn't store any data entered on its servers, on the mobile device, or elsewhere. Only your language preference and your consent to this disclaimer will be stored on the mobile device, but not transferred to any servers.",
   "accept": "Agree & Accept",
-  "cancel": "Cancel & Exit"
+  "cancel": "Cancel & Exit",
+  "manageAtHomeOrVillage": "- Check this app every 24 hours\n- Eat good food (lots of rice, dal, milk, groundnuts, sugar, eggs, meat etc)\n- Drink 3-4 litres of water in a day",
+  "lessThan3YellowMessage": "3 or less yellows",
+  "moreThan3YellowMessage": "More than 3 yellows",
+  "admitAtHospital": "Admit in a hospital for oxygen, detailed management."
 }
