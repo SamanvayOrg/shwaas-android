@@ -33,7 +33,6 @@ const Breadcrumb = ({style, theme, form, currentIndex}) => {
     <View style={[styles.wrapper]}>
       {visibleQuestions(form).map((vq, index, arr) => {
         let color = getColor(arr, form, index, currentIndex);
-        console.log('Breadcrumb', color);
         return (
           <Surface
             key={`q-${index}`}
