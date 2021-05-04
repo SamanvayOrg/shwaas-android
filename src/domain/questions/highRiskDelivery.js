@@ -6,12 +6,12 @@ const key = 'highRiskDelivery';
 const show = form => form.pregnant === true;
 
 const output = form =>
-  form[key] === 'Yes' ? outputWeight.red : outputWeight.yellow;
+  form[key] === 'yes' ? outputWeight.red : outputWeight.yellow;
 
 export default {
   key,
   type: questionTypes.singleChoice,
-  options: ['Yes', 'No', 'Unsure'],
+  options: ['yes', 'no', 'unsure'],
   show,
   output,
 };
