@@ -1,7 +1,32 @@
 import pneumoniaDetectionQuestions from './pneumoniaDetectionQuestions';
 import {outputWeight} from './questions/utils';
+import questionTypes from './questionTypes';
+import messages from './messages';
 
 const questions = pneumoniaDetectionQuestions;
+
+const isFunction = (functionToCheck) => {
+  return functionToCheck && {}.toString.call(functionToCheck) === '[object Function]';
+};
+
+questions.map(question => {
+  if (!question.key) {
+    console.error(`Question does not have key - ${JSON.stringify(question)}`);
+    return;
+  }
+  if (!messages[question.key]) {
+    console.error(`Question ${question.key} should have a key in messages`);
+  }
+  if (!questionTypes[question.type]) {
+    console.error(`Question ${question.key} does not have the right type`);
+  }
+  if (!isFunction(question.show)) {
+    console.error(`Question ${question.key} does not have the show function`);
+  }
+  if (!isFunction(question.output)) {
+    console.error(`Question ${question.key} does not have the output function`);
+  }
+});
 
 const visibleQuestions = (form = {}) =>
   questions.filter(question => question.show(form) === true);
@@ -47,7 +72,9 @@ const questionWithKey = key => questions.find(question => question.key === key);
 
 const calculateRisk = (form) => {
   const answerKeys = Object.keys(form);
-  const notUseful = answerKeys.some(answerKey => {  console.log(answerKey); return questionWithKey(answerKey).output(form) === outputWeight.black});
+  const notUseful = answerKeys.some(answerKey => {
+    return questionWithKey(answerKey).output(form) === outputWeight.black
+  });
   if (notUseful) return outputWeight.black;
 
   const red = answerKeys.some(answerKey => questionWithKey(answerKey).output(form) === outputWeight.red);

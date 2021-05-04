@@ -22,6 +22,10 @@ const reducer = (state = createInitialState(), action) => {
 
   switch (action.type) {
     case actions.SET_VALUE: {
+      // console.log('state', {
+      //   ...state.form,
+      //   ...getValue(action.key, action.value),
+      // });
       return {
         ...state,
         form: {

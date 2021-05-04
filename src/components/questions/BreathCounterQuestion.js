@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
 });
 
 const {height} = Dimensions.get('window');
-const MAX_TIME_SECOND = 10;
+const MAX_TIME_SECOND = 60;
 
 export default ({number, question, onAnswered = () => {}, value = 0}) => {
   const [timer, setTimer] = useState(value === 0 ? MAX_TIME_SECOND : 0);
