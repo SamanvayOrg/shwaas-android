@@ -22,14 +22,13 @@ const styles = StyleSheet.create({
 const {width} = Dimensions.get('window');
 
 const Home = ({navigation, resetCalculator}) => {
-
   useEffect(() => navigation.addListener('focus', resetCalculator), []);
 
   return (
     <View style={styles.wrapper}>
       <Text style={styles.welcomeMessage}>{messages.welcome}</Text>
       <View style={styles.pushDown}>
-        <HandShow height={width * 0.8} width={width * 0.8}/>
+        <HandShow height={width * 0.8} width={width * 0.8} />
       </View>
       <Button
         icon="arrow-right"

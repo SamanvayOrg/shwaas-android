@@ -8,7 +8,11 @@ import {
   questionWithKey,
 } from '../domain/questionModel';
 import Question from '../components/questions/Question';
-import {goToNextQuestion, goToPreviousQuestion, setValue,} from '../actions/form';
+import {
+  goToNextQuestion,
+  goToPreviousQuestion,
+  setValue,
+} from '../actions/form';
 import BaseScreen from '../components/common/BaseScreen';
 import {BackHandler, View} from 'react-native';
 import PrevNextNavigator from '../components/PrevNextNavigator';
@@ -17,14 +21,13 @@ import {useFocusEffect} from '@react-navigation/native';
 import {outputWeight} from '../domain/questions/utils';
 
 const Questionnaire = ({
-                         form,
-                         currentQuestionKey,
-                         setValue,
-                         goToNextQuestion,
-                         goToPreviousQuestion,
-                         navigation,
-                       }) => {
-
+  form,
+  currentQuestionKey,
+  setValue,
+  goToNextQuestion,
+  goToPreviousQuestion,
+  navigation,
+}) => {
   useFocusEffect(
     React.useCallback(() => {
       const onBackPress = () => {
@@ -42,7 +45,7 @@ const Questionnaire = ({
 
       return () =>
         BackHandler.removeEventListener('hardwareBackPress', onBackPress);
-    }, [form, currentQuestionKey])
+    }, [form, currentQuestionKey]),
   );
 
   useEffect(() => {
@@ -86,7 +89,9 @@ const Questionnaire = ({
         onPrevious={goToPreviousQuestion}
         onNext={() => {
           let calculatedRisk = calculateRisk(form);
-          return nextQuestion(form, currentQuestionKey) ? goToNextQuestion() : navigation.navigate('Recommendations', {risk: calculatedRisk});
+          return nextQuestion(form, currentQuestionKey)
+            ? goToNextQuestion()
+            : navigation.navigate('Recommendations', {risk: calculatedRisk});
         }}
         firstPage={!previousQuestion(form, currentQuestionKey)}
         lastPage={false}

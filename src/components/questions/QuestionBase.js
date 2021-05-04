@@ -5,7 +5,9 @@ import React from 'react';
 import Space from '../common/Space';
 
 export default ({number, question, children}) => {
-  const headline = `${messages[question.key]} ${question.unit? `(${question.unit})`: ''}`;
+  const headline = `${messages[question.key]} ${
+    question.unit ? `(${question.unit})` : ''
+  }`;
   return (
     <View>
       <Caption>Question {number}</Caption>

@@ -105,7 +105,7 @@ const messages = {
   reset: 'Reset',
   yes: 'Yes',
   no: 'No',
-  unsure: 'Unsure'
+  unsure: 'Unsure',
 };
 
 const get = str => messages[str] || str;

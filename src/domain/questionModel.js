@@ -5,8 +5,10 @@ import messages from './messages';
 
 const questions = pneumoniaDetectionQuestions;
 
-const isFunction = (functionToCheck) => {
-  return functionToCheck && {}.toString.call(functionToCheck) === '[object Function]';
+const isFunction = functionToCheck => {
+  return (
+    functionToCheck && {}.toString.call(functionToCheck) === '[object Function]'
+  );
 };
 
 questions.map(question => {
@@ -70,17 +72,22 @@ const numberOfQuestions = form => visibleQuestions(form).length;
 
 const questionWithKey = key => questions.find(question => question.key === key);
 
-const calculateRisk = (form) => {
+const calculateRisk = form => {
   const answerKeys = Object.keys(form);
   const notUseful = answerKeys.some(answerKey => {
-    return questionWithKey(answerKey).output(form) === outputWeight.black
+    return questionWithKey(answerKey).output(form) === outputWeight.black;
   });
   if (notUseful) return outputWeight.black;
 
-  const red = answerKeys.some(answerKey => questionWithKey(answerKey).output(form) === outputWeight.red);
+  const red = answerKeys.some(
+    answerKey => questionWithKey(answerKey).output(form) === outputWeight.red,
+  );
   if (red) return outputWeight.red;
 
-  let yellowQuestions = answerKeys.filter(answerKey => questionWithKey(answerKey).output(form) === outputWeight.yellow);
+  let yellowQuestions = answerKeys.filter(
+    answerKey =>
+      questionWithKey(answerKey).output(form) === outputWeight.yellow,
+  );
   const yellow = yellowQuestions.length <= 3 && yellowQuestions > 0;
   if (yellow) return outputWeight.yellow;
 

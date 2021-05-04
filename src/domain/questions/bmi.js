@@ -5,7 +5,9 @@ const key = 'bmi';
 
 const value = form => {
   const {height, weight} = form;
-  return form.weight && form.height ? parseFloat((10000 * weight / height / height).toFixed(2)) : 0;
+  return form.weight && form.height
+    ? parseFloat(((10000 * weight) / height / height).toFixed(2))
+    : 0;
 };
 
 const show = form => {
@@ -22,5 +24,5 @@ export default {
   type: questionTypes.information,
   show,
   output,
-  value
+  value,
 };

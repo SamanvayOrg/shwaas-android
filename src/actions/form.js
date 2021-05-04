@@ -9,7 +9,7 @@ const setValue = (question, value) => ({
 const goToNextQuestion = () => {
   return {
     type: actions.GO_TO_NEXT_QUESTION,
-  }
+  };
 };
 
 const goToPreviousQuestion = () => ({
