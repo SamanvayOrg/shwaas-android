@@ -1,57 +1,71 @@
-import React from 'react';
-import {
-  Badge,
-  Button,
-  Colors,
-  Surface,
-  Text,
-  withTheme,
-} from 'react-native-paper';
-import {View, StyleSheet} from 'react-native';
+import React, {useEffect, useRef} from 'react';
+import {Colors, Text, withTheme} from 'react-native-paper';
+import {Dimensions, ScrollView, StyleSheet, View} from 'react-native';
 import _ from 'lodash';
-import {outputColors} from '../domain/questions/utils';
+import {isDefined, outputColors} from '../domain/questions/utils';
 import {visibleQuestions} from '../domain/questionModel';
 
 const styles = StyleSheet.create({
   wrapper: {
-    marginTop: 4,
     marginHorizontal: 4,
     flexDirection: 'row',
-    alignItems: 'center',
+    height: 70,
   },
 });
 
 const getColor = function (visibleQuestions, form, index, currentIndex) {
-  let output = visibleQuestions[index].output(form);
   if (index === currentIndex) return '#2490EF';
+  if (!isDefined(form[visibleQuestions[index].key])) {
+    return '#74808B';
+  }
+  let output = visibleQuestions[index].output(form);
   if (_.isNil(output)) return '#74808B';
   return outputColors[output];
 };
 
 const Breadcrumb = ({style, theme, form, currentIndex, onQuestionChange}) => {
+  const scrollViewRef = useRef();
+
+  useEffect(() => {
+    const widthOfACircle = 66;
+    const totalWidthOfScreen = Dimensions.get('window').width;
+    let scrollToX = widthOfACircle * currentIndex - totalWidthOfScreen / 2 + 32;
+    scrollViewRef.current.scrollTo({y: 0, x: scrollToX, animated: true});
+  }, [currentIndex]);
+
   return (
-    <View style={[styles.wrapper]}>
-      {visibleQuestions(form).map((vq, index, arr) => {
-        let color = getColor(arr, form, index, currentIndex);
-        return (
-          <Surface
-            key={`q-${index}`}
-            style={{
-              backgroundColor: color,
-              width: 25,
-              marginRight: 4,
-              borderRadius: 11,
-            }}>
-            <Text
-              style={{color: Colors.white, alignSelf: 'center', fontSize: 18}}
-              onPress={() => {
-                onQuestionChange(index);
+    <View style={{height: 96}}>
+      <ScrollView
+        ref={scrollViewRef}
+        style={[styles.wrapper]}
+        contentContainerStyle={{alignItems: 'center'}}
+        horizontal>
+        {visibleQuestions(form).map((vq, index, arr) => {
+          let color = getColor(arr, form, index, currentIndex);
+          return (
+            <View
+              key={`q-${index}`}
+              style={{
+                backgroundColor: color,
+                width: 50,
+                height: 50,
+                marginHorizontal: 8,
+                borderRadius: 25,
+                justifyContent: 'center',
+                alignItems: 'center',
+                marginVertical: 10,
               }}>
-              {index + 1}
-            </Text>
-          </Surface>
-        );
-      })}
+              <Text
+                style={{color: Colors.white, alignSelf: 'center', fontSize: 18}}
+                onPress={() => {
+                  onQuestionChange(index);
+                }}>
+                {index + 1}
+              </Text>
+            </View>
+          );
+        })}
+      </ScrollView>
     </View>
   );
 };

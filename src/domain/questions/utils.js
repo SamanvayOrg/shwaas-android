@@ -18,4 +18,13 @@ const alwaysGreen = () => outputWeight.green;
 const redIfTrue = value =>
   value === true ? outputWeight.red : outputWeight.green;
 
-export {alwaysShow, alwaysGreen, outputWeight, redIfTrue, outputColors};
+const isDefined = item => item !== undefined && item !== null;
+
+export {
+  alwaysShow,
+  alwaysGreen,
+  outputWeight,
+  redIfTrue,
+  outputColors,
+  isDefined,
+};
