@@ -99,6 +99,9 @@
   "diabetesStatus": "Status of Diabetes",
   "diabetesControlled": "Controlled",
   "diabetesUncontrolled": "Uncontrolled",
-  "breathCounter": "Breath Counter"
+  "breathCounter": "Breath Counter",
+  "disclaimer-part-1": "This mobile app has been designed for frontline health workers who have been trained to use this app. If you are not a qualified medical professional please do not implement the advice given by this app without consulting a trained medical professional first. You should be above age of 21 to use this app.",
+  "disclaimer-part-2": "The mobile app doesn't store any data entered on its servers, on the mobile device, or elsewhere. Only your language preference and your consent to this disclaimer will be stored on the mobile device, but not transferred to any servers.",
+  "accept": "Agree & Accept",
+  "cancel": "Cancel & Exit"
 }
-
