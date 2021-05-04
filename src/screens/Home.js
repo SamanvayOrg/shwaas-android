@@ -10,11 +10,22 @@ import {useFocusEffect} from '@react-navigation/native';
 const styles = StyleSheet.create({
   wrapper: {flex: 1, alignItems: 'center', backgroundColor: 'white'},
   welcomeMessage: {
+    color: '#2A4965',
+    fontSize: 24,
+    textAlign: 'center',
+    marginTop: 2,
+  },
+  title: {
     fontWeight: 'bold',
     color: '#2A4965',
     fontSize: 45,
     textAlign: 'center',
-    marginTop: 24,
+  },
+  subtitle: {
+    color: '#2A4965',
+    fontSize: 32,
+    textAlign: 'center',
+    marginTop: 2,
   },
   pushDown: {marginTop: 'auto'},
   buttonStyle: {width: '100%', borderRadius: 0},
@@ -26,9 +37,11 @@ const Home = ({navigation, resetCalculator}) => {
 
   return (
     <View style={styles.wrapper}>
-      <Text style={styles.welcomeMessage}>{messages.welcome}</Text>
+      <Text style={styles.welcomeMessage}>Welcome to</Text>
+      <Text style={styles.title}>{messages.title}</Text>
+      <Text style={styles.subtitle}>{messages.subTitle}</Text>
       <View style={styles.pushDown}>
-        <HandShow height={width * 0.8} width={width * 0.8} />
+        <HandShow height={width * 0.7} width={width * 0.8} />
       </View>
       <Button
         icon="arrow-right"
