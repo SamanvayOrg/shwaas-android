@@ -50,6 +50,7 @@ const Breadcrumb = ({style, theme, form, currentIndex, onQuestionChange}) => {
           let color = getColor(arr, form, index, currentIndex);
           return (
             <TouchableNativeFeedback
+              key={`q-${index}`}
               onPress={() => {
                 onQuestionChange(index);
               }}
@@ -59,7 +60,6 @@ const Breadcrumb = ({style, theme, form, currentIndex, onQuestionChange}) => {
                 25,
               )}>
               <View
-                key={`q-${index}`}
                 style={{
                   backgroundColor: color,
                   width: 50,
