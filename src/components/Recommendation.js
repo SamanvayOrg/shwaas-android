@@ -1,7 +1,9 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
-import {Paragraph, Text} from 'react-native-paper';
+import {Paragraph, Text, Button} from 'react-native-paper';
 import messages from '../messages';
+import {useDispatch} from 'react-redux';
+import {resetCalculator} from '../actions/form';
 
 const styles = StyleSheet.create({
   container: {flex: 1, marginTop: 20, paddingHorizontal: 10},
@@ -31,7 +33,8 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ({data}) => {
+export default ({data, navigation}) => {
+  const dispatch = useDispatch();
   return (
     <View style={styles.container}>
       <View
@@ -56,6 +59,16 @@ export default ({data}) => {
         <Text style={{textAlign: 'center', fontSize: 32}}>Next steps</Text>
         <Paragraph>{messages[data.nextSteps]}</Paragraph>
       </View>
+      <Button
+        contentStyle={{height: 70}}
+        icon="restart"
+        mode="contained"
+        onPress={() => {
+          dispatch(resetCalculator());
+          navigation.pop(2);
+        }}>
+        Start over
+      </Button>
     </View>
   );
 };
