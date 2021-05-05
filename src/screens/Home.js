@@ -37,7 +37,7 @@ const Home = ({navigation, resetCalculator}) => {
 
   return (
     <View style={styles.wrapper}>
-      <Text style={styles.welcomeMessage}>Welcome to</Text>
+      <Text style={styles.welcomeMessage}>{messages.welcome}</Text>
       <Text style={styles.title}>{messages.title}</Text>
       <Text style={styles.subtitle}>{messages.subTitle}</Text>
       <View style={styles.pushDown}>
@@ -53,7 +53,7 @@ const Home = ({navigation, resetCalculator}) => {
         onPress={() => {
           navigation.navigate('Questionnaire');
         }}>
-        Get started
+        {messages.getStarted}
       </Button>
     </View>
   );

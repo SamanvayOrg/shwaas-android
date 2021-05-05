@@ -10,7 +10,7 @@ const strings = {
 const get = str => messages[str] || str;
 
 let messages = new LocalizedStrings(strings);
-messages.setLanguage('en');
+messages.setLanguage('hi_In');
 
 export default {
   ...messages,

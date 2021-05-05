@@ -1,4 +1,5 @@
 {
+  "getStarted": "Get Started",
   "toolUnlikelyToHelpPerson": "This tool will less likely help the person. If they are feeling unwell kindly consult nearby health care provider",
   "coughInPast7Days": "Does the person have cough in the past 7 days",
   "feverInPast7Days": "Does the person have fever in the past 7 days",
@@ -108,7 +109,6 @@
   "admitInHospital":"Admit in a hospital for oxygen, detailed management.",
   "referToDistrictHospital":"Consult at CHC/ sub district hospital.",
   "referToDoctor":"Follow up at PHC/CHC level or covid care centres.",
-  "manageAtHomeOrVillage": "- Check this app every 24 hours\n- Eat good food (lots of rice, dal, milk, groundnuts, sugar, eggs, meat etc)\n- Drink 3-4 litres of water in a day",
   "lessThan3YellowMessage": "3 or less yellows",
   "moreThan3YellowMessage": "More than 3 yellows",
   "admitAtHospital": "Admit in a hospital for oxygen, detailed management.",

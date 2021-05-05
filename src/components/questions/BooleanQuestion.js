@@ -4,6 +4,7 @@ import {Text} from 'react-native-paper';
 import HorizontalComponent from '../common/HorizontalComponent';
 import QuestionBase from './QuestionBase';
 import {outputColors} from '../../domain/questions/utils';
+import messages from '../../messages';
 
 const styles = StyleSheet.create({
   square: {
@@ -39,13 +40,13 @@ export default ({number, question, onAnswered = () => {}, value}) => {
     <QuestionBase number={number} question={question}>
       <HorizontalComponent style={styles.basicBox}>
         <YesNoButton
-          text={'Yes'}
+          text={messages.yes}
           color={styles.green}
           selected={value === true}
           onPress={() => onAnswered(question, true)}
         />
         <YesNoButton
-          text={'No'}
+          text={messages.no}
           color={styles.red}
           selected={value === false}
           onPress={() => onAnswered(question, false)}
