@@ -59,8 +59,13 @@ const Questionnaire = ({
       recommendation === RecommendationType.NotUseful
     ) {
       navigation.navigate('Recommendations', {recommendation});
-    } else {
+      return;
+    }
+
+    if (nextQuestion(form, currentQuestionKey)) {
       goToNextQuestion();
+    } else {
+      navigation.navigate('Recommendations', {recommendation});
     }
   };
 
@@ -101,12 +106,7 @@ const Questionnaire = ({
       </BaseScreen>
       <PrevNextNavigator
         onPrevious={goToPreviousQuestion}
-        onNext={() => {
-          let recommendation = getRecommendation(form);
-          return nextQuestion(form, currentQuestionKey)
-            ? goToNextQuestionIfNecessary()
-            : navigation.navigate('Recommendations', {recommendation});
-        }}
+        onNext={goToNextQuestionIfNecessary}
         firstPage={!previousQuestion(form, currentQuestionKey)}
         lastPage={false}
       />
