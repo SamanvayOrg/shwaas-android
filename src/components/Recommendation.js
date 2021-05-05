@@ -4,6 +4,7 @@ import {Paragraph, Text, Button} from 'react-native-paper';
 import {t} from '../messages';
 import {useDispatch} from 'react-redux';
 import {resetCalculator} from '../actions/form';
+import LocalStorage from '../LocalStorage';
 
 const styles = StyleSheet.create({
   container: {flex: 1, marginTop: 20, paddingHorizontal: 10},
@@ -67,7 +68,12 @@ export default ({data, navigation}) => {
         mode="contained"
         onPress={() => {
           dispatch(resetCalculator());
-          navigation.pop(2);
+          LocalStorage.getLocalState().then(localState => {
+            navigation.reset({
+              index: 0,
+              routes: [{name: 'Home', params: {localState: localState}}],
+            });
+          });
         }}>
         {t('startOver')}
       </Button>

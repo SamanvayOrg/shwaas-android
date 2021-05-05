@@ -1,18 +1,12 @@
-import {
-  FlatList,
-  ScrollView,
-  StyleSheet,
-  TouchableNativeFeedback,
-  View,
-} from 'react-native';
+import {ScrollView, StyleSheet} from 'react-native';
 import React, {useState} from 'react';
 import {changeLanguage, t} from '../messages';
-import {Text, List} from 'react-native-paper';
+import {List} from 'react-native-paper';
 import LocalStorage from '../LocalStorage';
 
 const languageOptions = [
-  {label: t('English'), locale: 'en'},
-  {label: t('Hindi'), locale: 'hi_In'},
+  {label: 'english', locale: 'en'},
+  {label: 'hindi', locale: 'hi_In'}
 ];
 
 const styles = StyleSheet.create({
@@ -46,8 +40,8 @@ export default ({selectedLanguageLocale, onLanguageSelect}) => {
 
   const chooseLanguage = function (lang) {
     LocalStorage.languageSelected(lang.locale).then(() => {
-      setLanguageLocale(lang.locale);
       changeLanguage(lang.locale);
+      setLanguageLocale(lang.locale);
       onLanguageSelect();
     });
   };
@@ -59,7 +53,7 @@ export default ({selectedLanguageLocale, onLanguageSelect}) => {
         return (
           <List.Item
             key={language.locale}
-            title={language.label}
+            title={t(language.label)}
             style={[
               styles.commonItem,
               isSelected ? styles.selectedItem : styles.nonSelectedItem,

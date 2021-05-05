@@ -3,7 +3,7 @@ import {Text, Appbar} from 'react-native-paper';
 import HorizontalComponent from '../components/common/HorizontalComponent';
 import {View, StyleSheet, TouchableNativeFeedback} from 'react-native';
 import LanguageSelection from '../components/LanguageSelection';
-import {t} from '../messages';
+import messages, {printCurrentLanguage, t} from '../messages';
 
 const styles = StyleSheet.create({
   basicBox: {
@@ -54,6 +54,8 @@ const back = function (navigation, flow) {
 };
 
 const LanguageSelectScreen = ({navigation, route}) => {
+  printCurrentLanguage();
+
   const [languageSelected, setLanguageSelected] = useState(
     route.params.localState && route.params.localState.languageSelected,
   );
