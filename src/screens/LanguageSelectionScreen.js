@@ -82,7 +82,10 @@ const LanguageSelectScreen = ({navigation, language}) => {
           <Text style={styles.appBarText}>{t('selectLanguage')}</Text>
           <TouchableNativeFeedback
             onPress={() => {
-              navigation.navigate('Questionnaire');
+              navigation.reset({
+                index: 1,
+                routes: [{name: 'Home'}, {name: 'Questionnaire'}],
+              });
             }}>
             <View>
               <Text style={styles.appBarText}>{t('next')}</Text>

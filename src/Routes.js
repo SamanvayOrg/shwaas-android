@@ -1,5 +1,5 @@
 import React from 'react';
-import {createStackNavigator} from '@react-navigation/stack';
+import {createStackNavigator, HeaderBackButton} from '@react-navigation/stack';
 import Home from './screens/Home';
 import BasicDetails from './screens/BasicDetails';
 import Questionnaire from './screens/Questionnaire';
@@ -17,7 +17,9 @@ const Route = (disclaimerAccepted, language) => (
       component={DisclaimerScreen}
       options={{headerShown: false}}
     />
-    <Stack.Screen name="Home" component={Home} options={{headerShown: false}} />
+    <Stack.Screen name="Home" options={{headerShown: false}}>
+      {props => <Home {...props} language={language} />}
+    </Stack.Screen>
     <Stack.Screen name={'LanguageSelection'} options={{headerShown: false}}>
       {props => <LanguageSelectScreen {...props} language={language} />}
     </Stack.Screen>

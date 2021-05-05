@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
 });
 const {width} = Dimensions.get('window');
 
-const Home = ({navigation, resetCalculator}) => {
+const Home = ({navigation, resetCalculator, language}) => {
   useEffect(() => navigation.addListener('focus', resetCalculator), []);
 
   return (
@@ -50,7 +50,7 @@ const Home = ({navigation, resetCalculator}) => {
         color="#2A4965"
         mode={'contained'}
         onPress={() => {
-          navigation.navigate('LanguageSelection');
+          navigation.navigate(language ? 'Questionnaire' : 'LanguageSelection');
         }}>
         {t('getStarted')}
       </Button>
