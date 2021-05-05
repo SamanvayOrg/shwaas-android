@@ -40,7 +40,7 @@ class App extends Component {
 
   componentWillMount(): void {
     AsyncStorage.getItem('language').then(local => {
-      changeLanguage(local);
+      local && changeLanguage(local);
       this.setState({language: local});
     });
   }
