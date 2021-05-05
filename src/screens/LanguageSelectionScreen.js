@@ -1,14 +1,15 @@
 import React from 'react';
 import {Text, Appbar} from 'react-native-paper';
 import {
-  Dimensions,
   View,
   StyleSheet,
   TouchableNativeFeedback,
   FlatList,
 } from 'react-native';
 import HorizontalComponent from '../components/common/HorizontalComponent';
-import messages from '../messages';
+import {t, changeLanguage} from '../messages';
+import {find} from 'lodash';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const styles = StyleSheet.create({
   basicBox: {
@@ -19,68 +20,80 @@ const styles = StyleSheet.create({
   },
   appBarText: {
     color: 'white',
+    fontSize: 20,
+  },
+  itemStyle: {
+    backgroundColor: '#F4F5F6',
+    paddingHorizontal: 10,
+    marginVertical: 8,
+    minHeight: 50,
+    borderRadius: 4,
+    justifyContent: 'center',
+  },
+  answerText: {
+    fontSize: 24,
+    color: '#000',
   },
 });
 
 const languageOptions = [
   {label: 'English', locale: 'en'},
-  {label: 'हिंदी (Hindi)', locale: 'en_IN'},
+  {label: 'हिंदी (Hindi)', locale: 'hi_In'},
 ];
 
-const Item = ({item, value}) => {
-  const isSelected = value === title;
-
+const Locale = ({item, setLanguageOption, languageOption}) => {
   const {label, locale} = item;
+  const isSelected = languageOption && languageOption.locale === locale;
 
   return (
     <TouchableNativeFeedback
       onPress={() => {
-        messages.setLanguage(locale);
+        AsyncStorage.setItem('language', locale)
+          .then(() => changeLanguage(locale))
+          .then(() => setLanguageOption(item));
       }}>
-      <View style={[isSelected ? styles.selectedItem : styles.nonSelectedItem]}>
-        <Text
-          style={[
-            isSelected
-              ? styles.selectedAnswerText
-              : styles.nonSelectedAnswerText,
-          ]}>
-          {title}
+      <View
+        style={[styles.itemStyle, isSelected && {backgroundColor: '#38A160'}]}>
+        <Text style={[styles.answerText, isSelected && {color: '#FFF'}]}>
+          {label}
         </Text>
       </View>
     </TouchableNativeFeedback>
   );
 };
 
-const renderItem = ({item}) => (
-  <Item
-    question={question}
-    title={item}
-    onPress={onItemSelected}
-    value={answer}
-  />
-);
+const LanguageSelectScreen = ({navigation, language}) => {
+  const [languageOption, setLanguageOption] = React.useState(
+    find(languageOptions, ({locale}) => locale === language),
+  );
 
-const LanguageSelectScreen = ({navigation}) => {
+  const renderLanguage = ({item}) => (
+    <Locale
+      item={item}
+      languageOption={languageOption}
+      setLanguageOption={setLanguageOption}
+    />
+  );
+
   return (
     <View>
       <Appbar dark="true">
         <HorizontalComponent style={styles.basicBox}>
-          <Text style={styles.appBarText}>Select Language</Text>
+          <Text style={styles.appBarText}>{t('selectLanguage')}</Text>
           <TouchableNativeFeedback
             onPress={() => {
               navigation.navigate('Questionnaire');
             }}>
             <View>
-              <Text style={styles.appBarText}>Next</Text>
+              <Text style={styles.appBarText}>{t('next')}</Text>
             </View>
           </TouchableNativeFeedback>
         </HorizontalComponent>
       </Appbar>
-
       <FlatList
         data={languageOptions}
-        renderItem={renderItem}
-        keyExtractor={item => item}
+        renderItem={renderLanguage}
+        keyExtractor={item => item.locale}
       />
     </View>
   );

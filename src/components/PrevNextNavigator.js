@@ -1,7 +1,7 @@
 import React from 'react';
 import {Button, withTheme} from 'react-native-paper';
 import {View, StyleSheet} from 'react-native';
-import messages from '../messages';
+import {t} from '../messages';
 
 const styles = StyleSheet.create({
   wrapper: {
@@ -42,7 +42,7 @@ const Navigator = ({
           style={styles.previousButton}
           contentStyle={styles.previousButtonContent}
           onPress={onPrevious}>
-          {messages.get('previous')}
+          {t('previous')}
         </Button>
       )}
       {!lastPage && (
@@ -52,7 +52,7 @@ const Navigator = ({
           style={styles.nextButton}
           contentStyle={styles.nextButtonContent}
           onPress={onNext}>
-          {messages.get('next')}
+          {t('next')}
         </Button>
       )}
     </View>

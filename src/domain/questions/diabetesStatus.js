@@ -1,6 +1,6 @@
 import questionTypes from '../questionTypes';
 import {outputWeight} from './utils';
-import messages from '../../messages';
+import {t} from '../../messages';
 
 const key = 'diabetesStatus';
 
@@ -29,8 +29,8 @@ const output = form =>
 
 const value = form => {
   return isControlled(form)
-    ? messages.get('diabetesControlled')
-    : messages.get('diabetesUncontrolled');
+    ? t('diabetesControlled')
+    : t('diabetesUncontrolled');
 };
 
 export default {

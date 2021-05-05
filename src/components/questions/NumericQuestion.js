@@ -1,7 +1,7 @@
 import React from 'react';
 import {TextInput} from 'react-native-paper';
 import QuestionBase from './QuestionBase';
-import messages from '../../messages';
+import {t} from '../../messages';
 
 export default ({number, question, onAnswered = () => {}, value}) => {
   return (
@@ -10,7 +10,7 @@ export default ({number, question, onAnswered = () => {}, value}) => {
         mode={'outlined'}
         keyboardType={'number-pad'}
         label=""
-        placeholder={messages.get(question.unit)}
+        placeholder={t(question.unit)}
         value={value ? value.toString() : undefined}
         onChangeText={value => onAnswered(question, parseInt(value))}
       />

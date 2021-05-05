@@ -10,8 +10,7 @@ import {
 import QuestionBase from './QuestionBase';
 import {Text, Button, TextInput, Card} from 'react-native-paper';
 import {outputColors} from '../../domain/questions/utils';
-import messages from '../../messages';
-
+import {t} from '../../messages';
 
 const styles = StyleSheet.create({
   container: {flexDirection: 'column'},
@@ -80,8 +79,8 @@ export default ({number, question, onAnswered = () => {}, value}) => {
   };
 
   const pressButtonMessage = isFirstPress
-    ? messages.breathCounterStart
-    : messages.breathCounterAfterStart;
+    ? t('breathCounterStart')
+    : t('breathCounterAfterStart');
 
   return (
     <React.Fragment>
@@ -92,14 +91,14 @@ export default ({number, question, onAnswered = () => {}, value}) => {
             mode={'outlined'}
             keyboardType={'number-pad'}
             label=""
-            placeholder={messages.get(question.unit)}
+            placeholder={t(question.unit)}
             value={value ? value.toString() : undefined}
             onChangeText={text => onAnswered(question, parseInt(text))}
           />
         </Card>
         <Card style={styles.counterCard}>
           <Card.Title
-            title={messages.breathCounter}
+            title={t('breathCounter')}
             titleStyle={{textAlign: 'center'}}
           />
           <View style={styles.container}>
@@ -120,13 +119,13 @@ export default ({number, question, onAnswered = () => {}, value}) => {
             <View style={styles.countsContainer}>
               {isTimeComplete ? (
                 <Text style={styles.countText}>
-                  {messages.result} : {`${breathCount} ${messages.bpm}`}
+                  {t('result')} : {`${breathCount} ${t('bpm')}`}
                 </Text>
               ) : (
                 <View>
                   <Text style={styles.countText}>Breaths : {breathCount}</Text>
                   <Text style={styles.countText}>
-                    {messages.seconds} : {timer < 10 ? `0${timer}` : timer}
+                    {t('seconds')} : {timer < 10 ? `0${timer}` : timer}
                   </Text>
                 </View>
               )}
@@ -138,7 +137,7 @@ export default ({number, question, onAnswered = () => {}, value}) => {
               color={'#E24C4C'}
               mode={'contained'}
               onPress={onReset}>
-              {messages.reset}
+              {t('reset')}
             </Button>
           </View>
         </Card>

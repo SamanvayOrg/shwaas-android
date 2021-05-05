@@ -7,12 +7,12 @@ const strings = {
   hi_In: messages_hi_In,
 };
 
-const get = str => messages[str] || str;
+const messages = new LocalizedStrings(strings);
 
-let messages = new LocalizedStrings(strings);
-messages.setLanguage('hi_In');
-
-export default {
-  ...messages,
-  get,
+export const changeLanguage = languageKey => {
+  messages.setLanguage(languageKey);
 };
+
+export const t = str => messages[str] || str;
+
+export default messages;

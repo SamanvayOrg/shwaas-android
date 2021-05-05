@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import {Paragraph, Text, Button} from 'react-native-paper';
-import messages from '../messages';
+import {t} from '../messages';
 import {useDispatch} from 'react-redux';
 import {resetCalculator} from '../actions/form';
 
@@ -43,7 +43,7 @@ export default ({data, navigation}) => {
           {backgroundColor: data.shortMessageTextAndOuterBoxColor},
         ]}>
         <Text style={{color: '#EEF7F1', fontSize: 32}}>
-          {messages[data.startingMessageKey]}
+          {t(data.startingMessageKey)}
         </Text>
         <View style={styles.shortMessageTextContainer}>
           <Text
@@ -51,13 +51,15 @@ export default ({data, navigation}) => {
               styles.shortMessageText,
               {color: data.shortMessageTextAndOuterBoxColor},
             ]}>
-            {messages[data.shortMessageKey]}
+            {t(data.shortMessageKey)}
           </Text>
         </View>
       </View>
       <View style={styles.nextStepsContainer}>
-        <Text style={{textAlign: 'center', fontSize: 32}}>Next steps</Text>
-        <Paragraph>{messages[data.nextSteps]}</Paragraph>
+        <Text style={{textAlign: 'center', fontSize: 32}}>
+          {t('nextSteps')}
+        </Text>
+        <Paragraph>{t(data.nextSteps)}</Paragraph>
       </View>
       <Button
         contentStyle={{height: 70}}
@@ -67,7 +69,7 @@ export default ({data, navigation}) => {
           dispatch(resetCalculator());
           navigation.pop(2);
         }}>
-        {messages.startOver}
+        {t('startOver')}
       </Button>
     </View>
   );

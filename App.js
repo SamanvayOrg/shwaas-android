@@ -13,6 +13,7 @@ import {createStore} from 'redux';
 import rootReducer from './src/reducers/rootReducer';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import _ from 'lodash';
+import {changeLanguage} from './src/messages';
 
 const theme = {
   ...DefaultTheme,
@@ -37,6 +38,13 @@ class App extends Component {
     this.state = {disclaimerAccepted: null};
   }
 
+  componentWillMount(): void {
+    AsyncStorage.getItem('language').then(local => {
+      changeLanguage(local);
+      this.setState({language: local});
+    });
+  }
+
   render() {
     if (_.isNil(this.state.disclaimerAccepted)) {
       isDisclaimerAccepted()
@@ -51,7 +59,7 @@ class App extends Component {
       <Provider store={store}>
         <PaperProvider theme={theme}>
           <NavigationContainer>
-            {Routes(this.state.disclaimerAccepted)}
+            {Routes(this.state.disclaimerAccepted, this.state.language)}
           </NavigationContainer>
         </PaperProvider>
       </Provider>

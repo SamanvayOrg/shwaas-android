@@ -5,10 +5,11 @@ import BasicDetails from './screens/BasicDetails';
 import Questionnaire from './screens/Questionnaire';
 import Recommendations from './screens/RecommendationScreen';
 import DisclaimerScreen from './screens/DisclaimerScreen';
+import LanguageSelectScreen from './screens/LanguageSelectionScreen';
 
 const Stack = createStackNavigator();
 
-const Route = disclaimerAccepted => (
+const Route = (disclaimerAccepted, language) => (
   <Stack.Navigator
     initialRouteName={disclaimerAccepted ? 'Home' : 'Disclaimer'}>
     <Stack.Screen
@@ -17,6 +18,9 @@ const Route = disclaimerAccepted => (
       options={{headerShown: false}}
     />
     <Stack.Screen name="Home" component={Home} options={{headerShown: false}} />
+    <Stack.Screen name={'LanguageSelection'} options={{headerShown: false}}>
+      {props => <LanguageSelectScreen {...props} language={language} />}
+    </Stack.Screen>
     <Stack.Screen name="BasicDetails" component={BasicDetails} />
     <Stack.Screen name="Questionnaire" component={Questionnaire} />
     <Stack.Screen name="Recommendations" component={Recommendations} />

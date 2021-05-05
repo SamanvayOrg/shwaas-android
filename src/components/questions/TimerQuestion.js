@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Colors, Button, Card, ProgressBar} from 'react-native-paper';
 import QuestionBase from './QuestionBase';
-import messages from '../../messages';
+import {t} from '../../messages';
 
 const getDisplayTime = function (seconds) {
   let sec = seconds % 60;
@@ -50,7 +50,7 @@ export default ({number, question, onAnswered = () => {}, value}) => {
         mode={'contained'}
         onPress={() => onStartTimer()}
         disabled={timerRunning}>
-        {messages['startTimer']}
+        {t('startTimer')}
       </Button>
 
       {timerRunning && (
@@ -68,13 +68,13 @@ export default ({number, question, onAnswered = () => {}, value}) => {
 
       {seconds === 360 && (
         <Card>
-          <Card.Title title={messages['sixMinuteComplete']} />
+          <Card.Title title={t('sixMinuteComplete')} />
         </Card>
       )}
 
       {timerRunning && (
         <Button mode={'contained'} onPress={() => onStopTimer()}>
-          {messages['stopTimer']}
+          {t('stopTimer')}
         </Button>
       )}
     </QuestionBase>

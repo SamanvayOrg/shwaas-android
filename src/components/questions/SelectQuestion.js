@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 import {Text} from 'react-native-paper';
 import QuestionBase from './QuestionBase';
-import messages from '../../messages';
+import {t} from '../../messages';
 import questionTypes from '../../domain/questionTypes';
 
 const styles = StyleSheet.create({
@@ -53,7 +53,7 @@ const Item = ({title, onPress, selectedAnswers}) => {
               ? styles.selectedAnswerText
               : styles.nonSelectedAnswerText,
           ]}>
-          {messages[title]}
+          {t(title)}
         </Text>
       </View>
     </TouchableNativeFeedback>

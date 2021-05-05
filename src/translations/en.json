@@ -77,7 +77,7 @@
   "subTitle": "A Chikitsa Sathi",
   "none": "None",
   "previous": "previous",
-  "next": "next",
+  "next": "Next",
   "sixMinuteWalkMessage": "Please ask the person to walk for six (6) minutes",
   "startTimer": "Start timer",
   "stopTimer": "Stop timer",
@@ -116,5 +116,7 @@
   "ensureYouDoThe6MinuteWalk": "It is important to do this test after the person walks for six minutes",
   "sixMinuteTimer": "Ask the person to start walking. Press the 'Start Timer' button once they start walking",
   "takeOximeterReadingAfterThis": "We will take the pulse oximeter reading after 6 minutes of walking",
-  "startOver":"Start over"
+  "startOver":"Start over",
+  "nextSteps": "Next Steps",
+  "selectLanguage": "Select Language"
 }

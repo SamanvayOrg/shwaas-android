@@ -7,7 +7,7 @@ import fbs from './questions/fbs';
 import pp2bs from './questions/pp2bs';
 import rbs from './questions/rbs';
 import hba1c from './questions/hba1c';
-import messages from '../messages';
+import messages from '../translations/en';
 
 const questions = pneumoniaDetectionQuestions;
 

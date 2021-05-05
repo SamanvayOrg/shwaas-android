@@ -2,10 +2,9 @@ import React, {useEffect} from 'react';
 import {Button, Text} from 'react-native-paper';
 import {Dimensions, View, StyleSheet} from 'react-native';
 import HandShow from '../assets/handShow.svg';
-import messages from '../messages';
+import {t} from '../messages';
 import {resetCalculator} from '../actions/form';
 import {connect} from 'react-redux';
-import {useFocusEffect} from '@react-navigation/native';
 
 const styles = StyleSheet.create({
   wrapper: {flex: 1, alignItems: 'center', backgroundColor: 'white'},
@@ -37,9 +36,9 @@ const Home = ({navigation, resetCalculator}) => {
 
   return (
     <View style={styles.wrapper}>
-      <Text style={styles.welcomeMessage}>{messages.welcome}</Text>
-      <Text style={styles.title}>{messages.title}</Text>
-      <Text style={styles.subtitle}>{messages.subTitle}</Text>
+      <Text style={styles.welcomeMessage}>{t('welcome')}</Text>
+      <Text style={styles.title}>{t('title')}</Text>
+      <Text style={styles.subtitle}>{t('subTitle')}</Text>
       <View style={styles.pushDown}>
         <HandShow height={width * 0.7} width={width * 0.8} />
       </View>
@@ -51,9 +50,9 @@ const Home = ({navigation, resetCalculator}) => {
         color="#2A4965"
         mode={'contained'}
         onPress={() => {
-          navigation.navigate('Questionnaire');
+          navigation.navigate('LanguageSelection');
         }}>
-        {messages.getStarted}
+        {t('getStarted')}
       </Button>
     </View>
   );
