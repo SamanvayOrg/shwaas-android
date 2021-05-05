@@ -7,7 +7,12 @@ const DisclaimerScreen = ({route, navigation}) => {
   return (
     <Disclaimer
       onCancel={() => BackHandler.exitApp()}
-      onAccept={() => navigation.navigate('Home')}
+      onAccept={() => {
+        navigation.reset({
+          index: 0,
+          routes: [{name: 'Home'}],
+        });
+      }}
     />
   );
 };
