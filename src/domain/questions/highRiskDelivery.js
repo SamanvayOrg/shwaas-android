@@ -3,7 +3,7 @@ import {outputWeight} from './utils';
 
 const key = 'highRiskDelivery';
 
-const show = form => form.pregnant === true;
+const show = ({comorbidities = []}) => comorbidities.includes('pregnancy');
 
 const output = form =>
   form[key] === 'yes' ? outputWeight.red : outputWeight.yellow;

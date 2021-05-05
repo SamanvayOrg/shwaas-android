@@ -104,6 +104,7 @@ const numberOfYellows = (form, answerKeys) => {
     'kidneyDisease',
     'asthma',
     'lungDisease',
+    'pregnancy',
   ];
   const relevantComorbiditiesForYellow = comorbidities.filter(comorbidity =>
     irrelevantComorbiditiesForYellow.includes(comorbidity),

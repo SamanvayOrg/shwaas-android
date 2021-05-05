@@ -31,7 +31,6 @@ import heartDiseaseStatus from './questions/heartDiseaseStatus';
 import liverDiseaseStatus from './questions/liverDiseaseStatus';
 import height from './questions/height';
 import accessToPulseOximeter from './questions/accessToPulseOxiMeter';
-import pregnant from './questions/pregnant';
 import age from './questions/age';
 import bmi from './questions/bmi';
 import diabetesStatus from './questions/diabetesStatus';
@@ -76,6 +75,5 @@ export default [
   height,
   weight,
   bmi,
-  pregnant,
   highRiskDelivery,
 ];

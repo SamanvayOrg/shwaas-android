@@ -38,7 +38,7 @@ class App extends Component {
     this.state = {disclaimerAccepted: null};
   }
 
-  componentWillMount(): void {
+  UNSAFE_componentWillMount(): void {
     AsyncStorage.getItem('language').then(local => {
       local && changeLanguage(local);
       this.setState({language: local});
