@@ -12,7 +12,7 @@ import LocalStorage from '../LocalStorage';
 
 const languageOptions = [
   {label: t('English'), locale: 'en'},
-  {label: t('Hindi'), locale: 'en_IN'},
+  {label: t('Hindi'), locale: 'hi_IN'},
 ];
 
 const styles = StyleSheet.create({
