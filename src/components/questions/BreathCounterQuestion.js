@@ -68,7 +68,7 @@ export default ({number, question, onAnswered = () => {}, value}) => {
       setTimer(prevTime => prevTime - 1);
       setIntervalId(startTimer());
     }
-    Vibration.vibrate();
+    Vibration.vibrate(2 * 1000);
     setBreathCount(prevCount => prevCount + 1);
   };
 

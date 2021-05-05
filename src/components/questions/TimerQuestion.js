@@ -1,7 +1,9 @@
 import React, {useEffect, useState} from 'react';
+import {Vibration} from 'react-native';
 import {Colors, Button, Card, ProgressBar} from 'react-native-paper';
 import QuestionBase from './QuestionBase';
 import {t} from '../../messages';
+import _ from 'lodash';
 
 const getDisplayTime = function (seconds) {
   let sec = seconds % 60;
@@ -10,40 +12,45 @@ const getDisplayTime = function (seconds) {
   return `${min} Minutes and ${sec} Seconds`;
 };
 
-const globalSecondsValue = {
+const globalData = {
   seconds: 0,
 };
 
+const totalSeconds = 360;
+
 export default ({number, question, onAnswered = () => {}, value}) => {
   const [seconds, setSeconds] = useState(0);
-  const [intervalHandle, setIntervalHandle] = useState(null);
   const [started, setTimer] = useState(false);
 
   useEffect(() => {
     if (started) {
-      globalSecondsValue.seconds = 0;
-      const interval = setInterval(function () {
-        globalSecondsValue.seconds = globalSecondsValue.seconds + 1;
-        if (globalSecondsValue.seconds === 360) {
-          clearInterval(intervalHandle);
+      globalData.seconds = 0;
+      globalData.intervalHandle = setInterval(function () {
+        globalData.seconds = globalData.seconds + 1;
+        if (globalData.seconds === totalSeconds) {
+          stopTimer();
+          Vibration.vibrate(2 * 1000);
         }
-        setSeconds(globalSecondsValue.seconds);
+        setSeconds(globalData.seconds);
       }, 1000);
-      setIntervalHandle(interval);
     }
   }, [started]);
+
+  const stopTimer = function () {
+    clearInterval(globalData.intervalHandle);
+    globalData.intervalHandle = null;
+  };
 
   const onStartTimer = function () {
     setTimer(true);
   };
 
   const onStopTimer = function () {
-    clearInterval(intervalHandle);
-    setIntervalHandle(null);
+    stopTimer();
     setTimer(false);
   };
 
-  let timerRunning = intervalHandle !== null;
+  let timerRunning = !_.isNil(globalData.intervalHandle);
   return (
     <QuestionBase number={number} question={question}>
       <Button
@@ -53,20 +60,20 @@ export default ({number, question, onAnswered = () => {}, value}) => {
         {t('startTimer')}
       </Button>
 
-      {timerRunning && (
+      {seconds !== 0 && (
         <>
           <Card>
             <Card.Title title={getDisplayTime(seconds)} />
           </Card>
           <ProgressBar
-            progress={seconds / 360}
+            progress={seconds / totalSeconds}
             color={Colors.green900}
             style={{marginTop: 5, marginBottom: 10}}
           />
         </>
       )}
 
-      {seconds === 360 && (
+      {seconds === totalSeconds && (
         <Card>
           <Card.Title title={t('sixMinuteComplete')} />
         </Card>
