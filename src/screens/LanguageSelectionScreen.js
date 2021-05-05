@@ -88,7 +88,7 @@ const LanguageSelectScreen = ({navigation, language}) => {
               });
             }}>
             <View>
-              <Text style={styles.appBarText}>{t('next')}</Text>
+              <Text style={styles.appBarText}>{t('forward')}</Text>
             </View>
           </TouchableNativeFeedback>
         </HorizontalComponent>

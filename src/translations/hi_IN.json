@@ -116,5 +116,13 @@
   "ensureYouDoThe6MinuteWalk": "It is important to do this test after the person walks for six minutes",
   "sixMinuteTimer": "Ask the person to start walking. Press the 'Start Timer' button once they start walking",
   "takeOximeterReadingAfterThis": "हम चलने के 6 मिनट बाद पल्स ऑक्सीमीटर रीडिंग लेंगे",
-  "startOver":"फिर से शुरू करें"
+  "startOver":"फिर से शुरू करें",
+  "selectLanguage": "Select Language",
+  "nextSteps": "अगला कदम",
+  "forward": "आगे",
+  "disclaimer": "अस्वीकरण",
+  "home": "होम",
+  "languageSelection": "भाषा",
+  "questionnaire": "प्रशन",
+  "recommendations": "सिफारिश"
 }

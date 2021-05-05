@@ -118,5 +118,10 @@
   "takeOximeterReadingAfterThis": "We will take the pulse oximeter reading after 6 minutes of walking",
   "startOver":"Start over",
   "nextSteps": "Next Steps",
-  "selectLanguage": "Select Language"
+  "selectLanguage": "Select Language",
+  "disclaimer": "Disclaimer",
+  "home": "Home",
+  "languageSelection": "Select Language",
+  "questionnaire": "Questions",
+  "recommendations": "Recommendations"
 }
