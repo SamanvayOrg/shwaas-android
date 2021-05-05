@@ -1,3 +1,5 @@
+[![Build status](https://build.appcenter.ms/v0.1/apps/8b5a7d09-9b99-4138-b6eb-a774b6d2e8b3/branches/main/badge)](https://appcenter.ms)
+
 ### Some details to know before development
 
 - Uses plain redux
