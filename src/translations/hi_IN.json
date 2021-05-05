@@ -124,5 +124,8 @@
   "home": "होम",
   "languageSelection": "भाषा",
   "questionnaire": "प्रशन",
-  "recommendations": "सिफारिश"
+  "recommendations": "सिफारिश",
+  "english": "इंग्लिश (English)",
+  "hindi": "हिंदी",
+  "back": "पीछे"
 }
