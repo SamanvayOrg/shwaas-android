@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
-import {Text, Appbar} from 'react-native-paper';
+import {Appbar, Text} from 'react-native-paper';
 import HorizontalComponent from '../components/common/HorizontalComponent';
-import {View, StyleSheet, TouchableNativeFeedback} from 'react-native';
+import {StyleSheet, TouchableNativeFeedback, View} from 'react-native';
 import LanguageSelection from '../components/LanguageSelection';
-import messages, {printCurrentLanguage, t} from '../messages';
+import {t} from '../messages';
+import NavigatorUtil from '../NavigatorUtil';
 
 const styles = StyleSheet.create({
   basicBox: {
@@ -44,7 +45,7 @@ const back = function (navigation, flow) {
   return (
     <TouchableNativeFeedback
       onPress={() => {
-        navigation.navigate('Home');
+        NavigatorUtil.goToHome(navigation);
       }}>
       <View>
         <Text style={styles.appBarText}>{flow ? '' : t('back')}</Text>
@@ -54,11 +55,10 @@ const back = function (navigation, flow) {
 };
 
 const LanguageSelectScreen = ({navigation, route}) => {
-  printCurrentLanguage();
-
   const [languageSelected, setLanguageSelected] = useState(
     route.params.localState && route.params.localState.languageSelected,
   );
+
   return (
     <View>
       <Appbar dark="true">
@@ -70,7 +70,7 @@ const LanguageSelectScreen = ({navigation, route}) => {
       </Appbar>
       <LanguageSelection
         selectedLanguageLocale={languageSelected}
-        onLanguageSelect={() => setLanguageSelected(true)}
+        onLanguageSelect={locale => setLanguageSelected(locale)}
       />
     </View>
   );

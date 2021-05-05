@@ -6,7 +6,7 @@ import LocalStorage from '../LocalStorage';
 
 const languageOptions = [
   {label: 'english', locale: 'en'},
-  {label: 'hindi', locale: 'hi_In'}
+  {label: 'hindi', locale: 'hi_In'},
 ];
 
 const styles = StyleSheet.create({
@@ -42,7 +42,7 @@ export default ({selectedLanguageLocale, onLanguageSelect}) => {
     LocalStorage.languageSelected(lang.locale).then(() => {
       changeLanguage(lang.locale);
       setLanguageLocale(lang.locale);
-      onLanguageSelect();
+      onLanguageSelect(lang.locale);
     });
   };
 

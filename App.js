@@ -13,7 +13,7 @@ import {createStore} from 'redux';
 import rootReducer from './src/reducers/rootReducer';
 import _ from 'lodash';
 import LocalStorage from './src/LocalStorage';
-import {changeLanguage} from './src/messages';
+import messages, {changeLanguage} from './src/messages';
 
 const theme = {
   ...DefaultTheme,
@@ -36,8 +36,11 @@ class App extends Component {
     if (_.isNil(this.state.localState)) {
       LocalStorage.getLocalState()
         .then(localState => {
-          const locale = localState.languageSelected;
-          localState.languageSelected && changeLanguage(locale);
+          if (
+            !_.isNil(localState.languageSelected) &&
+            !_.isEmpty(localState.languageSelected)
+          )
+            changeLanguage(localState.languageSelected);
           this.setState({localState: localState});
         })
         .catch(error => this.setState({localState: null}));
