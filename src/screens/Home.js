@@ -45,8 +45,9 @@ const Home = ({navigation, resetCalculator, route}) => {
         <Menu
           onMenuStateChange={value => setImageOpacity(value ? 0.1 : 1)}
           onMenuSelected={menu => {
-            if (menu === Menus.language)
+            if (menu === Menus.language) {
               navigation.navigate('Language', {localState, flow: false});
+            }
           }}
         />
       }
@@ -68,10 +69,13 @@ const Home = ({navigation, resetCalculator, route}) => {
         color="#2A4965"
         mode={'contained'}
         onPress={() => {
-          if (localState.languageSelected) navigation.navigate('Questionnaire');
-          else navigation.navigate('Language', {localState, flow: true});
+          if (localState.languageSelected) {
+            navigation.navigate('Disclaimer');
+          } else {
+            navigation.navigate('Language', {localState, flow: true});
+          }
         }}>
-        {t('getStarted')}
+        {t('selectLanguage')}
       </Button>
     </View>
   );

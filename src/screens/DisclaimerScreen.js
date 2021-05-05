@@ -9,8 +9,8 @@ const DisclaimerScreen = ({route, navigation}) => {
       onCancel={() => BackHandler.exitApp()}
       onAccept={() => {
         navigation.reset({
-          index: 0,
-          routes: [{name: 'Home'}],
+          index: 1,
+          routes: [{name: 'Home'}, {name: 'Questionnaire'}],
         });
       }}
     />

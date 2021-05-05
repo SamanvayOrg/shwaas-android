@@ -26,7 +26,10 @@ const next = function (navigation, flow, languageSelected) {
   return (
     <TouchableNativeFeedback
       onPress={() => {
-        navigation.navigate('Questionnaire');
+        navigation.reset({
+          index: 1,
+          routes: [{name: 'Home'}, {name: 'Disclaimer'}],
+        });
       }}>
       <View>
         <Text style={styles.appBarText}>
@@ -44,9 +47,7 @@ const back = function (navigation, flow) {
         navigation.navigate('Home');
       }}>
       <View>
-        <Text style={styles.appBarText}>
-          {flow ? '' : t('back')}
-        </Text>
+        <Text style={styles.appBarText}>{flow ? '' : t('back')}</Text>
       </View>
     </TouchableNativeFeedback>
   );
@@ -61,9 +62,7 @@ const LanguageSelectScreen = ({navigation, route}) => {
       <Appbar dark="true">
         <HorizontalComponent style={styles.basicBox}>
           {back(navigation, route.params.flow)}
-          <Text style={styles.appBarTitle}>
-            {t('selectLanguage')}
-          </Text>
+          <Text style={styles.appBarTitle}>{t('selectLanguage')}</Text>
           {next(navigation, route.params.flow, languageSelected)}
         </HorizontalComponent>
       </Appbar>

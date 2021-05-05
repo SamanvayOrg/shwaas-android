@@ -10,8 +10,7 @@ import {t} from './messages';
 const Stack = createStackNavigator();
 
 const Route = localState => (
-  <Stack.Navigator
-    initialRouteName={localState.disclaimerAccepted ? 'Home' : 'Disclaimer'}>
+  <Stack.Navigator initialRouteName={'Home'}>
     <Stack.Screen
       name="Disclaimer"
       component={DisclaimerScreen}
