@@ -6,6 +6,7 @@ import Recommendations from './screens/RecommendationScreen';
 import DisclaimerScreen from './screens/DisclaimerScreen';
 import LanguageSelection from './screens/LanguageSelectionScreen';
 import {t} from './messages';
+import NavigatorUtil from './NavigatorUtil';
 
 const Stack = createStackNavigator();
 
@@ -27,7 +28,22 @@ const Route = localState => (
       component={LanguageSelection}
       options={{headerShown: false}}
     />
-    <Stack.Screen name="Questionnaire" component={Questionnaire} />
+    <Stack.Screen
+      name="Questionnaire"
+      component={Questionnaire}
+      options={({navigation}) => ({
+        headerLeft: props => {
+          return (
+            <HeaderBackButton
+              {...props}
+              onPress={() => {
+                NavigatorUtil.goToHome(navigation);
+              }}
+            />
+          );
+        },
+      })}
+    />
     <Stack.Screen name="Recommendations" component={Recommendations} />
   </Stack.Navigator>
 );
