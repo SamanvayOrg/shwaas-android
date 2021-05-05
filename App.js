@@ -11,9 +11,9 @@ import {
 import {Provider} from 'react-redux';
 import {createStore} from 'redux';
 import rootReducer from './src/reducers/rootReducer';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import _ from 'lodash';
 import {changeLanguage} from './src/messages';
+import LocalStorage from './src/LocalStorage';
 
 const theme = {
   ...DefaultTheme,
@@ -26,32 +26,19 @@ const theme = {
 
 const store = createStore(rootReducer);
 
-const isDisclaimerAccepted = async () => {
-  const accepted = await AsyncStorage.getItem('disclaimerAccepted');
-  console.log('isDisclaimerAccepted', accepted);
-  return accepted !== null && accepted === 'true';
-};
-
 class App extends Component {
   constructor(props: P, context: any) {
     super(props, context);
-    this.state = {disclaimerAccepted: null};
-  }
-
-  UNSAFE_componentWillMount(): void {
-    AsyncStorage.getItem('language').then(local => {
-      local && changeLanguage(local);
-      this.setState({language: local});
-    });
+    this.state = {localState: null};
   }
 
   render() {
-    if (_.isNil(this.state.disclaimerAccepted)) {
-      isDisclaimerAccepted()
-        .then(value => {
-          this.setState({disclaimerAccepted: value});
+    if (_.isNil(this.state.localState)) {
+      LocalStorage.getLocalState()
+        .then(localState => {
+          this.setState({localState: localState});
         })
-        .catch(error => this.setState({disclaimerAccepted: false}));
+        .catch(error => this.setState({localState: null}));
       return <ActivityIndicator />;
     }
 
@@ -59,7 +46,7 @@ class App extends Component {
       <Provider store={store}>
         <PaperProvider theme={theme}>
           <NavigationContainer>
-            {Routes(this.state.disclaimerAccepted, this.state.language)}
+            {Routes(this.state.localState)}
           </NavigationContainer>
         </PaperProvider>
       </Provider>

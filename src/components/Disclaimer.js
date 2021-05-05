@@ -3,7 +3,7 @@ import {Dimensions, ScrollView, StyleSheet, View} from 'react-native';
 import {Button, Text} from 'react-native-paper';
 import {t} from '../messages';
 import HandShow from '../assets/handShow.svg';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import LocalStorage from '../LocalStorage';
 
 const {width, height} = Dimensions.get('window');
 
@@ -15,10 +15,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
 });
-
-const disclaimerAccepted = async () => {
-  await AsyncStorage.setItem('disclaimerAccepted', 'true');
-};
 
 export default ({onCancel, onAccept}) => {
   return (
@@ -42,7 +38,7 @@ export default ({onCancel, onAccept}) => {
             mode={'contained'}
             contentStyle={{height: 50}}
             onPress={() => {
-              disclaimerAccepted().then(() => onAccept());
+              LocalStorage.disclaimerAccepted().then(() => onAccept());
             }}>
             {t('accept')}
           </Button>

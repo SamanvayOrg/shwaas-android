@@ -10,6 +10,9 @@ clear-local-storage:
 start-app:
 	adb shell am start -n com.pneumoniaapp/com.pneumoniaapp.MainActivity
 
+run-in-android:
+	yarn run android
+
 codepush-staging:
 	appcenter codepush release-react -a Samanvay-Research-and-Development-Foundation/Pneumonia-App -d Staging
 

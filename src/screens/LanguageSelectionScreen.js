@@ -1,102 +1,75 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Text, Appbar} from 'react-native-paper';
-import {
-  View,
-  StyleSheet,
-  TouchableNativeFeedback,
-  FlatList,
-} from 'react-native';
 import HorizontalComponent from '../components/common/HorizontalComponent';
-import {t, changeLanguage} from '../messages';
-import {find} from 'lodash';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import {View, StyleSheet, TouchableNativeFeedback} from 'react-native';
+import LanguageSelection from '../components/LanguageSelection';
+import {t} from '../messages';
 
 const styles = StyleSheet.create({
   basicBox: {
-    justifyContent: 'space-between',
-    alignItems: 'center',
     flex: 1,
     marginHorizontal: 2,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
   appBarText: {
     color: 'white',
-    fontSize: 20,
+    fontSize: 18,
   },
-  itemStyle: {
-    backgroundColor: '#F4F5F6',
-    paddingHorizontal: 10,
-    marginVertical: 8,
-    minHeight: 50,
-    borderRadius: 4,
-    justifyContent: 'center',
-  },
-  answerText: {
-    fontSize: 24,
-    color: '#000',
+  appBarTitle: {
+    color: 'white',
+    fontSize: 18,
   },
 });
 
-const languageOptions = [
-  {label: 'English', locale: 'en'},
-  {label: 'हिंदी (Hindi)', locale: 'hi_In'},
-];
-
-const Locale = ({item, setLanguageOption, languageOption}) => {
-  const {label, locale} = item;
-  const isSelected = languageOption && languageOption.locale === locale;
-
+const next = function (navigation, flow, languageSelected) {
   return (
     <TouchableNativeFeedback
       onPress={() => {
-        AsyncStorage.setItem('language', locale)
-          .then(() => changeLanguage(locale))
-          .then(() => setLanguageOption(item));
+        navigation.navigate('Questionnaire');
       }}>
-      <View
-        style={[styles.itemStyle, isSelected && {backgroundColor: '#38A160'}]}>
-        <Text style={[styles.answerText, isSelected && {color: '#FFF'}]}>
-          {label}
+      <View>
+        <Text style={styles.appBarText}>
+          {flow && languageSelected ? t('next') : ''}
         </Text>
       </View>
     </TouchableNativeFeedback>
   );
 };
 
-const LanguageSelectScreen = ({navigation, language}) => {
-  const [languageOption, setLanguageOption] = React.useState(
-    find(languageOptions, ({locale}) => locale === language),
+const back = function (navigation, flow) {
+  return (
+    <TouchableNativeFeedback
+      onPress={() => {
+        navigation.navigate('Home');
+      }}>
+      <View>
+        <Text style={styles.appBarText}>
+          {flow ? '' : t('back')}
+        </Text>
+      </View>
+    </TouchableNativeFeedback>
   );
+};
 
-  const renderLanguage = ({item}) => (
-    <Locale
-      item={item}
-      languageOption={languageOption}
-      setLanguageOption={setLanguageOption}
-    />
+const LanguageSelectScreen = ({navigation, route}) => {
+  const [languageSelected, setLanguageSelected] = useState(
+    route.params.localState && route.params.localState.languageSelected,
   );
-
   return (
     <View>
       <Appbar dark="true">
         <HorizontalComponent style={styles.basicBox}>
-          <Text style={styles.appBarText}>{t('selectLanguage')}</Text>
-          <TouchableNativeFeedback
-            onPress={() => {
-              navigation.reset({
-                index: 1,
-                routes: [{name: 'Home'}, {name: 'Questionnaire'}],
-              });
-            }}>
-            <View>
-              <Text style={styles.appBarText}>{t('forward')}</Text>
-            </View>
-          </TouchableNativeFeedback>
+          {back(navigation, route.params.flow)}
+          <Text style={styles.appBarTitle}>
+            {t('selectLanguage')}
+          </Text>
+          {next(navigation, route.params.flow, languageSelected)}
         </HorizontalComponent>
       </Appbar>
-      <FlatList
-        data={languageOptions}
-        renderItem={renderLanguage}
-        keyExtractor={item => item.locale}
+      <LanguageSelection
+        selectedLanguageLocale={languageSelected}
+        onLanguageSelect={() => setLanguageSelected(true)}
       />
     </View>
   );

@@ -4,27 +4,32 @@ import Home from './screens/Home';
 import Questionnaire from './screens/Questionnaire';
 import Recommendations from './screens/RecommendationScreen';
 import DisclaimerScreen from './screens/DisclaimerScreen';
-import LanguageSelectScreen from './screens/LanguageSelectionScreen';
+import LanguageSelection from './screens/LanguageSelectionScreen';
 import {t} from './messages';
 
 const Stack = createStackNavigator();
 
-const Route = (disclaimerAccepted, language) => (
+const Route = localState => (
   <Stack.Navigator
-    initialRouteName={disclaimerAccepted ? 'Home' : 'Disclaimer'}>
+    initialRouteName={localState.disclaimerAccepted ? 'Home' : 'Disclaimer'}>
     <Stack.Screen
       name="Disclaimer"
       component={DisclaimerScreen}
       options={{headerShown: false, title: t('disclaimer')}}
     />
-    <Stack.Screen name="Home" options={{headerShown: false, title: t('home')}}>
-      {props => <Home {...props} language={language} />}
-    </Stack.Screen>
-    <Stack.Screen name={'LanguageSelection'} options={{headerShown: false, title: t('languageSelection')}}>
-      {props => <LanguageSelectScreen {...props} language={language} />}
-    </Stack.Screen>
-    <Stack.Screen name="Questionnaire" component={Questionnaire} options={{title: t('questionnaire')}}/>
-    <Stack.Screen name="Recommendations" component={Recommendations} options={{title: t('recommendations')}}/>
+    <Stack.Screen
+      name="Home"
+      component={Home}
+      options={{headerShown: false}}
+      initialParams={{localState: localState}}
+    />
+    <Stack.Screen
+      name="Language"
+      component={LanguageSelection}
+      options={{headerShown: false}}
+    />
+    <Stack.Screen name="Questionnaire" component={Questionnaire} />
+    <Stack.Screen name="Recommendations" component={Recommendations} />
   </Stack.Navigator>
 );
 

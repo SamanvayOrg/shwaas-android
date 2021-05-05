@@ -76,7 +76,7 @@
   "title": "Shwaas",
   "subTitle": "A Chikitsa Sathi",
   "none": "None",
-  "previous": "previous",
+  "previous": "Previous",
   "next": "Next",
   "sixMinuteWalkMessage": "Please ask the person to walk for six (6) minutes",
   "startTimer": "Start timer",
@@ -123,5 +123,8 @@
   "home": "Home",
   "languageSelection": "Select Language",
   "questionnaire": "Questions",
-  "recommendations": "Recommendations"
+  "recommendations": "Recommendations",
+  "back": "Back",
+  "english": "English",
+  "hindi": "हिंदी (Hindi)"
 }
