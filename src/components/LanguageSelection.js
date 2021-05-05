@@ -6,7 +6,7 @@ import {
   View,
 } from 'react-native';
 import React, {useState} from 'react';
-import {t} from '../messages';
+import {changeLanguage, t} from '../messages';
 import {Text, List} from 'react-native-paper';
 import LocalStorage from '../LocalStorage';
 
@@ -47,6 +47,7 @@ export default ({selectedLanguageLocale, onLanguageSelect}) => {
   const chooseLanguage = function (lang) {
     LocalStorage.languageSelected(lang.locale).then(() => {
       setLanguageLocale(lang.locale);
+      changeLanguage(lang.locale);
       onLanguageSelect();
     });
   };
@@ -69,7 +70,8 @@ export default ({selectedLanguageLocale, onLanguageSelect}) => {
                 ? styles.selectedAnswerText
                 : styles.nonSelectedAnswerText,
             ]}
-            onPress={() => chooseLanguage(language)}></List.Item>
+            onPress={() => chooseLanguage(language)}
+          />
         );
       })}
     </ScrollView>
