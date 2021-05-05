@@ -38,7 +38,12 @@ const Home = ({navigation, resetCalculator, route}) => {
   const [imageOpacity, setImageOpacity] = useState(1);
 
   let localState = route.params.localState;
-
+  const {languageSelected, disclaimerAccepted} = localState;
+  const label = disclaimerAccepted
+    ? 'getStarted'
+    : languageSelected
+    ? 'readDisclaimer'
+    : 'selectLanguage';
   return (
     <View style={styles.wrapper}>
       {
@@ -69,13 +74,15 @@ const Home = ({navigation, resetCalculator, route}) => {
         color="#2A4965"
         mode={'contained'}
         onPress={() => {
-          if (localState.languageSelected) {
+          if (disclaimerAccepted) {
+            navigation.navigate('Questionnaire');
+          } else if (languageSelected) {
             navigation.navigate('Disclaimer');
           } else {
             navigation.navigate('Language', {localState, flow: true});
           }
         }}>
-        {t('selectLanguage')}
+        {t(label)}
       </Button>
     </View>
   );
