@@ -35,6 +35,8 @@ class App extends Component {
     if (_.isNil(this.state.localState)) {
       LocalStorage.getLocalState()
         .then(localState => {
+          const locale = localState.languageSelected;
+          localState.languageSelected && changeLanguage(locale);
           this.setState({localState: localState});
         })
         .catch(error => this.setState({localState: null}));
