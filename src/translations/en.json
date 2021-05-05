@@ -115,5 +115,6 @@
   "oxygenSaturationAfter6Minutes": "What is the oxygen saturation reading in pulse oximeter ?",
   "ensureYouDoThe6MinuteWalk": "It is important to do this test after the person walks for six minutes",
   "sixMinuteTimer": "Ask the person to start walking. Press the 'Start Timer' button once they start walking",
-  "takeOximeterReadingAfterThis": "We will take the pulse oximeter reading after 6 minutes of walking"
+  "takeOximeterReadingAfterThis": "We will take the pulse oximeter reading after 6 minutes of walking",
+  "startOver":"Start over"
 }

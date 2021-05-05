@@ -67,7 +67,7 @@ export default ({data, navigation}) => {
           dispatch(resetCalculator());
           navigation.pop(2);
         }}>
-        Start over
+        {messages.startOver}
       </Button>
     </View>
   );
