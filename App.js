@@ -12,7 +12,6 @@ import {Provider} from 'react-redux';
 import {createStore} from 'redux';
 import rootReducer from './src/reducers/rootReducer';
 import _ from 'lodash';
-import {changeLanguage} from './src/messages';
 import LocalStorage from './src/LocalStorage';
 
 const theme = {
