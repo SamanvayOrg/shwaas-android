@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
   },
 
   selectedItem: {
-    backgroundColor: '#38A160',
+    backgroundColor: '#2490EF',
     paddingHorizontal: 5,
     marginVertical: 8,
     minHeight: 50,
