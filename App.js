@@ -59,5 +59,6 @@ class App extends Component {
   }
 }
 
-export default codePush(App);
+let app = __DEV__ ? App : codePush(App);
+export default app;
 // export {default} from './storybook';
