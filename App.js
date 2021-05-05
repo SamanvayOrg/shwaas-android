@@ -13,6 +13,7 @@ import {createStore} from 'redux';
 import rootReducer from './src/reducers/rootReducer';
 import _ from 'lodash';
 import LocalStorage from './src/LocalStorage';
+import {changeLanguage} from './src/messages';
 
 const theme = {
   ...DefaultTheme,
