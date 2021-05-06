@@ -13,10 +13,6 @@ export const changeLanguage = languageKey => {
   messages.setLanguage(languageKey);
 };
 
-export const printCurrentLanguage = () => {
-  console.log(messages.getLanguage(), messages.getAvailableLanguages());
-};
-
 export const t = str => messages[str] || str;
 
 export default messages;

@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import {
   StyleSheet,
   View,
@@ -9,21 +9,23 @@ import {
 } from 'react-native';
 import QuestionBase from './QuestionBase';
 import {Text, Button, TextInput, Card} from 'react-native-paper';
-import {outputColors} from '../../domain/questions/utils';
 import {t} from '../../messages';
+import colors from '../../colors';
+import HorizontalComponent from '../common/HorizontalComponent';
 
 const styles = StyleSheet.create({
   container: {flexDirection: 'column'},
   counterButton: {
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: outputColors.green,
-    elevation: 2,
-    borderRadius: 5,
-    paddingHorizontal: 5,
+    backgroundColor: colors.accent,
+    borderRadius: 8,
+    paddingHorizontal: 16,
+    marginTop: 24,
+    height: 150,
   },
   counterButtonText: {
-    color: 'black',
+    color: 'white',
     fontSize: 24,
   },
   countsContainer: {
@@ -33,8 +35,16 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   countText: {
-    margin: 5,
+    color: '#74808B',
     fontSize: 24,
+    lineHeight: 36,
+  },
+  countValue: {
+    margin: 5,
+    color: '#192734',
+    fontSize: 24,
+    fontWeight: '900',
+    lineHeight: 36,
   },
   counterCard: {
     marginVertical: 10,
@@ -45,7 +55,10 @@ const styles = StyleSheet.create({
 const {height} = Dimensions.get('window');
 const MAX_TIME_SECOND = 60;
 
-export default ({number, question, onAnswered = () => {}, value}) => {
+export default ({
+                  number, question, onAnswered = () => {
+  }, value
+                }) => {
   const [timer, setTimer] = useState(value ? 0 : MAX_TIME_SECOND);
   const [breathCount, setBreathCount] = useState(value || 0);
   const [intervalId, setIntervalId] = useState();
@@ -63,10 +76,13 @@ export default ({number, question, onAnswered = () => {}, value}) => {
     }
   }, [timer]);
 
+  const scrollViewRef = useRef();
+
   const onCounterPress = () => {
     if (isFirstPress) {
       setTimer(prevTime => prevTime - 1);
       setIntervalId(startTimer());
+      scrollViewRef.current.scrollToEnd({animated: true});
     }
     Vibration.vibrate(2 * 1000);
     setBreathCount(prevCount => prevCount + 1);
@@ -84,63 +100,58 @@ export default ({number, question, onAnswered = () => {}, value}) => {
 
   return (
     <React.Fragment>
-      <ScrollView showsVerticalScrollIndicator={false}>
-        <QuestionBase number={number} question={question} />
-        <Card style={{padding: 10}}>
-          <TextInput
-            mode={'outlined'}
-            keyboardType={'number-pad'}
-            label=""
-            placeholder={t(question.unit)}
-            value={value ? value.toString() : undefined}
-            onChangeText={text => onAnswered(question, parseInt(text))}
-          />
-        </Card>
-        <Card style={styles.counterCard}>
-          <Card.Title
-            title={t('breathCounter')}
-            titleStyle={{textAlign: 'center'}}
-          />
-          <View style={styles.container}>
-            <TouchableOpacity
-              onPress={onCounterPress}
-              disabled={isTimeComplete}>
-              <View
-                style={[
-                  styles.counterButton,
-                  {height: height * 0.3},
-                  isTimeComplete && {backgroundColor: '#BABABA'},
-                ]}>
-                <Text style={styles.counterButtonText}>
-                  {pressButtonMessage}
-                </Text>
-              </View>
-            </TouchableOpacity>
-            <View style={styles.countsContainer}>
-              {isTimeComplete ? (
-                <Text style={styles.countText}>
-                  {t('result')} : {`${breathCount} ${t('bpm')}`}
-                </Text>
-              ) : (
-                <View>
-                  <Text style={styles.countText}>Breaths : {breathCount}</Text>
-                  <Text style={styles.countText}>
-                    {t('seconds')} : {timer < 10 ? `0${timer}` : timer}
-                  </Text>
-                </View>
-              )}
+      <ScrollView ref={scrollViewRef} showsVerticalScrollIndicator={false}>
+        <QuestionBase number={number} question={question}/>
+        <TextInput
+          mode={'outlined'}
+          keyboardType={'number-pad'}
+          label=""
+          placeholder={t(question.unit)}
+          value={value ? value.toString() : undefined}
+          onChangeText={text => onAnswered(question, parseInt(text))}
+        />
+        <View style={styles.container}>
+          <TouchableOpacity
+            onPress={onCounterPress}
+            disabled={isTimeComplete}>
+            <View
+              style={[
+                styles.counterButton,
+                isTimeComplete && {backgroundColor: '#BABABA'},
+              ]}>
+              <Text style={styles.counterButtonText}>
+                {pressButtonMessage}
+              </Text>
             </View>
-            <Button
-              style={{marginVertical: 10}}
-              contentStyle={{height: 50}}
-              disabled={isFirstPress}
-              color={'#E24C4C'}
-              mode={'contained'}
-              onPress={onReset}>
-              {t('reset')}
-            </Button>
+          </TouchableOpacity>
+          <View style={styles.countsContainer}>
+            {isTimeComplete ? (
+              <Text style={styles.countText}>
+                {t('result')} : {`${breathCount} ${t('bpm')}`}
+              </Text>
+            ) : (
+              <View>
+                <HorizontalComponent style={{width: '100%'}}>
+                  <Text style={styles.countText}>Breaths</Text>
+                  <Text style={[styles.countValue, {marginLeft: 'auto'}]}>{breathCount}</Text>
+                </HorizontalComponent>
+                <HorizontalComponent style={{width: '100%'}}>
+                  <Text style={styles.countText}>{t('seconds')}</Text>
+                  <Text style={[styles.countValue, {marginLeft: 'auto'}]}>{timer < 10 ? `0${timer}` : timer}</Text>
+                </HorizontalComponent>
+              </View>
+            )}
           </View>
-        </Card>
+          <Button
+            style={{marginVertical: 10}}
+            contentStyle={{height: 50}}
+            disabled={isFirstPress}
+            color={'#E24C4C'}
+            mode={'contained'}
+            onPress={onReset}>
+            {t('reset')}
+          </Button>
+        </View>
       </ScrollView>
     </React.Fragment>
   );

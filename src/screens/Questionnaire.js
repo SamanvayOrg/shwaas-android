@@ -90,13 +90,13 @@ const Questionnaire = ({
   };
 
   return (
-    <View style={{flex: 1}}>
+    <View style={{flex: 1, backgroundColor: '#fafafa'}}>
       <Breadcrumb
         form={form}
         currentIndex={indexOfQuestion(form, question)}
         onQuestionChange={goToChosenQuestion}
       />
-      <BaseScreen>
+      <BaseScreen style={{marginTop: 16}}>
         <Question
           number={indexOfQuestion(form, question) + 1}
           question={question}

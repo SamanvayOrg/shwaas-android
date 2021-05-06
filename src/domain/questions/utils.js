@@ -1,3 +1,4 @@
+import colors from '../../colors';
 const alwaysShow = () => true;
 
 const outputWeight = {
@@ -8,10 +9,10 @@ const outputWeight = {
 };
 
 const outputColors = {
-  green: '#38A160',
-  yellow: '#D6932E',
-  red: '#E24C4C',
-  black: '#000000',
+  green: colors.green,
+  yellow: colors.yellow,
+  red: colors.red,
+  black: colors.black,
 };
 
 const alwaysGreen = () => outputWeight.green;

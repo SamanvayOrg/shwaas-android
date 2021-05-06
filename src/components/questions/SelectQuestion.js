@@ -9,6 +9,7 @@ import {Text} from 'react-native-paper';
 import QuestionBase from './QuestionBase';
 import {t} from '../../messages';
 import questionTypes from '../../domain/questionTypes';
+import {isDefined} from '../../domain/questions/utils';
 
 const styles = StyleSheet.create({
   container: {
@@ -16,20 +17,23 @@ const styles = StyleSheet.create({
   },
   nonSelectedItem: {
     backgroundColor: '#F4F5F6',
-    paddingHorizontal: 5,
     marginVertical: 8,
+    paddingHorizontal: 16,
     minHeight: 50,
-    borderRadius: 4,
+    borderRadius: 8,
     justifyContent: 'center',
+    elevation: 2,
   },
 
   selectedItem: {
-    backgroundColor: '#2490EF',
-    paddingHorizontal: 5,
+    backgroundColor: '#4A58DD',
+    paddingHorizontal: 16,
+    paddingLeft: 16,
     marginVertical: 8,
     minHeight: 50,
-    borderRadius: 4,
+    borderRadius: 8,
     justifyContent: 'center',
+    elevation: 2,
   },
   selectedAnswerText: {
     fontSize: 24,
@@ -60,15 +64,17 @@ const Item = ({title, onPress, selectedAnswers}) => {
   );
 };
 
+const isSingleSelect = (question) => [questionTypes.singleChoice, questionTypes.boolean].includes(question.type);
+
 export default ({number, question, onAnswered = () => {}, value}) => {
-  const answer = !value
+  const answer = !isDefined(value)
     ? []
-    : question.type === questionTypes.singleChoice
+    : isSingleSelect(question)
     ? [value]
     : value;
 
   const onItemSelected = key => {
-    if (question.type === questionTypes.singleChoice) {
+    if (isSingleSelect(question)) {
       onAnswered(question, key);
       return;
     }

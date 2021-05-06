@@ -13,14 +13,17 @@ import {createStore} from 'redux';
 import rootReducer from './src/reducers/rootReducer';
 import _ from 'lodash';
 import LocalStorage from './src/LocalStorage';
-import messages, {changeLanguage} from './src/messages';
+import {changeLanguage} from './src/messages';
+import colors from './src/colors';
 
 const theme = {
   ...DefaultTheme,
   dark: false,
   colors: {
     ...DefaultTheme.colors,
-    primary: '#2A4965',
+    primary: colors.primary,
+    background: colors.background,
+    accent: colors.accent,
   },
 };
 

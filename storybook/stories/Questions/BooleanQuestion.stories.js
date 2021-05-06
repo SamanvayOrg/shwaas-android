@@ -12,6 +12,7 @@ storiesOf('Boolean Question', module)
       number={1}
       question={{
         key: 'hardToRecogniseRelatives',
+        type: 'boolean',
         helpText: 'directlyObserve',
       }}
       onAnswered={() => {}}
@@ -22,6 +23,7 @@ storiesOf('Boolean Question', module)
       number={1}
       question={{
         key: 'hardToRecogniseRelatives',
+        type: 'boolean',
         helpText: 'directlyObserve',
       }}
       value={true}

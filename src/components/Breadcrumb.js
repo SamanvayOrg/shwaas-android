@@ -8,8 +8,9 @@ import {
   TouchableNativeFeedback,
 } from 'react-native';
 import _ from 'lodash';
-import {isDefined, outputColors} from '../domain/questions/utils';
+import {isDefined} from '../domain/questions/utils';
 import {visibleQuestions} from '../domain/questionModel';
+import colors from '../colors';
 
 const styles = StyleSheet.create({
   wrapper: {
@@ -20,13 +21,13 @@ const styles = StyleSheet.create({
 });
 
 const getColor = function (visibleQuestions, form, index, currentIndex) {
-  if (index === currentIndex) return '#2490EF';
+  if (index === currentIndex) return colors.accent;
   if (!isDefined(form[visibleQuestions[index].key])) {
-    return '#74808B';
+    return colors.lightPrimary;
   }
   let output = visibleQuestions[index].output(form);
-  if (_.isNil(output)) return '#74808B';
-  return outputColors[output];
+  if (_.isNil(output)) return colors.lightPrimary;
+  return colors[output];
 };
 
 const Breadcrumb = ({style, theme, form, currentIndex, onQuestionChange}) => {
@@ -44,7 +45,7 @@ const Breadcrumb = ({style, theme, form, currentIndex, onQuestionChange}) => {
       <ScrollView
         ref={scrollViewRef}
         style={[styles.wrapper]}
-        contentContainerStyle={{alignItems: 'center'}}
+        contentContainerStyle={{alignItems: 'center', backgroundColor: '#f4f5f6'}}
         horizontal>
         {visibleQuestions(form).map((vq, index, arr) => {
           let color = getColor(arr, form, index, currentIndex);
