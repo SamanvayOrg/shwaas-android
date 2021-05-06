@@ -10,7 +10,9 @@ export default ({number, question, children}) => {
   }`;
   return (
     <View>
-      <Caption>Question {number}</Caption>
+      <Caption>
+        {t('question')} {number}
+      </Caption>
       <Headline>{headline}</Headline>
       {question.helpText && <Subheading>{t(question.helpText)}</Subheading>}
       <Space height={16} />

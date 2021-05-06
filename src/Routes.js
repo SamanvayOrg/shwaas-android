@@ -15,7 +15,7 @@ const Route = localState => (
     <Stack.Screen
       name="Disclaimer"
       component={DisclaimerScreen}
-      options={{headerShown: false, title: t('disclaimer')}}
+      options={{headerShown: false}}
     />
     <Stack.Screen
       name="Home"
@@ -32,6 +32,7 @@ const Route = localState => (
       name="Questionnaire"
       component={Questionnaire}
       options={({navigation}) => ({
+        title: t('questionnaire'),
         headerLeft: props => {
           return (
             <HeaderBackButton
@@ -44,7 +45,11 @@ const Route = localState => (
         },
       })}
     />
-    <Stack.Screen name="Recommendations" component={Recommendations} />
+    <Stack.Screen
+      name="Recommendations"
+      component={Recommendations}
+      options={{title: t('recommendations')}}
+    />
   </Stack.Navigator>
 );
 

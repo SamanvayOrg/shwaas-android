@@ -1,6 +1,6 @@
 import React from 'react';
 import {StyleSheet, TouchableNativeFeedback, View} from 'react-native';
-import {Text} from 'react-native-paper';
+import {Surface, Text} from 'react-native-paper';
 import HorizontalComponent from '../common/HorizontalComponent';
 import QuestionBase from './QuestionBase';
 import {t} from '../../messages';
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
 
 const YesNoButton = ({text, color, onPress, selected, iconName}) => (
   <TouchableNativeFeedback onPress={onPress}>
-    <View
+    <Surface
       style={[
         styles.square,
         color,
@@ -38,7 +38,7 @@ const YesNoButton = ({text, color, onPress, selected, iconName}) => (
         {text}
       </Text>
       <Icon name={iconName} size={selected ? 48 : 24} color={'white'} />
-    </View>
+    </Surface>
   </TouchableNativeFeedback>
 );
 
