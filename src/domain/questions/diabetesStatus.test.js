@@ -1,5 +1,8 @@
 import diabetesStatus from './diabetesStatus';
 import {outputWeight} from './utils';
+
+jest.mock('react-native-localization');
+
 describe('diabetesStatus', () => {
   test('should give uncontrolled', () => {
     expect(diabetesStatus.output({})).toBe(outputWeight.yellow);
