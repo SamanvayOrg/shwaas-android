@@ -30,7 +30,7 @@ If you want to run the app, uncomment the first line. Else uncomment the second 
 
 ### Links
 
-[Design](https://www.figma.com/file/vbo6MYrubpJwtVpUizrQMk/covid-tool?node-id=0%3A1)
+[Design](https://www.figma.com/file/8Y8xJ5rJP5xYieDJHrhAng/covid-tool?node-id=109%3A1715)
 
 [Trello](https://trello.com/b/WbzPBJrf/pneumonia-app)
 
