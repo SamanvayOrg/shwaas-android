@@ -24,7 +24,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     elevation: 2,
   },
-
   selectedItem: {
     backgroundColor: '#4A58DD',
     paddingHorizontal: 16,
@@ -64,7 +63,8 @@ const Item = ({title, onPress, selectedAnswers}) => {
   );
 };
 
-const isSingleSelect = (question) => [questionTypes.singleChoice, questionTypes.boolean].includes(question.type);
+const isSingleSelect = question =>
+  [questionTypes.singleChoice, questionTypes.boolean].includes(question.type);
 
 export default ({number, question, onAnswered = () => {}, value}) => {
   const answer = !isDefined(value)

@@ -34,7 +34,6 @@ const LanguageSelectScreen = ({navigation, route}) => {
         style={styles.containerStyle}
         contentStyle={styles.contentStyle}
         labelStyle={{fontSize: 20}}
-        color="#2A4965"
         mode={'contained'}
         onPress={() => {
           firstTimeFlow

@@ -1,28 +1,29 @@
 import React, {useEffect, useState} from 'react';
 import {Button, FAB, Modal, Portal, Provider, Text} from 'react-native-paper';
-import {Dimensions, StyleSheet, View} from 'react-native';
+import {Dimensions, StyleSheet, ScrollView, View} from 'react-native';
 import HandShow from '../assets/handShow.svg';
 import {t} from '../messages';
 import {resetCalculator} from '../actions/form';
 import {connect} from 'react-redux';
 import Menu, {Menus} from '../components/Menu';
+import colors from '../colors';
 
 const styles = StyleSheet.create({
-  wrapper: {flex: 1, alignItems: 'center', backgroundColor: 'white'},
+  wrapper: {alignItems: 'center', backgroundColor: 'white', flex: 1},
   welcomeMessage: {
-    color: '#2A4965',
+    color: colors.primary,
     fontSize: 24,
     textAlign: 'center',
-    marginTop: 2,
+    marginTop: 72,
   },
   title: {
     fontWeight: 'bold',
-    color: '#2A4965',
+    color: colors.primary,
     fontSize: 45,
     textAlign: 'center',
   },
   subtitle: {
-    color: '#2A4965',
+    color: colors.primary,
     fontSize: 32,
     textAlign: 'center',
     marginTop: 2,
@@ -31,9 +32,12 @@ const styles = StyleSheet.create({
   buttonStyle: {width: '100%', borderRadius: 0},
 });
 
-const {width} = Dimensions.get('window');
-
 const Home = ({navigation, resetCalculator, route}) => {
+  const {width, height} = Dimensions.get('window');
+  const isPortrait = height > width;
+  const dimensionOfImage = isPortrait ? width * 0.9 : height * 0.9;
+  const opacity = isPortrait ? 0.8 : 0.1;
+
   useEffect(() => navigation.addListener('focus', resetCalculator), []);
   const [imageOpacity, setImageOpacity] = useState(1);
 
@@ -45,33 +49,34 @@ const Home = ({navigation, resetCalculator, route}) => {
     ? 'readDisclaimer'
     : 'selectLanguage';
   return (
-    <View style={styles.wrapper}>
-      {
-        <Menu
-          onMenuStateChange={value => setImageOpacity(value ? 0.1 : 1)}
-          onMenuSelected={menu => {
-            if (menu === Menus.language) {
-              navigation.navigate('Language', {localState, flow: false});
-            }
-          }}
-        />
-      }
-      <Text style={styles.welcomeMessage}>{t('welcome')}</Text>
-      <Text style={styles.title}>{t('title')}</Text>
-      <Text style={styles.subtitle}>{t('subTitle')}</Text>
-      <View style={styles.pushDown}>
+    <View style={{flex: 1}}>
+      <ScrollView contentContainerStyle={styles.wrapper} style={{flex: 1}}>
+        <View style={{zIndex: 2}}>
+          <Text style={styles.welcomeMessage}>{t('welcome')}</Text>
+          <Text style={styles.title}>{t('title')}</Text>
+          <Text style={styles.subtitle}>{t('subTitle')}</Text>
+        </View>
         <HandShow
-          height={width * 0.7}
-          width={width * 0.6}
-          opacity={imageOpacity}
+          style={styles.pushDown}
+          height={dimensionOfImage}
+          width={dimensionOfImage}
+          opacity={opacity}
+          zIndex={1}
         />
-      </View>
+      </ScrollView>
+      <Menu
+        onMenuStateChange={value => setImageOpacity(value ? 0.1 : 1)}
+        onMenuSelected={menu => {
+          if (menu === Menus.language) {
+            navigation.navigate('Language', {localState, flow: false});
+          }
+        }}
+      />
       <Button
         icon="arrow-right"
         style={styles.buttonStyle}
         contentStyle={{width: '100%', height: 70, flexDirection: 'row-reverse'}}
         labelStyle={{fontSize: 20}}
-        color="#2A4965"
         mode={'contained'}
         onPress={() => {
           if (disclaimerAccepted) {

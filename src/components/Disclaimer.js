@@ -4,13 +4,14 @@ import {Button, Text} from 'react-native-paper';
 import {t} from '../messages';
 import HandShow from '../assets/handShow.svg';
 import LocalStorage from '../LocalStorage';
+import colors from '../colors';
 
 const {width, height} = Dimensions.get('window');
 
 const styles = StyleSheet.create({
   title: {
     fontWeight: 'bold',
-    color: '#2A4965',
+    color: colors.primary,
     fontSize: 45,
     textAlign: 'center',
   },

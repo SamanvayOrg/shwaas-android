@@ -6,5 +6,7 @@ export default {
   primary: '#2A4965',
   background: '#fafafa',
   black: '#000000',
-  yellow: '#D6932E'
-}
+  yellow: '#D6932E',
+  contrastingTextColor: '#ffffff',
+  regularTextColor: '#192734',
+};

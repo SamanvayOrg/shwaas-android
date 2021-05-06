@@ -1,14 +1,14 @@
 import React, {useState} from 'react';
-import {StyleSheet, View} from 'react-native';
-import {Provider, FAB, Button, Text, Menu, Portal} from 'react-native-paper';
-import messages from '../messages';
+import {StyleSheet} from 'react-native';
+import {FAB} from 'react-native-paper';
 
 const styles = StyleSheet.create({
   fab: {
     position: 'absolute',
     margin: 16,
     right: 0,
-    bottom: 70,
+    bottom: 48,
+    zIndex: 3,
   },
 });
 
@@ -27,34 +27,24 @@ export default ({onMenuStateChange, onMenuSelected}) => {
   };
 
   return (
-    <Provider>
-      <Portal>
-        <FAB.Group
-          open={open}
-          icon={'menu'}
-          style={{paddingBottom: 70}}
-          actions={[
-            {
-              icon: 'web',
-              label: 'Language',
-              onPress: () => {
-                onMenuStateToggled();
-                onMenuSelected(Menus.language);
-              },
-            },
-            // {
-            //   icon: 'sitemap',
-            //   label: 'Algorithm',
-            //   onPress: () => {
-            //   },
-            // },
-          ]}
-          onStateChange={() => {}}
-          onPress={() => {
+    <FAB.Group
+      open={open}
+      icon={'menu'}
+      style={styles.fab}
+      actions={[
+        {
+          icon: 'web',
+          label: 'Language',
+          onPress: () => {
             onMenuStateToggled();
-          }}
-        />
-      </Portal>
-    </Provider>
+            onMenuSelected(Menus.language);
+          },
+        },
+      ]}
+      onStateChange={() => {}}
+      onPress={() => {
+        onMenuStateToggled();
+      }}
+    />
   );
 };
