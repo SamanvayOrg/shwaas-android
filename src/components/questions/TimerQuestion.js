@@ -7,7 +7,7 @@ import _ from 'lodash';
 
 const getDisplayTime = function (seconds) {
   let sec = seconds % 60;
-  let min = (seconds / 60).toFixed(0);
+  let min = Math.floor(seconds / 60);
 
   return `${min} Minutes and ${sec} Seconds`;
 };
