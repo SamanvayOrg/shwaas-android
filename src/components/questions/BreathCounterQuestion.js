@@ -55,10 +55,7 @@ const styles = StyleSheet.create({
 const {height} = Dimensions.get('window');
 const MAX_TIME_SECOND = 60;
 
-export default ({
-                  number, question, onAnswered = () => {
-  }, value
-                }) => {
+export default ({number, question, onAnswered = () => {}, value}) => {
   const [timer, setTimer] = useState(value ? 0 : MAX_TIME_SECOND);
   const [breathCount, setBreathCount] = useState(value || 0);
   const [intervalId, setIntervalId] = useState();
@@ -84,7 +81,7 @@ export default ({
       setIntervalId(startTimer());
       scrollViewRef.current.scrollToEnd({animated: true});
     }
-    Vibration.vibrate(2 * 1000);
+    Vibration.vibrate(1000);
     setBreathCount(prevCount => prevCount + 1);
   };
 
@@ -101,7 +98,7 @@ export default ({
   return (
     <React.Fragment>
       <ScrollView ref={scrollViewRef} showsVerticalScrollIndicator={false}>
-        <QuestionBase number={number} question={question}/>
+        <QuestionBase number={number} question={question} />
         <TextInput
           mode={'outlined'}
           keyboardType={'number-pad'}
@@ -111,17 +108,13 @@ export default ({
           onChangeText={text => onAnswered(question, parseInt(text))}
         />
         <View style={styles.container}>
-          <TouchableOpacity
-            onPress={onCounterPress}
-            disabled={isTimeComplete}>
+          <TouchableOpacity onPress={onCounterPress} disabled={isTimeComplete}>
             <View
               style={[
                 styles.counterButton,
                 isTimeComplete && {backgroundColor: '#BABABA'},
               ]}>
-              <Text style={styles.counterButtonText}>
-                {pressButtonMessage}
-              </Text>
+              <Text style={styles.counterButtonText}>{pressButtonMessage}</Text>
             </View>
           </TouchableOpacity>
           <View style={styles.countsContainer}>
@@ -133,11 +126,15 @@ export default ({
               <View>
                 <HorizontalComponent style={{width: '100%'}}>
                   <Text style={styles.countText}>Breaths</Text>
-                  <Text style={[styles.countValue, {marginLeft: 'auto'}]}>{breathCount}</Text>
+                  <Text style={[styles.countValue, {marginLeft: 'auto'}]}>
+                    {breathCount}
+                  </Text>
                 </HorizontalComponent>
                 <HorizontalComponent style={{width: '100%'}}>
                   <Text style={styles.countText}>{t('seconds')}</Text>
-                  <Text style={[styles.countValue, {marginLeft: 'auto'}]}>{timer < 10 ? `0${timer}` : timer}</Text>
+                  <Text style={[styles.countValue, {marginLeft: 'auto'}]}>
+                    {timer < 10 ? `0${timer}` : timer}
+                  </Text>
                 </HorizontalComponent>
               </View>
             )}
