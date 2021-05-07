@@ -1,5 +1,5 @@
 import questionTypes from '../questionTypes';
-import {alwaysShow, outputWeight} from './utils';
+import {alwaysShow, objectify, outputWeight} from './utils';
 
 const key = 'feverInPast7Days';
 
@@ -7,7 +7,7 @@ const output = form => {
   if (form[key] === false && form.coughInPast7Days === false) {
     return outputWeight.black;
   }
-  return outputWeight.green;
+  return objectify(outputWeight.green);
 };
 
 export default {

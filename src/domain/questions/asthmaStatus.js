@@ -1,5 +1,5 @@
 import questionTypes from '../questionTypes';
-import {outputWeight} from './utils';
+import {objectify, outputWeight} from './utils';
 
 const key = 'asthmaStatus';
 
@@ -8,7 +8,7 @@ const show = ({comorbidities = []}) => {
 };
 
 const output = form =>
-  form[key] === 'symptomsPresent' ? outputWeight.red : outputWeight.yellow;
+  form[key] === 'symptomsPresent' ? objectify(outputWeight.red) : objectify(outputWeight.yellow);
 
 export default {
   key,

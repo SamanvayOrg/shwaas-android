@@ -1,12 +1,12 @@
 import questionTypes from '../questionTypes';
-import {outputWeight} from './utils';
+import {objectify, outputWeight} from './utils';
 
 const key = 'liverDiseaseStatus';
 
 const show = ({comorbidities = []}) => comorbidities.includes('liverDisease');
 
 const output = form =>
-  form[key] === 'symptomsPresent' ? outputWeight.red : outputWeight.yellow;
+  form[key] === 'symptomsPresent' ? objectify(outputWeight.red) : objectify(outputWeight.yellow);
 
 export default {
   key,

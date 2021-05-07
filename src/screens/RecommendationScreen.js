@@ -6,14 +6,16 @@ import {trackRecommendation} from '../analytics';
 const RecommendationScreen = ({route, navigation}) => {
   useFocusEffect(
     useCallback(() => {
-      trackRecommendation(route.params.recommendation);
+      trackRecommendation(route.params.recommendation.type);
       return () => {};
     }, [route]),
   );
+  const {type, messages} = route.params.recommendation;
 
   return (
     <Recommendation
-      data={route.params.recommendation}
+      data={type}
+      messages={messages}
       navigation={navigation}
     />
   );

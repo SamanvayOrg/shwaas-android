@@ -1,5 +1,5 @@
 import questionTypes from '../questionTypes';
-import {outputWeight} from './utils';
+import {objectify, outputWeight} from './utils';
 
 const key = 'bmi';
 
@@ -16,7 +16,7 @@ const show = form => {
 
 const output = form => {
   const bmi = value(form);
-  return bmi > 16 || bmi < 25 ? outputWeight.green : outputWeight.yellow;
+  return bmi > 16 || bmi < 25 ? objectify(outputWeight.green) : objectify(outputWeight.yellow);
 };
 
 export default {

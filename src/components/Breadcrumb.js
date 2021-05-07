@@ -25,7 +25,7 @@ const getColor = function (visibleQuestions, form, index, currentIndex) {
   if (!isDefined(form[visibleQuestions[index].key])) {
     return colors.lightPrimary;
   }
-  let output = visibleQuestions[index].output(form);
+  let output = visibleQuestions[index].output(form).weight;
   if (_.isNil(output)) return colors.lightPrimary;
   return colors[output];
 };

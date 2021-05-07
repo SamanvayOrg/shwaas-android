@@ -15,9 +15,10 @@ const outputColors = {
   black: colors.black,
 };
 
-const alwaysGreen = () => outputWeight.green;
-const redIfTrue = value =>
-  value === true ? outputWeight.red : outputWeight.green;
+const alwaysGreen = (message) => ({weight: outputWeight.green, message});
+const redIfTrue = (value, message) =>
+  value === true ? {weight: outputWeight.red, message} : {weight: outputWeight.green, message};
+const objectify = (weight, message) => ({weight, message});
 
 const isDefined = item => item !== undefined && item !== null;
 
@@ -28,4 +29,5 @@ export {
   redIfTrue,
   outputColors,
   isDefined,
+  objectify,
 };

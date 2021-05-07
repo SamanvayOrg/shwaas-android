@@ -90,7 +90,7 @@ const numberOfYellows = (form, answerKeys) => {
 
   let yellowQuestions = answerKeys.filter(
     answerKey =>
-      questionWithKey(answerKey).output(form) === outputWeight.yellow,
+      questionWithKey(answerKey).output(form).weight === outputWeight.yellow,
   );
   const relevantYellowQuestions = yellowQuestions.filter(question =>
     relevantQuestionKeys.includes(question.key),
@@ -118,6 +118,8 @@ const getKeysToVisibleQuestions = form => {
   return Object.keys(form).filter(key => visibleQuestionKeys.includes(key));
 };
 
+const constructRecommendation = (type, messages) => ({type, messages});
+
 const getRecommendation = (answers, additionalQuestion, answer) => {
   const form = {
     ...answers,
@@ -127,25 +129,23 @@ const getRecommendation = (answers, additionalQuestion, answer) => {
   }
 
   const answerKeys = getKeysToVisibleQuestions(form);
+  const outputs = answerKeys.map(answerKey => questionWithKey(answerKey).output(form));
+  const messages = outputs.map(output => output.message);
 
-  const notUseful = answerKeys.some(answerKey => {
-    return questionWithKey(answerKey).output(form) === outputWeight.black;
-  });
-  if (notUseful) return RecommendationType.NotUseful;
+  const notUseful = outputs.some(output => output.weight === outputWeight.black);
+  if (notUseful) return constructRecommendation(RecommendationType.NotUseful, messages);
 
-  const admitInHospital = answerKeys.some(
-    answerKey => questionWithKey(answerKey).output(form) === outputWeight.red,
-  );
-  if (admitInHospital) return RecommendationType.AdmitInHospital;
+  const admitInHospital = outputs.some(output => output.weight === outputWeight.red);
+  if (admitInHospital) return constructRecommendation(RecommendationType.AdmitInHospital, messages);
 
   const yellows = numberOfYellows(form, answerKeys);
   if (yellows === 0) {
-    return RecommendationType.ManageAtHome;
+    return constructRecommendation(RecommendationType.ManageAtHome, messages);
   }
   if (yellows <= 3) {
-    return RecommendationType.ReferToDoctor;
+    return constructRecommendation(RecommendationType.ReferToDoctor, messages);
   }
-  return RecommendationType.ReferToDistrictHospital;
+  return constructRecommendation(RecommendationType.ReferToDistrictHospital, messages);
 };
 
 export {
@@ -158,4 +158,5 @@ export {
   questionWithKey,
   getRecommendation,
   indexOfQuestion,
+  constructRecommendation,
 };

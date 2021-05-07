@@ -1,13 +1,13 @@
 import questionTypes from '../questionTypes';
-import {alwaysShow, outputWeight} from './utils';
+import {alwaysShow, objectify, outputWeight} from './utils';
 
 const key = 'breathCount';
 
 const output = form => {
-  if (form[key] < 12) return outputWeight.red;
-  if (form[key] < 20) return outputWeight.green;
-  if (form[key] < 24) return outputWeight.yellow;
-  if (form[key] >= 24) return outputWeight.red;
+  if (form[key] < 12) return objectify(outputWeight.red);
+  if (form[key] < 20) return objectify(outputWeight.green);
+  if (form[key] < 24) return objectify(outputWeight.yellow);
+  if (form[key] >= 24) return objectify(outputWeight.red);
 };
 
 export default {

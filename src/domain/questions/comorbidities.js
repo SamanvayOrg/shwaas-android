@@ -1,13 +1,13 @@
 import questionTypes from '../questionTypes';
-import {alwaysShow, outputWeight} from './utils';
+import {alwaysShow, objectify, outputWeight} from './utils';
 
 const key = 'comorbidities';
 
 const output = form => {
   const values = form[key] || [];
-  if (values.find(value => value === 'kidneyDisease')) return outputWeight.red;
-  if (values.length > 0) return outputWeight.yellow;
-  return outputWeight.green;
+  if (values.find(value => value === 'kidneyDisease')) return objectify(outputWeight.red);
+  if (values.length > 0) return objectify(outputWeight.yellow);
+  return (outputWeight.green);
 };
 
 export default {

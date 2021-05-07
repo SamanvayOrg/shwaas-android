@@ -1,5 +1,5 @@
 import questionTypes from '../questionTypes';
-import {outputWeight} from './utils';
+import {objectify, outputWeight} from './utils';
 import {t} from '../../messages';
 
 const key = 'diabetesStatus';
@@ -25,7 +25,7 @@ const isControlled = ({fbs, pp2bs, rbs, hba1c}) => {
 };
 
 const output = form =>
-  isControlled(form) ? outputWeight.green : outputWeight.yellow;
+  isControlled(form) ? objectify(outputWeight.green) : objectify(outputWeight.yellow);
 
 const value = form => {
   return isControlled(form)

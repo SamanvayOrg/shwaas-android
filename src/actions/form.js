@@ -1,6 +1,4 @@
 import {actions} from '../reducers/form';
-import {getRecommendation} from '../domain/questionModel';
-import RecommendationType from '../domain/RecommendationType';
 
 const setValue = (question, value) => ({
   type: actions.SET_VALUE,

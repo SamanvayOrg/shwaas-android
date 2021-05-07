@@ -1,5 +1,5 @@
 import questionTypes from '../questionTypes';
-import {outputWeight} from './utils';
+import {objectify, outputWeight} from './utils';
 
 const key = 'systolic';
 
@@ -7,12 +7,12 @@ const show = form => form.accessToBPMachine === true;
 
 const output = form => {
   if (form[key] > 100) {
-    return outputWeight.green;
+    return objectify(outputWeight.green);
   }
   if (form[key] > 90) {
-    return outputWeight.yellow;
+    return objectify(outputWeight.yellow);
   }
-  return outputWeight.red;
+  return objectify(outputWeight.red);
 };
 
 export default {

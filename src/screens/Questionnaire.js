@@ -55,8 +55,8 @@ const Questionnaire = ({
     const recommendation = getRecommendation(form, question, value);
 
     if (
-      recommendation === RecommendationType.AdmitInHospital ||
-      recommendation === RecommendationType.NotUseful
+      recommendation.type === RecommendationType.AdmitInHospital ||
+      recommendation.type === RecommendationType.NotUseful
     ) {
       navigation.navigate('Recommendations', {recommendation});
       return;
