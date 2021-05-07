@@ -3,7 +3,7 @@ import {alwaysShow, redIfTrue} from './utils';
 
 const key = 'difficultyBreathing';
 
-const output = form => redIfTrue(form[key]);
+const output = form => redIfTrue(form[key], 'difficultyBreathingSuggestion');
 
 export default {
   key,

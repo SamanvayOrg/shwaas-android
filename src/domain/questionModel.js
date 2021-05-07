@@ -8,6 +8,7 @@ import pp2bs from './questions/pp2bs';
 import rbs from './questions/rbs';
 import hba1c from './questions/hba1c';
 import messages from '../translations/en';
+import _ from 'lodash';
 
 const questions = pneumoniaDetectionQuestions;
 
@@ -129,23 +130,42 @@ const getRecommendation = (answers, additionalQuestion, answer) => {
   }
 
   const answerKeys = getKeysToVisibleQuestions(form);
-  const outputs = answerKeys.map(answerKey => questionWithKey(answerKey).output(form));
-  const messages = outputs.map(output => output.message);
+  const outputs = answerKeys.map(answerKey =>
+    questionWithKey(answerKey).output(form),
+  );
+  let messages = outputs.map(output => output.message);
 
-  const notUseful = outputs.some(output => output.weight === outputWeight.black);
-  if (notUseful) return constructRecommendation(RecommendationType.NotUseful, messages);
+  const notUseful = outputs.some(
+    output => output.weight === outputWeight.black,
+  );
+  if (notUseful)
+    return constructRecommendation(RecommendationType.NotUseful, messages);
 
-  const admitInHospital = outputs.some(output => output.weight === outputWeight.red);
-  if (admitInHospital) return constructRecommendation(RecommendationType.AdmitInHospital, messages);
+  const admitInHospital = outputs.some(
+    output => output.weight === outputWeight.red,
+  );
+  if (admitInHospital)
+    return constructRecommendation(
+      RecommendationType.AdmitInHospital,
+      messages,
+    );
+
+  if (!_.isNumber(answerKeys.oxygenSaturation)) {
+    messages = ['missingPulseOximeterReading'].concat(messages);
+  }
 
   const yellows = numberOfYellows(form, answerKeys);
+
   if (yellows === 0) {
     return constructRecommendation(RecommendationType.ManageAtHome, messages);
   }
   if (yellows <= 3) {
     return constructRecommendation(RecommendationType.ReferToDoctor, messages);
   }
-  return constructRecommendation(RecommendationType.ReferToDistrictHospital, messages);
+  return constructRecommendation(
+    RecommendationType.ReferToDistrictHospital,
+    messages,
+  );
 };
 
 export {

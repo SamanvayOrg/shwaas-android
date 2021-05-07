@@ -25,7 +25,9 @@ const isControlled = ({fbs, pp2bs, rbs, hba1c}) => {
 };
 
 const output = form =>
-  isControlled(form) ? objectify(outputWeight.green) : objectify(outputWeight.yellow);
+  isControlled(form)
+    ? objectify(outputWeight.green)
+    : objectify(outputWeight.yellow, 'diabetesStatusYellow');
 
 const value = form => {
   return isControlled(form)

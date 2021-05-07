@@ -4,7 +4,9 @@ import {alwaysShow, objectify, outputWeight} from './utils';
 const key = 'age';
 
 const output = form =>
-  form[key] < 12 ? objectify(outputWeight.black) : objectify(outputWeight.green);
+  form[key] < 12
+    ? objectify(outputWeight.black, 'comingSoon')
+    : objectify(outputWeight.green);
 
 export default {
   key,

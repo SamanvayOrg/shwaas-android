@@ -5,13 +5,15 @@ const key = 'comorbidities';
 
 const output = form => {
   const values = form[key] || [];
-  if (values.find(value => value === 'kidneyDisease')) return objectify(outputWeight.red);
+  if (values.find(value => value === 'kidneyDisease'))
+    return objectify(outputWeight.red);
   if (values.length > 0) return objectify(outputWeight.yellow);
-  return (outputWeight.green);
+  return outputWeight.green;
 };
 
 export default {
   key,
+  helpText: 'comorbiditiesHelpText',
   type: questionTypes.multichoice,
   options: [
     'diabetes',

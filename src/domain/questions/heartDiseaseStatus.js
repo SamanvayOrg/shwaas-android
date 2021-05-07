@@ -6,10 +6,13 @@ const key = 'heartDiseaseStatus';
 const show = ({comorbidities = []}) => comorbidities.includes('heartDisease');
 
 const output = form =>
-  form[key] === 'symptomsPresent' ? objectify(outputWeight.red) : objectify(outputWeight.yellow);
+  form[key] === 'symptomsPresent'
+    ? objectify(outputWeight.red)
+    : objectify(outputWeight.yellow);
 
 export default {
   key,
+  helpText: 'heartDiseaseSubtext',
   type: questionTypes.singleChoice,
   options: ['symptomsPresent', 'symptomsAbsent', 'dontKnow'],
   show,

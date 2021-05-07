@@ -131,5 +131,17 @@
   "readDisclaimer": "Read disclaimer and terms",
   "confirm": "Confirm",
   "whenDidSymptomsStart": "How many days ago did the first symptoms start?",
-  "needBloodTestsAndOthers": "This person will likely need blood tests and chest X ray for other respiratory illnesss like TB, COPD, ast etc"
+  "needBloodTestsAndOthers": "This person will likely need blood tests and chest X ray for other respiratory illnesss like TB, COPD, ast etc",
+  "comingSoon": "We will soon add algorithm for age 1 to 12 years.",
+  "difficultyBreathingSuggestion": "This person needs urgent referral to a place with oxyen, chest X ray, ECG facility and admission on oxygen bed, usually CHC/sub-district/district hospital.",
+  "breathCountYellow": "The person's respiratory rate is high than normal, please visit CHC/sub-district hospital for checkup.",
+  "breathCountRed": "This person's respiratory rate is very high than normal, you will need admission, Chest X ray, ECG and will most likely need oxygen ,please visit CHC/sub-distruct/District hospital for checkup and admission.",
+  "highSystolicYellow": "This person will need to consult for optimising BP medicines.",
+  "lowSystolicRed": "Person's blood pressure is very high than normal, you will need admission, Chest X ray, ECG and will most likely need oxygen ,please visit CHC/sub-distruct/District hospital for checkup and admission.",
+  "oxygenSaturationFollowupQuestionsYellow": "This person needs oxyen saturation check - please visit nearest village health worker/Subcenter/ PHC for oxygen saturation check.",
+  "comorbiditiesHelpText": "If no comorbidities then proceed to next question",
+  "diabetesStatusYellow": "This person has uncontrolled diabetes and control usually worsens with this illness, please visit doctor for modification of diabetes medications.",
+  "heartDiseaseSubtext": "Symptoms of heart disease include breathlessness, palpitations, pedal swelling, dizziness",
+  "liverDiseaseSubtext": "Symptoms of liver disease include abdominal swelling,pedal swelling, dizziness, weakness, jaundice",
+  "missingPulseOximeterReading": "The accuracy of this tool is severely hampered without a pulse oximeter reading. In case you do not have a pulse oximeter, you are advised to go to a nearby healthcare provider to check your oxygen saturation. We have asked some questions to assess your saturation, but the results can be imperfect. "
 }

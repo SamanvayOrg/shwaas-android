@@ -20,5 +20,5 @@ export default {
   key,
   type: questionTypes.numeric,
   show: alwaysShow,
-  output: alwaysGreen,
+  output: output,
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet, View, ScrollView} from 'react-native';
 import {Paragraph, Text, Button} from 'react-native-paper';
 import {t} from '../messages';
 import {useDispatch} from 'react-redux';
@@ -9,8 +9,8 @@ import NavigatorUtil from '../NavigatorUtil';
 const styles = StyleSheet.create({
   container: {flex: 1},
   contentContainer: {
-    marginTop: 20,
     paddingHorizontal: 10,
+    marginBottom: 80,
   },
   shortMessageContainer: {
     marginTop: 20,
@@ -47,11 +47,14 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ({data, messages, navigation}) => {
+export default ({data, messages = [], navigation}) => {
+  const validMessages = messages.filter(
+    message => message && message.length > 0,
+  );
   const dispatch = useDispatch();
   return (
     <View style={styles.container}>
-      <View styel={styles.contentContainer}>
+      <ScrollView style={styles.contentContainer}>
         <View
           style={[
             styles.shortMessageContainer,
@@ -75,11 +78,13 @@ export default ({data, messages, navigation}) => {
             {t('nextSteps')}
           </Text>
           <Paragraph>{t(data.nextSteps)}</Paragraph>
-          {messages.map(message => (
-            <Paragraph>⬤ {t(message)}</Paragraph>
+          {validMessages.map((message, index) => (
+            <Paragraph key={index} style={{marginTop: 8}}>
+              ⬤ {t(message)}
+            </Paragraph>
           ))}
         </View>
-      </View>
+      </ScrollView>
       <Button
         style={styles.buttonStyle}
         contentStyle={{height: 70}}
