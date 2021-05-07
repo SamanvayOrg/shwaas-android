@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ({data, navigation}) => {
+export default ({data, messages, navigation}) => {
   const dispatch = useDispatch();
   return (
     <View style={styles.container}>
@@ -75,6 +75,9 @@ export default ({data, navigation}) => {
             {t('nextSteps')}
           </Text>
           <Paragraph>{t(data.nextSteps)}</Paragraph>
+          {messages.map(message => (
+            <Paragraph>⬤ {t(message)}</Paragraph>
+          ))}
         </View>
       </View>
       <Button

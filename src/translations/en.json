@@ -129,5 +129,7 @@
   "english": "English",
   "hindi": "हिंदी (Hindi)",
   "readDisclaimer": "Read disclaimer and terms",
-  "confirm": "Confirm"
+  "confirm": "Confirm",
+  "whenDidSymptomsStart": "How many days ago did the first symptoms start?",
+  "needBloodTestsAndOthers": "This person will likely need blood tests and chest X ray for other respiratory illnesss like TB, COPD, ast etc"
 }

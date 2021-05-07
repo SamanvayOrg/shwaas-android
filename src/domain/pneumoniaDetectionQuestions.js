@@ -36,10 +36,12 @@ import bmi from './questions/bmi';
 import diabetesStatus from './questions/diabetesStatus';
 import sixMinuteTimer from './questions/sixMinuteTimer';
 import oxygenSaturationAfter6Minutes from './questions/oxygenSaturationAfter6Minutes';
+import whenDidSymptomsStart from './questions/whenDidSymptomsStart';
 
 export default [
   coughInPast7Days,
   feverInPast7Days,
+  whenDidSymptomsStart,
   age,
   difficultyBreathing,
   hardToRecogniseRelatives,
