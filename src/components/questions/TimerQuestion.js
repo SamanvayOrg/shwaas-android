@@ -4,6 +4,7 @@ import {Colors, Button, Card, ProgressBar} from 'react-native-paper';
 import QuestionBase from './QuestionBase';
 import {t} from '../../messages';
 import _ from 'lodash';
+import KeepAwake from 'react-native-keep-awake';
 
 const getDisplayTime = function (seconds) {
   let sec = seconds % 60;
@@ -53,6 +54,7 @@ export default ({number, question, onAnswered = () => {}, value}) => {
   let timerRunning = !_.isNil(globalData.intervalHandle);
   return (
     <QuestionBase number={number} question={question}>
+      <KeepAwake />
       <Button
         mode={'contained'}
         onPress={() => onStartTimer()}
