@@ -15,9 +15,11 @@ const outputColors = {
   black: colors.black,
 };
 
-const alwaysGreen = (message) => ({weight: outputWeight.green, message});
+const alwaysGreen = message => ({weight: outputWeight.green, message});
 const redIfTrue = (value, message) =>
-  value === true ? {weight: outputWeight.red, message} : {weight: outputWeight.green, message};
+  value === true
+    ? {weight: outputWeight.red, message}
+    : {weight: outputWeight.green};
 const objectify = (weight, message) => ({weight, message});
 
 const isDefined = item => item !== undefined && item !== null;
