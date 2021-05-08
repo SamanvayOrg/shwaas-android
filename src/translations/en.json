@@ -144,6 +144,5 @@
     "diabetesStatusYellow": "This person has uncontrolled diabetes and control usually worsens with this illness, please visit doctor for modification of diabetes medications.",
     "heartDiseaseSubtext": "Symptoms of heart disease include breathlessness, palpitations, pedal swelling, dizziness",
     "liverDiseaseSubtext": "Symptoms of liver disease include abdominal swelling,pedal swelling, dizziness, weakness, jaundice",
-    "missingPulseOximeterReading": "The accuracy of this tool is severely hampered without a pulse oximeter reading. In case you do not have a pulse oximeter, you are advised to go to a nearby healthcare provider to check your oxygen saturation. We have asked some questions to assess your saturation, but the results can be imperfect. ",
-    "lowBPRed": "This person's blood pressure seem to have very low blood pressure than normal, will need admission, Chest X ray, ECG and will most likely need oxygen ,please visit CHC/sub-district/District hospital for checkup and admission."
+    "missingPulseOximeterReading": "The accuracy of this tool is severely hampered without a pulse oximeter reading. In case you do not have a pulse oximeter, you are advised to go to a nearby healthcare provider to check your oxygen saturation. We have asked some questions to assess your saturation, but the results can be imperfect. "
 }
