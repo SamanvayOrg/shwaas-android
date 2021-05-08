@@ -42,7 +42,14 @@ questions.map(question => {
 const visibleQuestions = (form = {}) =>
   questions.filter(question => question.show(form) === true);
 
-const nextQuestion = (form, questionKey) => {
+const nextQuestion = (originalForm, questionKey, currentAnswer) => {
+  let form = {
+    ...originalForm,
+  };
+  if (currentAnswer) {
+    form[questionKey] = currentAnswer;
+  }
+
   let visibleQs = visibleQuestions(form);
   if (!questionKey) {
     return visibleQs[0];

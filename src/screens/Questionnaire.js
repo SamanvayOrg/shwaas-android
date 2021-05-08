@@ -62,7 +62,7 @@ const Questionnaire = ({
       return;
     }
 
-    if (nextQuestion(form, currentQuestionKey)) {
+    if (nextQuestion(form, currentQuestionKey, value)) {
       goToNextQuestion();
     } else {
       navigation.navigate('Recommendations', {recommendation});
