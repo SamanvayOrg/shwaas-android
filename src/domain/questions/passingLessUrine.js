@@ -6,7 +6,7 @@ const key = 'passingLessUrine';
 const show = form => form.accessToBPMachine === false;
 
 const output = form => {
-  if (form[key] === 'yes') return objectify(outputWeight.red);
+  if (form[key] === 'yes') return objectify(outputWeight.red, 'lowBPRed');
   if (form[key] === 'no') return objectify(outputWeight.green);
   if (form[key] === 'unsure') return objectify(outputWeight.yellow);
 };

@@ -4,16 +4,21 @@ import {t} from '../../messages';
 
 const key = 'diabetesStatus';
 
-const show = ({comorbidities = [], ...form}) =>
-  comorbidities.includes('diabetes') && form.recentBloodSugarReport;
+const show = ({comorbidities = []}) => comorbidities.includes('diabetes');
 
-const isControlled = ({fbs, pp2bs, rbs, hba1c}) => {
+const isControlled = ({
+  fbs,
+  pp2bs,
+  rbs,
+  hba1c,
+  healthProviderDiabetesAdvice,
+}) => {
   const fbsMissing = !fbs || fbs === 'dontKnow';
   const pp2bsMissing = !pp2bs || pp2bs === 'dontKnow';
   const rbsMissing = !rbs || rbs === 'dontKnow';
   const hba1cMissing = !hba1c || hba1c === 'dontKnow';
   if (fbsMissing && pp2bsMissing && rbsMissing && hba1cMissing) {
-    return false;
+    return healthProviderDiabetesAdvice === 'wellControlledDiabetes';
   }
 
   return !(

@@ -8,7 +8,7 @@ const output = form => {
   if (form[key] < 24) return objectify(outputWeight.green);
   if (form[key] < 29)
     return objectify(outputWeight.yellow, 'breathCountYellow');
-  if (form[key] > 29) return objectify(outputWeight.red, 'breathCountRed');
+  if (form[key] >= 29) return objectify(outputWeight.red, 'breathCountRed');
 };
 
 export default {

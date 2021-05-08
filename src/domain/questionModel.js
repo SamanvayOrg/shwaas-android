@@ -93,9 +93,11 @@ const numberOfYellows = (form, answerKeys) => {
     answerKey =>
       questionWithKey(answerKey).output(form).weight === outputWeight.yellow,
   );
+
   const relevantYellowQuestions = yellowQuestions.filter(question =>
-    relevantQuestionKeys.includes(question.key),
+    relevantQuestionKeys.includes(question),
   );
+
   const comorbidities = form['comorbidities'] || [];
 
   const irrelevantComorbiditiesForYellow = [

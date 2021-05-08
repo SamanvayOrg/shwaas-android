@@ -3,8 +3,10 @@ import {objectify, outputWeight} from './utils';
 
 const key = 'healthProviderDiabetesAdvice';
 
-const show = ({comorbidities = []}) => {
-  comorbidities.includes('diabetes');
+const show = ({comorbidities = [], ...form}) => {
+  return (
+    comorbidities.includes('diabetes') && form.recentBloodSugarReport === false
+  );
 };
 
 const output = form =>
