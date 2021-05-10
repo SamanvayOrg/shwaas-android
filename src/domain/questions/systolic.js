@@ -6,13 +6,13 @@ const key = 'systolic';
 const show = form => form.accessToBPMachine === true;
 
 const output = form => {
-  if (form[key] > 180) {
+  if (form[key] > 179) {
     return objectify(outputWeight.red, 'highSystolicRed');
   }
-  if (form[key] > 150) {
+  if (form[key] > 160) {
     return objectify(outputWeight.yellow, 'highSystolicYellow');
   }
-  if (form[key] > 100) {
+  if (form[key] > 99) {
     return objectify(outputWeight.green);
   }
   if (form[key] > 90) {

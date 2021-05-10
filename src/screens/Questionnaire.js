@@ -84,7 +84,10 @@ const Questionnaire = ({
 
   const onAnswered = (question, value) => {
     setValue(question, value);
-    if (question.type === questionTypes.boolean) {
+    if (
+      question.type === questionTypes.boolean ||
+      question.type === questionTypes.singleChoice
+    ) {
       goToNextQuestionIfNecessary(question, value);
     }
   };

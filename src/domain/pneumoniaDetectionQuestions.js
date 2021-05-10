@@ -1,5 +1,5 @@
-import coughInPast7Days from './questions/coughInPast7Days';
-import feverInPast7Days from './questions/feverInPast7Days';
+import coughInPast14Days from './questions/coughInPast14Days';
+import feverInPast14Days from './questions/feverInPast14Days';
 import difficultyBreathing from './questions/difficultyBreathing';
 import hardToRecogniseRelatives from './questions/hardToRecogniseRelatives';
 import soiledClothes from './questions/soiledClothes';
@@ -17,7 +17,6 @@ import blueTongue from './questions/blueTongue';
 import breathCount from './questions/breathCount';
 import accessToBPMachine from './questions/accessToBPMachine';
 import systolic from './questions/systolic';
-import diastolic from './questions/diastolic';
 import passingLessUrine from './questions/passingLessUrine';
 import coolPalms from './questions/coolPalms';
 import comorbidities from './questions/comorbidities';
@@ -37,10 +36,14 @@ import diabetesStatus from './questions/diabetesStatus';
 import sixMinuteTimer from './questions/sixMinuteTimer';
 import oxygenSaturationAfter6Minutes from './questions/oxygenSaturationAfter6Minutes';
 import whenDidSymptomsStart from './questions/whenDidSymptomsStart';
+import lossOfTasteOrSmellInPast14Days from './questions/lossOfTasteOrSmellInPast14Days';
+import threeOrMoreOfBelowSymptoms from './questions/threeOrMoreOfBelowSymptoms';
 
 export default [
-  coughInPast7Days,
-  feverInPast7Days,
+  coughInPast14Days,
+  feverInPast14Days,
+  lossOfTasteOrSmellInPast14Days,
+  threeOrMoreOfBelowSymptoms,
   whenDidSymptomsStart,
   age,
   difficultyBreathing,
