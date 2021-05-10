@@ -22,7 +22,9 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     paddingHorizontal: 16,
     marginTop: 24,
-    height: 150,
+    minHeight: 150,
+    elevation: 4,
+    padding: 8,
   },
   counterButtonText: {
     color: 'white',
@@ -81,7 +83,7 @@ export default ({number, question, onAnswered = () => {}, value}) => {
       setIntervalId(startTimer());
       scrollViewRef.current.scrollToEnd({animated: true});
     }
-    Vibration.vibrate(1000);
+    Vibration.vibrate(200);
     setBreathCount(prevCount => prevCount + 1);
   };
 
