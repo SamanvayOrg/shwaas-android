@@ -90,6 +90,7 @@ export default ({data, messages = [], navigation}) => {
         contentStyle={{height: 70}}
         icon="restart"
         mode="contained"
+        labelStyle={{fontSize: 20}}
         onPress={() => {
           dispatch(resetCalculator());
           NavigatorUtil.goToHome(navigation);

@@ -41,6 +41,7 @@ const Navigator = ({
           icon={'arrow-left'}
           style={styles.previousButton}
           contentStyle={styles.previousButtonContent}
+          labelStyle={{fontSize: 18}}
           onPress={onPrevious}>
           {t('previous')}
         </Button>
@@ -51,6 +52,7 @@ const Navigator = ({
           icon={'arrow-right'}
           style={styles.nextButton}
           contentStyle={styles.nextButtonContent}
+          labelStyle={{fontSize: 18}}
           onPress={onNext}>
           {t('next')}
         </Button>

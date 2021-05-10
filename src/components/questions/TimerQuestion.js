@@ -58,6 +58,8 @@ export default ({number, question, onAnswered = () => {}, value}) => {
       <Button
         mode={'contained'}
         onPress={() => onStartTimer()}
+        contentStyle={{width: '100%', height: 70}}
+        labelStyle={{fontSize: 20}}
         disabled={timerRunning}>
         {t('startTimer')}
       </Button>

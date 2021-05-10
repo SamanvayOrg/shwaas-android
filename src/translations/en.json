@@ -4,7 +4,7 @@
     "difficultyBreathing": "Does the person have breathlessness\/Difficulty in breathing?",
     "admitToHospital": "Red zone. Admit to a hospital.",
     "hardToRecogniseRelatives": "In the past few hours, has the person started finding it difficult to recognise relatives?",
-    "directlyObserve": "Please directly observe, check with the patient or a relative if the patient has the above symptoms",
+    "directlyObserve": "Please directly observe.",
     "soiledClothes": "In the past few hours, has there been clothes soiled by urine or stool ?",
     "stoppedStandingWithoutSupport": "In the past few hours, has the person stopped standing without support?",
     "cantTellBetweenDayAndNight": "In the past few hours, has person started finding it difficult to tell if its day or night?",
