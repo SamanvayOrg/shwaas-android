@@ -7,6 +7,7 @@ import {resetCalculator} from '../actions/form';
 import {connect} from 'react-redux';
 import Menu, {Menus} from '../components/Menu';
 import colors from '../colors';
+import {useVersion} from '../components/common/useVersion';
 
 const styles = StyleSheet.create({
   wrapper: {alignItems: 'center', backgroundColor: 'white', flex: 1},
@@ -30,6 +31,7 @@ const styles = StyleSheet.create({
   },
   pushDown: {marginTop: 'auto'},
   buttonStyle: {width: '100%', borderRadius: 0},
+  subText: {color: '#74808B', fontWeight: '400', fontSize: 14, textAlign: 'center'},
 });
 
 const Home = ({navigation, resetCalculator, route}) => {
@@ -37,6 +39,7 @@ const Home = ({navigation, resetCalculator, route}) => {
   const isPortrait = height > width;
   const dimensionOfImage = isPortrait ? width * 0.9 : height * 0.9;
   const opacity = isPortrait ? 0.8 : 0.1;
+  const {appVersion} = useVersion();
 
   useEffect(() => navigation.addListener('focus', resetCalculator), []);
   const [imageOpacity, setImageOpacity] = useState(1);
@@ -46,8 +49,8 @@ const Home = ({navigation, resetCalculator, route}) => {
   const label = disclaimerAccepted
     ? 'getStarted'
     : languageSelected
-    ? 'readDisclaimer'
-    : 'selectLanguage';
+      ? 'readDisclaimer'
+      : 'selectLanguage';
   return (
     <View style={{flex: 1}}>
       <ScrollView contentContainerStyle={styles.wrapper} style={{flex: 1}}>
@@ -55,6 +58,7 @@ const Home = ({navigation, resetCalculator, route}) => {
           <Text style={styles.welcomeMessage}>{t('welcome')}</Text>
           <Text style={styles.title}>{t('title')}</Text>
           <Text style={styles.subtitle}>{t('subTitle')}</Text>
+          <Text style={styles.subText}>{appVersion}</Text>
         </View>
         <HandShow
           style={styles.pushDown}
