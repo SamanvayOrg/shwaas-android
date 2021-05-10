@@ -2,7 +2,7 @@ import React, {useState, useEffect, useRef} from 'react';
 import {
   StyleSheet,
   View,
-  TouchableOpacity,
+  TouchableNativeFeedback,
   Dimensions,
   Vibration,
   ScrollView,
@@ -110,7 +110,9 @@ export default ({number, question, onAnswered = () => {}, value}) => {
           onChangeText={text => onAnswered(question, parseInt(text))}
         />
         <View style={styles.container}>
-          <TouchableOpacity onPress={onCounterPress} disabled={isTimeComplete}>
+          <TouchableNativeFeedback
+            onPress={onCounterPress}
+            disabled={isTimeComplete}>
             <View
               style={[
                 styles.counterButton,
@@ -118,7 +120,7 @@ export default ({number, question, onAnswered = () => {}, value}) => {
               ]}>
               <Text style={styles.counterButtonText}>{pressButtonMessage}</Text>
             </View>
-          </TouchableOpacity>
+          </TouchableNativeFeedback>
           <View style={styles.countsContainer}>
             {isTimeComplete ? (
               <Text style={styles.countText}>
