@@ -81,7 +81,7 @@
     "sixMinuteComplete": "SIX MINUTES COMPLETE",
     "youAre": "The person is",
     "youNeedTo": "You need to",
-    "safe": "SAFE",
+    "greenRecommendationShortMessageLine2": "SAFE",
     "notSafe": "NOT SAFE",
     "quarantine": "QUARANTINE",
     "notUseful": "NOT USEFUL",
@@ -153,5 +153,10 @@
     "breaths": "Breaths",
     "atRisk": "At Risk",
     "answers": "Answers",
-    "days": "days"
+    "days": "days",
+    "greenRecommendationShortMessageLine1": "The person is",
+    "yellowRecommendationShortMessageLine1": "This person",
+    "yellowRecommendationShortMessageLine2": "Needs Attention",
+    "redRecommendationShortMessageLine1": "This person is",
+    "redRecommendationShortMessageLine2": "NOT SAFE"
 }

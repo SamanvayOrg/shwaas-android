@@ -81,7 +81,7 @@
     "sixMinuteComplete": "छह मिनट पूरे हुए",
     "youAre": "यह व्यक्ति है",
     "youNeedTo": "You need to",
-    "safe": "सुरक्षित",
+    "greenRecommendationShortMessageLine2": "सुरक्षित हैं",
     "notSafe": "असुरक्षित",
     "quarantine": "कोरंटाइन",
     "notUseful": "उपयोगी नहीं है",
@@ -153,5 +153,10 @@
     "breaths": "साँस",
     "atRisk": "",
     "answers": "जवाब",
-    "days": "दिन"
+    "days": "दिन",
+    "greenRecommendationShortMessageLine1": "यह व्यक्ति",
+    "yellowRecommendationShortMessageLine1": "इस व्यक्ति पर",
+    "yellowRecommendationShortMessageLine2": "ध्यान दे",
+    "redRecommendationShortMessageLine1": "यह व्यक्ति",
+    "redRecommendationShortMessageLine2": "असुरक्षित है"
 }
