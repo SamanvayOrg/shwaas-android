@@ -1,10 +1,10 @@
-import React from 'react';
-import {StyleSheet, View, ScrollView} from 'react-native';
-import {Paragraph, Text, Button} from 'react-native-paper';
+import React, {useState} from 'react';
+import {ScrollView, StyleSheet, View} from 'react-native';
+import {Button, Paragraph, Text} from 'react-native-paper';
 import {t} from '../messages';
-import {useDispatch} from 'react-redux';
-import {resetCalculator} from '../actions/form';
 import NavigatorUtil from '../NavigatorUtil';
+import Answers from './Answers';
+import colors from '../colors';
 
 const styles = StyleSheet.create({
   container: {flex: 1},
@@ -47,11 +47,10 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ({data, messages = [], navigation}) => {
+export default ({data, messages = [], navigation, onStartOver, form = {}}) => {
   const validMessages = messages.filter(
     message => message && message.length > 0,
   );
-  const dispatch = useDispatch();
   return (
     <View style={styles.container}>
       <ScrollView style={styles.contentContainer}>
@@ -77,22 +76,23 @@ export default ({data, messages = [], navigation}) => {
           <Text style={{textAlign: 'center', fontSize: 32}}>
             {t('nextSteps')}
           </Text>
-          <Paragraph>{t(data.nextSteps)}</Paragraph>
+          <Text  style={{fontSize: 18, color: colors.primary}}>{t(data.nextSteps)}</Text>
           {validMessages.map((message, index) => (
-            <Paragraph key={index} style={{marginTop: 8}}>
+            <Text  style={{fontSize: 18, color: colors.primary, marginTop: 12}} key={index}>
               ⬤ {t(message)}
-            </Paragraph>
+            </Text>
           ))}
         </View>
+        <Answers form={form}/>
       </ScrollView>
       <Button
         style={styles.buttonStyle}
         contentStyle={{height: 70}}
+        labelStyle={{fontSize: 20}}
         icon="restart"
         mode="contained"
-        labelStyle={{fontSize: 20}}
         onPress={() => {
-          dispatch(resetCalculator());
+          onStartOver();
           NavigatorUtil.goToHome(navigation);
         }}>
         {t('startOver')}

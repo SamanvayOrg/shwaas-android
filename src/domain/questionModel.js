@@ -9,6 +9,7 @@ import rbs from './questions/rbs';
 import hba1c from './questions/hba1c';
 import messages from '../translations/en';
 import _ from 'lodash';
+import {t} from '../messages';
 
 const questions = pneumoniaDetectionQuestions;
 
@@ -41,6 +42,31 @@ questions.map(question => {
 
 const visibleQuestions = (form = {}) =>
   questions.filter(question => question.show(form) === true);
+
+const getUnit = (question) => question.unit ? t(question.unit) : '';
+
+const getAnswerString = (question, value) => {
+  switch (question.type) {
+    case questionTypes.numeric: {
+      return `${value} ${getUnit(question)}`
+    }
+    case questionTypes.timer: {
+      return `${value} ${getUnit(question)}`
+    }
+    case questionTypes.boolean: {
+      return value === true ? t('yes') : t('no')
+    }
+    case questionTypes.breathCount: {
+      return `${value} ${getUnit(question)}`
+    }
+    case questionTypes.multichoice: {
+      return value.map(item => t(item)).join(', ');
+    }
+    default: {
+      return `${t(value)} ${getUnit(question)}`
+    }
+  }
+};
 
 const nextQuestion = (originalForm, questionKey, currentAnswer) => {
   let form = {
@@ -188,4 +214,5 @@ export {
   getRecommendation,
   indexOfQuestion,
   constructRecommendation,
+  getAnswerString
 };

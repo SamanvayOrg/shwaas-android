@@ -37,7 +37,7 @@ export default ({onCancel, onAccept}) => {
           }}>
           <Button
             mode={'contained'}
-            contentStyle={{height: 50}}
+            contentStyle={{height: 70}}
             onPress={() => {
               LocalStorage.disclaimerAccepted().then(() => onAccept());
             }}>
@@ -45,7 +45,7 @@ export default ({onCancel, onAccept}) => {
           </Button>
           <Button
             mode={'contained'}
-            contentStyle={{height: 50}}
+            contentStyle={{height: 70}}
             onPress={onCancel}>
             {t('cancel')}
           </Button>

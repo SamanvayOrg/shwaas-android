@@ -23,6 +23,7 @@ const output = form => {
 
 export default {
   key,
+  unit: 'mmHg',
   type: questionTypes.numeric,
   show,
   output,

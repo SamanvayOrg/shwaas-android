@@ -129,7 +129,7 @@ export default ({number, question, onAnswered = () => {}, value}) => {
             ) : (
               <View>
                 <HorizontalComponent style={{width: '100%'}}>
-                  <Text style={styles.countText}>Breaths</Text>
+                  <Text style={styles.countText}>{t('breaths')}</Text>
                   <Text style={[styles.countValue, {marginLeft: 'auto'}]}>
                     {breathCount}
                   </Text>
