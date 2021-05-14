@@ -7,6 +7,7 @@ import DisclaimerScreen from './screens/DisclaimerScreen';
 import LanguageSelection from './screens/LanguageSelectionScreen';
 import {t} from './messages';
 import NavigatorUtil from './NavigatorUtil';
+import AboutScreen from './screens/About';
 
 const Stack = createStackNavigator();
 
@@ -28,6 +29,12 @@ const Route = localState => (
       component={LanguageSelection}
       options={{headerShown: false}}
     />
+    <Stack.Screen
+      name="About"
+      component={AboutScreen}
+      options={{headerShown: true}}
+    />
+
     <Stack.Screen
       name="Questionnaire"
       component={Questionnaire}

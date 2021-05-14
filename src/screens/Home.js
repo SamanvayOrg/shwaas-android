@@ -31,7 +31,12 @@ const styles = StyleSheet.create({
   },
   pushDown: {marginTop: 'auto'},
   buttonStyle: {width: '100%', borderRadius: 0},
-  subText: {color: '#74808B', fontWeight: '400', fontSize: 14, textAlign: 'center'},
+  subText: {
+    color: '#74808B',
+    fontWeight: '400',
+    fontSize: 14,
+    textAlign: 'center',
+  },
 });
 
 const Home = ({navigation, resetCalculator, route}) => {
@@ -49,8 +54,8 @@ const Home = ({navigation, resetCalculator, route}) => {
   const label = disclaimerAccepted
     ? 'getStarted'
     : languageSelected
-      ? 'readDisclaimer'
-      : 'selectLanguage';
+    ? 'readDisclaimer'
+    : 'selectLanguage';
   return (
     <View style={{flex: 1}}>
       <ScrollView contentContainerStyle={styles.wrapper} style={{flex: 1}}>
@@ -73,6 +78,8 @@ const Home = ({navigation, resetCalculator, route}) => {
         onMenuSelected={menu => {
           if (menu === Menus.language) {
             navigation.navigate('Language', {localState, flow: false});
+          } else if (menu === Menus.about) {
+            navigation.navigate('About', {localState, flow: false});
           }
         }}
       />

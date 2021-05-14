@@ -16,6 +16,7 @@ export const Menus = {
   none: 0,
   language: 1,
   flowchart: 2,
+  about: 3,
 };
 
 export default ({onMenuStateChange, onMenuSelected}) => {
@@ -33,11 +34,19 @@ export default ({onMenuStateChange, onMenuSelected}) => {
       style={styles.fab}
       actions={[
         {
-          icon: 'web',
+          icon: 'translate',
           label: 'Language',
           onPress: () => {
             onMenuStateToggled();
             onMenuSelected(Menus.language);
+          },
+        },
+        {
+          icon: 'information-variant',
+          label: 'About',
+          onPress: () => {
+            onMenuStateToggled();
+            onMenuSelected(Menus.about);
           },
         },
       ]}
