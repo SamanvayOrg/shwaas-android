@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
-import {StyleSheet} from 'react-native';
+import {StyleSheet, Linking} from 'react-native';
 import {FAB} from 'react-native-paper';
+import {t} from '../messages';
 
 const styles = StyleSheet.create({
   fab: {
@@ -34,8 +35,18 @@ export default ({onMenuStateChange, onMenuSelected}) => {
       style={styles.fab}
       actions={[
         {
+          icon: 'comment-quote',
+          label: t('feedback'),
+          onPress: () => {
+            onMenuStateToggled();
+            Linking.openURL(
+              `mailto:Shwaas Feedback<shwaas-feedback@samanvayfoundation.org>?subject=Shwaas App Feedback`,
+            );
+          },
+        },
+        {
           icon: 'translate',
-          label: 'Language',
+          label: t('language'),
           onPress: () => {
             onMenuStateToggled();
             onMenuSelected(Menus.language);
@@ -43,7 +54,7 @@ export default ({onMenuStateChange, onMenuSelected}) => {
         },
         {
           icon: 'information-variant',
-          label: 'About',
+          label: t('about'),
           onPress: () => {
             onMenuStateToggled();
             onMenuSelected(Menus.about);
