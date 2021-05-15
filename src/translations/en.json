@@ -127,7 +127,7 @@
     "hindi": "हिंदी",
     "readDisclaimer": "Read disclaimer and terms",
     "confirm": "Confirm",
-    "forward": "",
+    "forward": "Forward",
     "question": "Question",
     "whenDidSymptomsStart": "How many days ago did the first symptoms start?",
     "needBloodTestsAndOthers": "This person will likely need blood tests and chest X-ray for other respiratory illnesses like TB, COPD, AST etc",
@@ -151,12 +151,14 @@
     "coughInPast14Days": "Does the person have cough in the past 14 days?",
     "lowBPRed": "Person's blood pressure seem to have very low blood pressure than normal, will need admission, Chest X-ray, ECG and will most likely need oxygen ,please visit CHC\/sub-district\/District hospital for checkup and admission.",
     "breaths": "Breaths",
-    "atRisk": "At Risk",
     "answers": "Answers",
     "days": "days",
     "greenRecommendationShortMessageLine1": "The person is",
     "yellowRecommendationShortMessageLine1": "This person",
     "yellowRecommendationShortMessageLine2": "Needs Attention",
     "redRecommendationShortMessageLine1": "This person is",
-    "redRecommendationShortMessageLine2": "NOT SAFE"
+    "redRecommendationShortMessageLine2": "NOT SAFE",
+    "language": "Language",
+    "about": "About Shwaas",
+    "feedback": "Feedback"
 }

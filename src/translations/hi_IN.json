@@ -151,12 +151,14 @@
     "coughInPast14Days": "क्या व्यक्ति को पीछले 14 दिनों में खांसी रही है?",
     "lowBPRed": "व्यक्ति का रक्तचाप सामान्य से बहुत कम रक्तचाप है, प्रवेश की आवश्यकता होगी, चेस्ट एक्स रे, ईसीजी और सबसे अधिक ऑक्सीजन की आवश्यकता होगी, कृपया चेकअप और प्रवेश के लिए ब्लॉक स्तर अस्पताल \/ उप-जिला \/ जिला अस्पताल का दौरा करें।",
     "breaths": "साँस",
-    "atRisk": "",
     "answers": "जवाब",
     "days": "दिन",
     "greenRecommendationShortMessageLine1": "यह व्यक्ति",
     "yellowRecommendationShortMessageLine1": "इस व्यक्ति पर",
     "yellowRecommendationShortMessageLine2": "ध्यान दे",
     "redRecommendationShortMessageLine1": "यह व्यक्ति",
-    "redRecommendationShortMessageLine2": "असुरक्षित है"
+    "redRecommendationShortMessageLine2": "असुरक्षित है",
+    "translate": "भाषा",
+    "about": "शवास के बारे में",
+    "feedback": "फ़ीडबैक"
 }
