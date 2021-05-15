@@ -1,20 +1,14 @@
 import React from 'react';
-import {ScrollView, View, BackHandler, StyleSheet, Linking} from 'react-native';
-import {Text, Paragraph, List} from 'react-native-paper';
-
-const styles = StyleSheet.create({});
+import {Linking, ScrollView, View} from 'react-native';
+import {Text} from 'react-native-paper';
 
 const AboutScreen = ({route, navigation}) => {
   return (
     <ScrollView>
       <View
         style={{
-          marginHorizontal: 8,
-          marginVertical: 16,
-          padding: 15,
+          padding: 16,
           backgroundColor: '#EEF0F2',
-          elevation: 2,
-          borderRadius: 8,
         }}>
         <View>
           <Text style={{fontSize: 18}}>

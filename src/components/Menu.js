@@ -35,6 +35,14 @@ export default ({onMenuStateChange, onMenuSelected}) => {
       style={styles.fab}
       actions={[
         {
+          icon: 'text-box-check',
+          label: t('terms'),
+          onPress: () => {
+            onMenuStateToggled();
+            Linking.openURL('https://shwaas.samanvayfoundation.org/terms');
+          },
+        },
+        {
           icon: 'comment-quote',
           label: t('feedback'),
           onPress: () => {

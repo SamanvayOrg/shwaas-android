@@ -158,7 +158,8 @@
     "yellowRecommendationShortMessageLine2": "ध्यान दे",
     "redRecommendationShortMessageLine1": "यह व्यक्ति",
     "redRecommendationShortMessageLine2": "असुरक्षित है",
-    "translate": "भाषा",
+    "language": "भाषा",
     "about": "शवास के बारे में",
-    "feedback": "फ़ीडबैक"
+    "feedback": "फ़ीडबैक",
+    "terms": "नियम व शर्तें"
 }
