@@ -9,6 +9,7 @@ const languageOptions = [
   {label: 'English', locale: 'en'},
   {label: 'हिंदी', locale: 'hi_In'},
   {label: 'ಕನ್ನಡ', locale: 'kn_In'},
+  {label: 'తెలుగు', locale: 'te_In'},
 ];
 
 const styles = StyleSheet.create({
