@@ -11,6 +11,7 @@ const languageOptions = [
   {label: 'ಕನ್ನಡ', locale: 'kn_In'},
   {label: 'తెలుగు', locale: 'te_In'},
   {label: 'বাংলা', locale: 'bn_In'},
+  {label: 'தமிழ்', locale: 'ta_In'},
 ];
 
 const styles = StyleSheet.create({

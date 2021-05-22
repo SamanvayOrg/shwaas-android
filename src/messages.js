@@ -4,6 +4,7 @@ import messages_hi_In from './translations/hi_IN.json';
 import messages_kn_In from './translations/kn_IN.json';
 import messages_te_In from './translations/te_IN.json';
 import messages_bn_In from './translations/bn_IN.json';
+import messages_ta_In from './translations/ta_IN.json';
 
 const strings = {
   en: messages_en,
@@ -11,6 +12,7 @@ const strings = {
   kn_In: messages_kn_In,
   te_In: messages_te_In,
   bn_In: messages_bn_In,
+  ta_In: messages_ta_In,
 };
 
 const messages = new LocalizedStrings(strings);
