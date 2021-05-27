@@ -38,6 +38,7 @@ import oxygenSaturationAfter6Minutes from './questions/oxygenSaturationAfter6Min
 import whenDidSymptomsStart from './questions/whenDidSymptomsStart';
 import lossOfTasteOrSmellInPast14Days from './questions/lossOfTasteOrSmellInPast14Days';
 import threeOrMoreOfBelowSymptoms from './questions/threeOrMoreOfBelowSymptoms';
+import otherAilments from './questions/otherAilments';
 
 export default [
   coughInPast14Days,
@@ -75,6 +76,7 @@ export default [
   liverDiseaseStatus,
   sickleDiseaseStatus,
   asthmaStatus,
+  otherAilments,
   knowHeightOrWeight,
   height,
   weight,
