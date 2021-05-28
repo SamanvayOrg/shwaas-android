@@ -19,6 +19,9 @@ codepush-staging:
 codepush-production:
 	appcenter codepush release-react -a Samanvay-Research-and-Development-Foundation/Pneumonia-App -d Production
 
+codepush-playstore:
+	appcenter codepush release-react -a Samanvay-Research-and-Development-Foundation/Pneumonia-App -d playstore
+
 create-bundle:
 	cd android && ./gradlew bundleRelease
 
