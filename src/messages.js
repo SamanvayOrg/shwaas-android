@@ -5,6 +5,7 @@ import messages_kn_In from './translations/kn_IN.json';
 import messages_te_In from './translations/te_IN.json';
 import messages_bn_In from './translations/bn_IN.json';
 import messages_ta_In from './translations/ta_IN.json';
+import messages_mr from './translations/mr.json';
 
 const strings = {
   en: messages_en,
@@ -13,6 +14,7 @@ const strings = {
   te_In: messages_te_In,
   bn_In: messages_bn_In,
   ta_In: messages_ta_In,
+  mr: messages_mr,
 };
 
 export const languageOptions = [
@@ -22,6 +24,7 @@ export const languageOptions = [
   {label: 'తెలుగు', locale: 'te_In', labelInEnglish: 'Telugu'},
   {label: 'বাংলা', locale: 'bn_In', labelInEnglish: 'Bangla'},
   {label: 'தமிழ்', locale: 'ta_In', labelInEnglish: 'Tamil'},
+  {label: 'मराठी', locale: 'mr', labelInEnglish: 'Marathi'},
 ];
 
 const messages = new LocalizedStrings(strings);
