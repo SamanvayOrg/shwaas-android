@@ -4,15 +4,7 @@ import {changeLanguage, t} from '../messages';
 import {List} from 'react-native-paper';
 import LocalStorage from '../LocalStorage';
 import colors from '../colors';
-
-const languageOptions = [
-  {label: 'English', locale: 'en'},
-  {label: 'हिंदी', locale: 'hi_In'},
-  {label: 'ಕನ್ನಡ', locale: 'kn_In'},
-  {label: 'తెలుగు', locale: 'te_In'},
-  {label: 'বাংলা', locale: 'bn_In'},
-  {label: 'தமிழ்', locale: 'ta_In'},
-];
+import {languageOptions} from '../messages';
 
 const styles = StyleSheet.create({
   commonItem: {

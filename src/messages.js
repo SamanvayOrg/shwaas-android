@@ -15,7 +15,22 @@ const strings = {
   ta_In: messages_ta_In,
 };
 
+export const languageOptions = [
+  {label: 'English', locale: 'en', labelInEnglish: 'English'},
+  {label: 'हिंदी', locale: 'hi_In', labelInEnglish: 'Hindi'},
+  {label: 'ಕನ್ನಡ', locale: 'kn_In', labelInEnglish: 'Kannada'},
+  {label: 'తెలుగు', locale: 'te_In', labelInEnglish: 'Telugu'},
+  {label: 'বাংলা', locale: 'bn_In', labelInEnglish: 'Bangla'},
+  {label: 'தமிழ்', locale: 'ta_In', labelInEnglish: 'Tamil'},
+];
+
 const messages = new LocalizedStrings(strings);
+
+export const getLanguage = () => {
+  const languageCode = messages.getLanguage();
+  return languageOptions.find(option => option.locale === languageCode)
+    .labelInEnglish;
+};
 
 export const changeLanguage = languageKey => {
   messages.setLanguage(languageKey);
