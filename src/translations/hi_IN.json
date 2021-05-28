@@ -155,17 +155,17 @@
     "days": "दिन",
     "greenRecommendationShortMessageLine1": "यह व्यक्ति",
     "yellowRecommendationShortMessageLine1": "इस व्यक्ति पर",
-    "yellowRecommendationShortMessageLine2": "ध्यान दे",
+    "yellowRecommendationShortMessageLine2": "ध्यान दें",
     "redRecommendationShortMessageLine1": "यह व्यक्ति",
     "redRecommendationShortMessageLine2": "असुरक्षित है",
     "language": "भाषा",
-    "about": "शवास के बारे में",
+    "about": "श्वास के बारे में",
     "feedback": "फ़ीडबैक",
     "terms": "नियम व शर्तें",
-    "otherAilmentsYellow": "इस व्यक्ति के पास अंतर्निहित जोखिम कारक हैं और रक्त परीक्षण, दवाओं के संशोधन और निकट पर्यवेक्षण के तहत अनुवर्ती कार्रवाई के लिए पीएचसी\/सीएचसी\/एसडीएच में डॉक्टर से परामर्श करना चाहिए ।",
-    "palpitations": "धकधकी",
+    "otherAilmentsYellow": "इस व्यक्ति को जोखिम कारक है। डॉक्टर से सलाह, खून जांच, दवाइयाओं में बदलाव फॉलो अप आदि के लिए व्यक्ति को निकटतम प्राथमिक स्वास्थ्य केंद्र\/ब्लॉक स्तर अस्पताल\/उपजिला अस्पताल  स्वास्थ्य सुविधा केंद्र ले जाएँ। ",
+    "palpitations": "छाती मे धकधकी",
     "pedalSwelling": "पैरों में सूजन",
     "jaundice": "पीलिया",
     "abdominalSwelling": "पेट में सूजन",
-    "otherAilments": "क्या व्यक्ति में निम्न में से कोई लक्षण हैं?"
+    "otherAilments": "क्या व्यक्ति को निम्न में से कोई लक्षण हैं?"
 }
