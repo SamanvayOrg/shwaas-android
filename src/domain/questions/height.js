@@ -7,6 +7,7 @@ const show = form => form.knowHeightOrWeight === true;
 
 export default {
   key,
+  label: key,
   type: questionTypes.numeric,
   unit: 'cm',
   show,

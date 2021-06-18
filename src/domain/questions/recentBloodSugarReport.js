@@ -7,6 +7,7 @@ const show = ({comorbidities = []}) => comorbidities.includes('diabetes');
 
 export default {
   key,
+  label: key,
   type: questionTypes.boolean,
   show,
   output: alwaysGreen,

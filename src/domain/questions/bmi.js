@@ -16,11 +16,14 @@ const show = form => {
 
 const output = form => {
   const bmi = value(form);
-  return bmi > 16 || bmi < 25 ? objectify(outputWeight.green) : objectify(outputWeight.yellow);
+  return bmi > 16 || bmi < 25
+    ? objectify(outputWeight.green)
+    : objectify(outputWeight.yellow);
 };
 
 export default {
   key,
+  label: key,
   type: questionTypes.information,
   show,
   output,

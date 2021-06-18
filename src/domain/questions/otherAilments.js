@@ -14,6 +14,7 @@ const output = form => {
 
 export default {
   key,
+  label: key,
   type: questionTypes.multichoice,
   options: ['palpitations', 'pedalSwelling', 'jaundice', 'abdominalSwelling'],
   show,

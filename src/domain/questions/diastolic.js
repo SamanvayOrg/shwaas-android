@@ -17,6 +17,7 @@ const output = form => {
 
 export default {
   key,
+  label: key,
   type: questionTypes.numeric,
   show,
   output,

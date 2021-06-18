@@ -12,6 +12,7 @@ const output = form => {
 
 export default {
   key,
+  label: key,
   unit: 'days',
   type: questionTypes.numeric,
   show: alwaysShow,

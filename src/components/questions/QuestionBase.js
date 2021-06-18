@@ -5,7 +5,7 @@ import React from 'react';
 import Space from '../common/Space';
 
 export default ({number, question, children}) => {
-  const headline = `${t(question.key)} ${
+  const headline = `${t(question.label)} ${
     question.unit ? `(${question.unit})` : ''
   }`;
   return (
@@ -13,8 +13,14 @@ export default ({number, question, children}) => {
       <Text style={{color: '#74808B', fontSize: 16}}>
         {t('question')} {number}
       </Text>
-      <Text style={{color: '#192734', fontSize: 28, fontWeight: '700'}}>{headline}</Text>
-      {question.helpText && <Text style={{color: '#74808B', fontWeight: '400', fontSize: 14}}>{t(question.helpText)}</Text>}
+      <Text style={{color: '#192734', fontSize: 28, fontWeight: '700'}}>
+        {headline}
+      </Text>
+      {question.helpText && (
+        <Text style={{color: '#74808B', fontWeight: '400', fontSize: 14}}>
+          {t(question.helpText)}
+        </Text>
+      )}
       <Space height={16} />
       {children}
     </View>

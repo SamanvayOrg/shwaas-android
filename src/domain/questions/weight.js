@@ -9,6 +9,7 @@ const show = form => {
 
 export default {
   key,
+  label: key,
   type: questionTypes.numeric,
   unit: 'kg',
   show,

@@ -10,6 +10,7 @@ const output = form =>
 
 export default {
   key,
+  label: key,
   type: questionTypes.numeric,
   unit: 'years',
   show: alwaysShow,

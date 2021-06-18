@@ -5,6 +5,7 @@ const key = 'feverInPast14Days';
 
 export default {
   key,
+  label: key,
   type: questionTypes.boolean,
   show: alwaysShow,
   output: alwaysGreen,

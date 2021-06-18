@@ -42,6 +42,7 @@ const value = form => {
 
 export default {
   key,
+  label: key,
   type: questionTypes.information,
   show,
   output,

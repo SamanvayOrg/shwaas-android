@@ -8,6 +8,7 @@ const show = form =>
 
 export default {
   key,
+  label: key,
   type: questionTypes.boolean,
   show: show,
   output: alwaysGreen,

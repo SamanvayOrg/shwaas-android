@@ -12,6 +12,7 @@ const output = form =>
 
 export default {
   key,
+  label: key,
   helpText: 'liverDiseaseSubtext',
   type: questionTypes.singleChoice,
   options: ['symptomsPresent', 'symptomsAbsent', 'dontKnow'],

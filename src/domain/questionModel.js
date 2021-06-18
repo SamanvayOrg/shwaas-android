@@ -26,8 +26,11 @@ questions.map(question => {
     console.error(`Question does not have key - ${JSON.stringify(question)}`);
     return;
   }
-  if (!messages[question.key]) {
-    console.error(`Question ${question.key} should have a key in messages`);
+  if (!question.label) {
+    console.error(`Question ${question.key} should have a label`);
+  }
+  if (!messages[question.label]) {
+    console.error(`Question ${question.key} should have a label in messages`);
   }
   if (!questionTypes[question.type]) {
     console.error(`Question ${question.key} does not have the right type`);
@@ -43,27 +46,27 @@ questions.map(question => {
 const visibleQuestions = (form = {}) =>
   questions.filter(question => question.show(form) === true);
 
-const getUnit = (question) => question.unit ? t(question.unit) : '';
+const getUnit = question => (question.unit ? t(question.unit) : '');
 
 const getAnswerString = (question, value) => {
   switch (question.type) {
     case questionTypes.numeric: {
-      return `${value} ${getUnit(question)}`
+      return `${value} ${getUnit(question)}`;
     }
     case questionTypes.timer: {
-      return `${value} ${getUnit(question)}`
+      return `${value} ${getUnit(question)}`;
     }
     case questionTypes.boolean: {
-      return value === true ? t('yes') : t('no')
+      return value === true ? t('yes') : t('no');
     }
     case questionTypes.breathCount: {
-      return `${value} ${getUnit(question)}`
+      return `${value} ${getUnit(question)}`;
     }
     case questionTypes.multichoice: {
       return value.map(item => t(item)).join(', ');
     }
     default: {
-      return `${t(value)} ${getUnit(question)}`
+      return `${t(value)} ${getUnit(question)}`;
     }
   }
 };
@@ -214,5 +217,5 @@ export {
   getRecommendation,
   indexOfQuestion,
   constructRecommendation,
-  getAnswerString
+  getAnswerString,
 };

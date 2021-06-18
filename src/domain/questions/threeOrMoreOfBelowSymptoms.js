@@ -16,6 +16,7 @@ const output = form => {
 
 export default {
   key,
+  label: key,
   helpText: 'threeOrMoreOfBelowSymptomsSubtext',
   type: questionTypes.boolean,
   show: show,

@@ -13,6 +13,7 @@ const output = form => {
 
 export default {
   key,
+  label: key,
   helpText: 'comorbiditiesHelpText',
   type: questionTypes.multichoice,
   options: [

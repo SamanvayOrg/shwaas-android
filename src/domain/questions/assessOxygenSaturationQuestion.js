@@ -22,6 +22,7 @@ export default key => {
 
   return {
     key,
+    label: key,
     type: questionTypes.singleChoice,
     options: ['yes', 'no', 'unsure'],
     show,
