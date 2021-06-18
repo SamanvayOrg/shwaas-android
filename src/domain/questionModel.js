@@ -207,7 +207,6 @@ const getRecommendation = (answers, additionalQuestion, answer) => {
 };
 
 export {
-  questions,
   visibleQuestions,
   questionAt,
   numberOfQuestions,
