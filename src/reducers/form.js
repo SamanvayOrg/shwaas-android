@@ -1,6 +1,6 @@
 import {
   nextQuestion,
-  previousQuestion,
+  previousQuestion, removeAnswersNotInQuestionList,
   visibleQuestions,
 } from '../domain/questionModel';
 
@@ -27,12 +27,14 @@ const reducer = (state = createInitialState(), action) => {
 
   switch (action.type) {
     case actions.SET_VALUE: {
+      const form = {
+        ...state.form,
+        ...getValue(action.key, action.value),
+      };
+      const newForm = removeAnswersNotInQuestionList(form);
       return {
         ...state,
-        form: {
-          ...state.form,
-          ...getValue(action.key, action.value),
-        },
+        form: newForm,
       };
     }
     case actions.START_OVER: {

@@ -1,8 +1,7 @@
-import {View, StyleSheet} from 'react-native';
-import {Button, Text} from 'react-native-paper';
+import {View} from 'react-native';
+import {Text} from 'react-native-paper';
 import {t} from '../messages';
 import React, {useState} from 'react';
-import questionTypes from '../domain/questionTypes';
 import {getAnswerString, visibleQuestions} from '../domain/questionModel';
 import _ from 'lodash';
 import colors from '../colors';
@@ -14,7 +13,7 @@ export default ({form = {}}) => {
   const answers = _.reduce(
     questions,
     (result, question) => {
-      if (question.type === questionTypes.information) {
+      if (question.type.isInformation) {
         result.push({
           question: t(question.key),
           value: question.value(form),

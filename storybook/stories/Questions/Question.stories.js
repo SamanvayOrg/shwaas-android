@@ -3,7 +3,7 @@ import React from 'react';
 import baseScreenDecorator from '../baseScreenDecorator';
 import themeDecorator from '../themeDecorator';
 import Question from '../../../src/components/questions/Question';
-import questionTypes from '../../../src/domain/questionTypes';
+import questionTypes from '../../../src/domain/questionTypes/questionTypes';
 
 storiesOf('Question wrapper', module)
   .addDecorator(themeDecorator)

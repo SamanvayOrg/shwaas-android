@@ -167,5 +167,6 @@
     "pedalSwelling": "Pedal Swelling",
     "jaundice": "Jaundice",
     "abdominalSwelling": "Abdominal Swelling",
-    "otherAilments": "Does the person have any of  the following symptoms?"
+    "otherAilments": "Does the person have any of  the following symptoms?",
+    "childFeverInPast14Days": "Does the Baby/Child have fever now or in last 14 days?"
 }

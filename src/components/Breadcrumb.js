@@ -30,7 +30,7 @@ const getColor = function (visibleQuestions, form, index, currentIndex) {
   return colors[output];
 };
 
-const Breadcrumb = ({style, theme, form, currentIndex, onQuestionChange}) => {
+const Breadcrumb = ({theme, form, currentIndex, onQuestionChange}) => {
   const scrollViewRef = useRef();
 
   useEffect(() => {

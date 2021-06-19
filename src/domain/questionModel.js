@@ -1,74 +1,41 @@
-import pneumoniaDetectionQuestions from './pneumoniaDetectionQuestions';
+import commonQuestions from './commonQuestions';
+import adultQuestions from './adultQuestions';
+import childQuestions from './childQuestions';
 import {outputWeight} from './questions/utils';
-import questionTypes from './questionTypes';
 import RecommendationType from './RecommendationType';
-import comorbidities from './questions/comorbidities';
-import fbs from './questions/fbs';
-import pp2bs from './questions/pp2bs';
-import rbs from './questions/rbs';
-import hba1c from './questions/hba1c';
-import messages from '../translations/en';
+import comorbidities from './questions/adult/comorbidities';
+import fbs from './questions/adult/fbs';
+import pp2bs from './questions/adult/pp2bs';
+import rbs from './questions/adult/rbs';
+import hba1c from './questions/adult/hba1c';
 import _ from 'lodash';
-import {t} from '../messages';
+import {validate} from './validation';
 
-const questions = pneumoniaDetectionQuestions;
 
-const isFunction = functionToCheck => {
-  return (
-    functionToCheck && {}.toString.call(functionToCheck) === '[object Function]'
-  );
+validate([...commonQuestions, ...adultQuestions]);
+validate([...commonQuestions, ...childQuestions]);
+
+const questionsInFlow = (form = {}) => {
+  return form.age && form.age > 12 ?
+    [...commonQuestions, ...adultQuestions] :
+    [...commonQuestions, ...childQuestions];
 };
 
-//Validation of questions. Runs during startup, gives error in console.
-//This can be useful when debugging new questions that come up
-questions.map(question => {
-  if (!question.key) {
-    console.error(`Question does not have key - ${JSON.stringify(question)}`);
-    return;
-  }
-  if (!question.label) {
-    console.error(`Question ${question.key} should have a label`);
-  }
-  if (!messages[question.label]) {
-    console.error(`Question ${question.key} should have a label in messages`);
-  }
-  if (!questionTypes[question.type]) {
-    console.error(`Question ${question.key} does not have the right type`);
-  }
-  if (!isFunction(question.show)) {
-    console.error(`Question ${question.key} does not have the show function`);
-  }
-  if (!isFunction(question.output)) {
-    console.error(`Question ${question.key} does not have the output function`);
-  }
-});
-
 const visibleQuestions = (form = {}) =>
-  questions.filter(question => question.show(form) === true);
+  questionsInFlow(form).filter(question => question.show(form) === true);
+const getAnswerString = (question, value) => question.type.getAnswerString(question, value);
 
-const getUnit = question => (question.unit ? t(question.unit) : '');
+const keysOfVisibleQuestions = form => {
+  const visibleQuestionKeys = visibleQuestions(form).map(q => q.key);
+  return Object.keys(form).filter(key => visibleQuestionKeys.includes(key));
+};
 
-const getAnswerString = (question, value) => {
-  switch (question.type) {
-    case questionTypes.numeric: {
-      return `${value} ${getUnit(question)}`;
-    }
-    case questionTypes.timer: {
-      return `${value} ${getUnit(question)}`;
-    }
-    case questionTypes.boolean: {
-      return value === true ? t('yes') : t('no');
-    }
-    case questionTypes.breathCount: {
-      return `${value} ${getUnit(question)}`;
-    }
-    case questionTypes.multichoice: {
-      return value.map(item => t(item)).join(', ');
-    }
-    default: {
-      return `${t(value)} ${getUnit(question)}`;
-    }
-  }
+const removeAnswersNotInQuestionList = (form) => {
+  const visibleQuestionsKeys = keysOfVisibleQuestions(form);
+  return visibleQuestionsKeys.reduce((result, key) => {
+    result[key] = form[key];
+    return result;
+  }, {})
 };
 
 const nextQuestion = (originalForm, questionKey, currentAnswer) => {
@@ -87,7 +54,7 @@ const nextQuestion = (originalForm, questionKey, currentAnswer) => {
   const indexOfCurrentQuestion = visibleQs.findIndex(
     q => q.key === questionKey,
   );
-  if (indexOfCurrentQuestion === questions.length - 1) {
+  if (indexOfCurrentQuestion === questionsInFlow(form).length - 1) {
     return null;
   }
   return visibleQs[indexOfCurrentQuestion + 1];
@@ -115,19 +82,22 @@ const questionAt = (index, form) => visibleQuestions(form)[index];
 
 const numberOfQuestions = form => visibleQuestions(form).length;
 
-const questionWithKey = key => questions.find(question => question.key === key);
+const questionWithKey = (form, key) => visibleQuestions(form).find(question => question.key === key);
 
 const numberOfYellows = (form, answerKeys) => {
   const irrelevantQuestionKeys = [fbs, pp2bs, rbs, hba1c].map(
     question => question.key,
   );
-  const relevantQuestionKeys = visibleQuestions(form)
+
+  const questions = visibleQuestions(form);
+
+  const relevantQuestionKeys = questions
     .filter(question => !irrelevantQuestionKeys.includes(question.key))
     .map(question => question.key);
 
   let yellowQuestions = answerKeys.filter(
     answerKey =>
-      questionWithKey(answerKey).output(form).weight === outputWeight.yellow,
+      questionWithKey(form, answerKey).output(form).weight === outputWeight.yellow,
   );
 
   const relevantYellowQuestions = yellowQuestions.filter(question =>
@@ -152,11 +122,6 @@ const numberOfYellows = (form, answerKeys) => {
   return relevantYellowQuestions.length + relevantComorbiditiesForYellow.length;
 };
 
-const getKeysToVisibleQuestions = form => {
-  const visibleQuestionKeys = visibleQuestions(form).map(q => q.key);
-  return Object.keys(form).filter(key => visibleQuestionKeys.includes(key));
-};
-
 const constructRecommendation = (type, messages) => ({type, messages});
 
 const getRecommendation = (answers, additionalQuestion, answer) => {
@@ -167,9 +132,9 @@ const getRecommendation = (answers, additionalQuestion, answer) => {
     form[additionalQuestion.key] = answer;
   }
 
-  const answerKeys = getKeysToVisibleQuestions(form);
+  const answerKeys = keysOfVisibleQuestions(form);
   const outputs = answerKeys.map(answerKey =>
-    questionWithKey(answerKey).output(form),
+    questionWithKey(answers, answerKey).output(form),
   );
   let messages = outputs.map(output => output.message);
 
@@ -217,4 +182,5 @@ export {
   indexOfQuestion,
   constructRecommendation,
   getAnswerString,
+  removeAnswersNotInQuestionList
 };

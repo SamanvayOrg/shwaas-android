@@ -8,16 +8,10 @@ import {
   questionWithKey,
 } from '../domain/questionModel';
 import Question from '../components/questions/Question';
-import {
-  goToNextQuestion,
-  goToPreviousQuestion,
-  setValue,
-  goToChosenQuestion,
-} from '../actions/form';
+import {goToChosenQuestion, goToNextQuestion, goToPreviousQuestion, setValue,} from '../actions/form';
 import BaseScreen from '../components/common/BaseScreen';
 import {BackHandler, View} from 'react-native';
 import PrevNextNavigator from '../components/PrevNextNavigator';
-import questionTypes from '../domain/questionTypes';
 import {useFocusEffect} from '@react-navigation/native';
 import Breadcrumb from '../components/Breadcrumb';
 import RecommendationType from '../domain/RecommendationType';
@@ -31,6 +25,7 @@ const Questionnaire = ({
   goToChosenQuestion,
   navigation,
 }) => {
+
   useFocusEffect(
     React.useCallback(() => {
       const onBackPress = () => {
@@ -69,13 +64,13 @@ const Questionnaire = ({
     }
   };
 
-  const question = questionWithKey(currentQuestionKey);
+  const question = questionWithKey(form, currentQuestionKey);
   if (!question) {
     return null;
   }
 
   useEffect(() => {
-    if (question.type === questionTypes.information) {
+    if (question.type.isInformation) {
       setValue(question, question.value(form));
     }
   }, [currentQuestionKey]);
@@ -84,10 +79,7 @@ const Questionnaire = ({
 
   const onAnswered = (question, value) => {
     setValue(question, value);
-    if (
-      question.type === questionTypes.boolean ||
-      question.type === questionTypes.singleChoice
-    ) {
+    if (question.type.isBoolean || question.type.isSingleChoice) {
       goToNextQuestionIfNecessary(question, value);
     }
   };

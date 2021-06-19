@@ -8,7 +8,7 @@ import {
 import {Text} from 'react-native-paper';
 import QuestionBase from './QuestionBase';
 import {t} from '../../messages';
-import questionTypes from '../../domain/questionTypes';
+import questionTypes from '../../domain/questionTypes/questionTypes';
 import {isDefined} from '../../domain/questions/utils';
 
 const styles = StyleSheet.create({
@@ -64,7 +64,7 @@ const Item = ({title, onPress, selectedAnswers}) => {
 };
 
 const isSingleSelect = question =>
-  [questionTypes.singleChoice, questionTypes.boolean].includes(question.type);
+  [questionTypes.singleChoice.key, questionTypes.boolean.key].includes(question.type.key);
 
 export default ({number, question, onAnswered = () => {}, value}) => {
   const answer = !isDefined(value)
