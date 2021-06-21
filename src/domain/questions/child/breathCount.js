@@ -1,15 +1,25 @@
 import questionTypes from '../../questionTypes/questionTypes';
-import {alwaysShow, objectify} from '../utils';
+import {alwaysShow, objectify, outputWeight} from '../utils';
+import age from '../common/age';
 
 const key = 'breathCount';
 
 const output = form => {
-  //TODO: Need to modify this for children
-  if (form[key] < 13) return objectify(outputWeight.red);
-  if (form[key] < 24) return objectify(outputWeight.green);
-  if (form[key] < 29)
-    return objectify(outputWeight.yellow, 'breathCountYellow');
-  if (form[key] >= 29) return objectify(outputWeight.red, 'breathCountRed');
+  const ageInMonths = form[age.key];
+  const value = form[key];
+  if (ageInMonths <= 2) {
+    return outputFor(value, 30, 60);
+  }
+  if (ageInMonths <= 12) {
+    return outputFor(value, 30, 50);
+  }
+  return outputFor(value, 18, 30);
+};
+
+const outputFor = (value, lowerLimit, upperLimit) => {
+  if (value < lowerLimit) return objectify(outputWeight.red);
+  if (value < upperLimit) return objectify(outputWeight.green);
+  if (value >= upperLimit) return objectify(outputWeight.red, 'breathCountRed');
 };
 
 export default {
