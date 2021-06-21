@@ -18,4 +18,5 @@ export default {
   unit: 'percentage',
   show,
   output,
+  commonImage: require('../../../assets/pulseOximeterReading.png'),
 };

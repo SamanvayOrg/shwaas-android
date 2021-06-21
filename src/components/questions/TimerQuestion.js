@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from 'react';
-import {Vibration} from 'react-native';
+import {ScrollView, Vibration} from 'react-native';
 import {Colors, Button, Card, ProgressBar} from 'react-native-paper';
 import QuestionBase from './QuestionBase';
 import {t} from '../../messages';
 import _ from 'lodash';
 import KeepAwake from 'react-native-keep-awake';
+import QuestionImage from './QuestionImage';
 
 const getDisplayTime = function (seconds) {
   let sec = seconds % 60;
@@ -88,6 +89,7 @@ export default ({number, question, onAnswered = () => {}, value}) => {
           {t('stopTimer')}
         </Button>
       )}
+      <QuestionImage image={question.commonImage} />
     </QuestionBase>
   );
 };

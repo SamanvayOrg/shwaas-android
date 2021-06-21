@@ -1,8 +1,10 @@
 import React from 'react';
 import {TextInput} from 'react-native-paper';
+import {ScrollView} from 'react-native';
 import QuestionBase from './QuestionBase';
 import {t} from '../../messages';
 import Space from '../common/Space';
+import QuestionImage from './QuestionImage';
 
 export default ({number, question, onAnswered = () => {}, value}) => {
   const getYears = value => Math.floor(value / 12);
@@ -23,7 +25,8 @@ export default ({number, question, onAnswered = () => {}, value}) => {
   const toString = value => (value ? value.toString() : undefined);
 
   return (
-    <QuestionBase number={number} question={question}>
+    <ScrollView showsVerticalScrollIndicator={false}>
+      <QuestionBase number={number} question={question} />
       <TextInput
         mode={'outlined'}
         keyboardType={'number-pad'}
@@ -41,6 +44,7 @@ export default ({number, question, onAnswered = () => {}, value}) => {
         value={toString(getMonths(value))}
         onChangeText={onMonthsChanged}
       />
-    </QuestionBase>
+      <QuestionImage image={question.commonImage} />
+    </ScrollView>
   );
 };

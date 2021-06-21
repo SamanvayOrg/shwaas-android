@@ -21,4 +21,5 @@ export default {
   type: questionTypes.numeric,
   show,
   output,
+  commonImage: require('../../../assets/diastolic.jpg'),
 };

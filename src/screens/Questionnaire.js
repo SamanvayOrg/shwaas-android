@@ -8,7 +8,12 @@ import {
   questionWithKey,
 } from '../domain/questionModel';
 import Question from '../components/questions/Question';
-import {goToChosenQuestion, goToNextQuestion, goToPreviousQuestion, setValue,} from '../actions/form';
+import {
+  goToChosenQuestion,
+  goToNextQuestion,
+  goToPreviousQuestion,
+  setValue,
+} from '../actions/form';
 import BaseScreen from '../components/common/BaseScreen';
 import {BackHandler, View} from 'react-native';
 import PrevNextNavigator from '../components/PrevNextNavigator';
@@ -25,7 +30,6 @@ const Questionnaire = ({
   goToChosenQuestion,
   navigation,
 }) => {
-
   useFocusEffect(
     React.useCallback(() => {
       const onBackPress = () => {

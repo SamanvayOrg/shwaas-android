@@ -6,13 +6,14 @@ import multichoiceQuestionType from './multichoiceQuestionType';
 import numericQuestionType from './numericQuestionType';
 import timerQuestionType from './timerQuestionType';
 import ageQuestionType from './ageQuestionType';
+import singleChoiceQuestionType from './singleChoiceQuestionType';
 
 const isBoolean = key => key === booleanQuestionType.key;
 const isBreathCount = key => key === breathCountQuestionType.key;
 const isInformation = key => key === informationQuestionType.key;
 const isMultiChoice = key => key === multichoiceQuestionType.key;
 const isNumeric = key => key === numericQuestionType.key;
-const isSingleChoice = key => key === multichoiceQuestionType.key;
+const isSingleChoice = key => key === singleChoiceQuestionType.key;
 const isTimer = key => key === timerQuestionType.key;
 const isAge = key => key === ageQuestionType.key;
 

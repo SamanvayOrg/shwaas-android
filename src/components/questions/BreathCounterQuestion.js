@@ -12,6 +12,7 @@ import {Text, Button, TextInput, Card} from 'react-native-paper';
 import {t} from '../../messages';
 import colors from '../../colors';
 import HorizontalComponent from '../common/HorizontalComponent';
+import QuestionImage from './QuestionImage';
 
 const styles = StyleSheet.create({
   container: {flexDirection: 'column'},
@@ -153,6 +154,7 @@ export default ({number, question, onAnswered = () => {}, value}) => {
             {t('reset')}
           </Button>
         </View>
+        <QuestionImage image={question.commonImage} />
       </ScrollView>
     </React.Fragment>
   );

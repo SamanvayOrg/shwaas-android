@@ -18,4 +18,5 @@ export default {
   options: ['yes', 'no', 'unsure'],
   show,
   output,
+  commonImage: require('../../../assets/reducedUrineOutput.jpg'),
 };

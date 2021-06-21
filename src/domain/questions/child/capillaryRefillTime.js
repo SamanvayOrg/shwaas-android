@@ -5,10 +5,17 @@ import symptomsDisappearOnSalbutamolNebulization from './symptomsDisappearOnSalb
 const key = 'capillaryRefillTime';
 const show = form =>
   form[symptomsDisappearOnSalbutamolNebulization.key] === true;
+
 const output = form => {
   switch (form[key]) {
     case 'lessThanTwoSeconds': {
       return objectify(outputWeight.green);
+    }
+    case 'twoToThreeSeconds': {
+      return objectify(outputWeight.yellow);
+    }
+    case 'moreThanThreeSeconds': {
+      return objectify(outputWeight.red);
     }
   }
 };

@@ -12,6 +12,7 @@ const output = form =>
 export default {
   key,
   label: key,
+  helpText: 'childSymptomsList',
   type: questionTypes.boolean,
   show,
   output,

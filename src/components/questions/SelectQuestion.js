@@ -4,12 +4,14 @@ import {
   TouchableNativeFeedback,
   View,
   FlatList,
+  ScrollView,
 } from 'react-native';
 import {Text} from 'react-native-paper';
 import QuestionBase from './QuestionBase';
 import {t} from '../../messages';
 import questionTypes from '../../domain/questionTypes/questionTypes';
 import {isDefined} from '../../domain/questions/utils';
+import QuestionImage from './QuestionImage';
 
 const styles = StyleSheet.create({
   container: {
@@ -64,7 +66,9 @@ const Item = ({title, onPress, selectedAnswers}) => {
 };
 
 const isSingleSelect = question =>
-  [questionTypes.singleChoice.key, questionTypes.boolean.key].includes(question.type.key);
+  [questionTypes.singleChoice.key, questionTypes.boolean.key].includes(
+    question.type.key,
+  );
 
 export default ({number, question, onAnswered = () => {}, value}) => {
   const answer = !isDefined(value)
@@ -90,9 +94,10 @@ export default ({number, question, onAnswered = () => {}, value}) => {
     onAnswered(question, answer.concat(key));
   };
 
-  const renderItem = ({item}) => (
+  const RenderItem = ({item, index}) => (
     <Item
       question={question}
+      key={index}
       title={item}
       onPress={onItemSelected}
       selectedAnswers={answer}
@@ -101,12 +106,13 @@ export default ({number, question, onAnswered = () => {}, value}) => {
 
   return (
     <View style={styles.container}>
-      <QuestionBase number={number} question={question} />
-      <FlatList
-        data={question.options}
-        renderItem={renderItem}
-        keyExtractor={item => item}
-      />
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <QuestionBase number={number} question={question} />
+        {question.options.map((option, index) => {
+          return <RenderItem key={index} item={option} />;
+        })}
+        <QuestionImage image={question.commonImage} />
+      </ScrollView>
     </View>
   );
 };

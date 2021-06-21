@@ -2,10 +2,13 @@ import React from 'react';
 import {TextInput} from 'react-native-paper';
 import QuestionBase from './QuestionBase';
 import {t} from '../../messages';
+import {ScrollView} from 'react-native';
+import QuestionImage from './QuestionImage';
 
 export default ({number, question, onAnswered = () => {}, value}) => {
   return (
-    <QuestionBase number={number} question={question}>
+    <ScrollView showsVerticalScrollIndicator={false}>
+      <QuestionBase number={number} question={question} />
       <TextInput
         mode={'outlined'}
         keyboardType={'number-pad'}
@@ -14,6 +17,7 @@ export default ({number, question, onAnswered = () => {}, value}) => {
         value={value ? value.toString() : undefined}
         onChangeText={value => onAnswered(question, parseInt(value))}
       />
-    </QuestionBase>
+      <QuestionImage image={question.commonImage} />
+    </ScrollView>
   );
 };
