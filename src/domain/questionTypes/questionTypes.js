@@ -6,6 +6,7 @@ import breathCountQuestionType from './breathCountQuestionType';
 import informationQuestionType from './informationQuestionType';
 import timerQuestionType from './timerQuestionType';
 import {createQuestionType} from './questionType';
+import ageQuestionType from './ageQuestionType';
 
 export default {
   boolean: createQuestionType(booleanQuestionType),
@@ -15,4 +16,5 @@ export default {
   breathCount: createQuestionType(breathCountQuestionType),
   information: createQuestionType(informationQuestionType),
   timer: createQuestionType(timerQuestionType),
+  age: createQuestionType(ageQuestionType),
 };

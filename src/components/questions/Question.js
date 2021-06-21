@@ -5,20 +5,25 @@ import SelectQuestion from './SelectQuestion';
 import BreathCounterQuestion from './BreathCounterQuestion';
 import Information from './Information';
 import TimerQuestion from './TimerQuestion';
+import AgeQuestion from './AgeQuestion';
 
 const Question = ({question, ...props}) => {
   const questionType = question.type;
   if (questionType.isNumeric) {
-    return (<NumericQuestion key={question.key} question={question} {...props} />);
+    return (
+      <NumericQuestion key={question.key} question={question} {...props} />
+    );
   }
   if (questionType.isBoolean) {
-    return (<BooleanQuestion key={question.key} question={question} {...props} />);
+    return (
+      <BooleanQuestion key={question.key} question={question} {...props} />
+    );
   }
   if (questionType.isSingleChoice) {
-    return (<SelectQuestion key={question.key} question={question} {...props} />);
+    return <SelectQuestion key={question.key} question={question} {...props} />;
   }
   if (questionType.isMultiChoice) {
-    return (<SelectQuestion key={question.key} question={question} {...props} />);
+    return <SelectQuestion key={question.key} question={question} {...props} />;
   }
   if (questionType.isBreathCount) {
     return (
@@ -34,6 +39,9 @@ const Question = ({question, ...props}) => {
   }
   if (questionType.isTimer) {
     return <TimerQuestion key={question.key} question={question} {...props} />;
+  }
+  if (questionType.isAge) {
+    return <AgeQuestion key={question.key} question={question} {...props} />;
   }
 };
 

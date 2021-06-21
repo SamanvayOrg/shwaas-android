@@ -15,13 +15,14 @@ validate([...commonQuestions, ...adultQuestions]);
 validate([...commonQuestions, ...childQuestions]);
 
 const questionsInFlow = (form = {}) => {
-  return form.age && form.age > 12
+  return form.age && form.age > 12 * 12
     ? [...commonQuestions, ...adultQuestions]
     : [...commonQuestions, ...childQuestions];
 };
 
 const visibleQuestions = (form = {}) =>
   questionsInFlow(form).filter(question => question.show(form) === true);
+
 const getAnswerString = (question, value) =>
   question.type.getAnswerString(question, value);
 

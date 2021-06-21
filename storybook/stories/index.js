@@ -1,3 +1,4 @@
+import './Questions/AgeQuestion.stories';
 import './Questions/Answers.stories';
 import './Questions/BooleanQuestion.stories';
 import './Questions/NumericQuestion.stories';

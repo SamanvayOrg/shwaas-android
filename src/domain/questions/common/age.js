@@ -6,8 +6,7 @@ const key = 'age';
 export default {
   key,
   label: key,
-  type: questionTypes.numeric,
-  unit: 'years',
+  type: questionTypes.age,
   show: alwaysShow,
   output: alwaysGreen,
 };
