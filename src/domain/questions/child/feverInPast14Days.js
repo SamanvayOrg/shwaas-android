@@ -1,12 +1,15 @@
-import questionTypes from '../../questionTypes/questionTypes';
-import {alwaysGreen, alwaysShow} from '../utils';
+import feverInPast14Days from '../adult/feverInPast14Days';
+import {objectify, outputWeight} from '../utils';
 
-const key = 'feverInPast14Days';
+const output = form => {
+  return form.coughInPast14Days === false &&
+    form[feverInPast14Days.key] === false
+    ? objectify(outputWeight.black)
+    : objectify(outputWeight.green);
+};
 
 export default {
-  key,
+  ...feverInPast14Days,
   label: 'childFeverInPast14Days',
-  type: questionTypes.boolean,
-  show: alwaysShow,
-  output: alwaysGreen,
+  output,
 };

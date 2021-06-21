@@ -1,12 +1,14 @@
 import questionTypes from '../../questionTypes/questionTypes';
-import {alwaysGreen, alwaysShow, objectify, outputWeight} from '../utils';
+import {alwaysGreen} from '../utils';
 
 const key = 'feverInPast14Days';
+
+const show = form => form.coughInPast14Days !== true;
 
 export default {
   key,
   label: key,
   type: questionTypes.boolean,
-  show: alwaysShow,
+  show,
   output: alwaysGreen,
 };

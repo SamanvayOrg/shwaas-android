@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {ScrollView, StyleSheet, View} from 'react-native';
-import {Button, Paragraph, Text} from 'react-native-paper';
+import {Button, Text} from 'react-native-paper';
 import {t} from '../messages';
 import NavigatorUtil from '../NavigatorUtil';
 import Answers from './Answers';
@@ -76,14 +76,18 @@ export default ({data, messages = [], navigation, onStartOver, form = {}}) => {
           <Text style={{textAlign: 'center', fontSize: 32}}>
             {t('nextSteps')}
           </Text>
-          <Text  style={{fontSize: 18, color: colors.primary}}>{t(data.nextSteps)}</Text>
+          <Text style={{fontSize: 18, color: colors.primary}}>
+            {t(data.nextSteps)}
+          </Text>
           {validMessages.map((message, index) => (
-            <Text  style={{fontSize: 18, color: colors.primary, marginTop: 12}} key={index}>
+            <Text
+              style={{fontSize: 18, color: colors.primary, marginTop: 12}}
+              key={index}>
               ⬤ {t(message)}
             </Text>
           ))}
         </View>
-        <Answers form={form}/>
+        <Answers form={form} />
       </ScrollView>
       <Button
         style={styles.buttonStyle}

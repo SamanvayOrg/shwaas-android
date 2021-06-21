@@ -1,13 +1,13 @@
 import questionTypes from '../../questionTypes/questionTypes';
 import {alwaysGreen, alwaysShow} from '../utils';
 
-const key = 'age';
+const key = 'accessToMeasuringTape';
+//TODO: add age criteria here
 
 export default {
   key,
   label: key,
-  type: questionTypes.numeric,
-  unit: 'years',
+  type: questionTypes.boolean,
   show: alwaysShow,
   output: alwaysGreen,
 };

@@ -16,10 +16,15 @@ const outputColors = {
 };
 
 const alwaysGreen = message => ({weight: outputWeight.green, message});
-const redIfTrue = (value, message) =>
-  value === true
+
+const redIfBoolean = (value, message, booleanValue) =>
+  value === booleanValue
     ? {weight: outputWeight.red, message}
     : {weight: outputWeight.green};
+
+const redIfTrue = (value, message) => redIfBoolean(value, message, true);
+const redIfFalse = (value, message) => redIfBoolean(value, message, false);
+
 const objectify = (weight, message) => ({weight, message});
 
 const isDefined = item => item !== undefined && item !== null;
@@ -29,6 +34,7 @@ export {
   alwaysGreen,
   outputWeight,
   redIfTrue,
+  redIfFalse,
   outputColors,
   isDefined,
   objectify,

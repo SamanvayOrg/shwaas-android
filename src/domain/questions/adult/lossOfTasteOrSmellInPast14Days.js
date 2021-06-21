@@ -1,10 +1,10 @@
 import questionTypes from '../../questionTypes/questionTypes';
-import {alwaysGreen, alwaysShow, objectify, outputWeight} from '../utils';
+import {alwaysGreen} from '../utils';
 
 const key = 'lossOfTasteOrSmellInPast14Days';
 
 const show = form =>
-  form.coughInPast14Days === false && form.feverInPast14Days === false;
+  form.coughInPast14Days !== true && form.feverInPast14Days !== true;
 
 export default {
   key,

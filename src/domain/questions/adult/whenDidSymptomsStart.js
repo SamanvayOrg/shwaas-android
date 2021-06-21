@@ -3,12 +3,10 @@ import {alwaysShow, objectify, outputWeight} from '../utils';
 
 const key = 'whenDidSymptomsStart';
 
-const output = form => {
-  if (form[key] >= 21) {
-    return objectify(outputWeight.black, 'needBloodTestsAndOthers');
-  }
-  return objectify(outputWeight.green);
-};
+const output = form =>
+  form[key] >= 21
+    ? objectify(outputWeight.black, 'needBloodTestsAndOthers')
+    : objectify(outputWeight.green);
 
 export default {
   key,

@@ -1,13 +1,13 @@
 import questionTypes from '../../questionTypes/questionTypes';
 import {alwaysGreen, alwaysShow} from '../utils';
 
-const key = 'age';
+const key = 'assessUndernutrition';
+//todo: this needs work
 
 export default {
   key,
   label: key,
-  type: questionTypes.numeric,
-  unit: 'years',
-  show: alwaysShow,
+  type: questionTypes.boolean,
+  show: form => false,
   output: alwaysGreen,
 };

@@ -1,6 +1,6 @@
-import commonQuestions from './commonQuestions';
-import adultQuestions from './adultQuestions';
-import childQuestions from './childQuestions';
+import commonQuestions from './questions/common/commonQuestions';
+import adultQuestions from './questions/adult/adultQuestions';
+import childQuestions from './questions/child/childQuestions';
 import {outputWeight} from './questions/utils';
 import RecommendationType from './RecommendationType';
 import comorbidities from './questions/adult/comorbidities';
@@ -11,31 +11,31 @@ import hba1c from './questions/adult/hba1c';
 import _ from 'lodash';
 import {validate} from './validation';
 
-
 validate([...commonQuestions, ...adultQuestions]);
 validate([...commonQuestions, ...childQuestions]);
 
 const questionsInFlow = (form = {}) => {
-  return form.age && form.age > 12 ?
-    [...commonQuestions, ...adultQuestions] :
-    [...commonQuestions, ...childQuestions];
+  return form.age && form.age > 12
+    ? [...commonQuestions, ...adultQuestions]
+    : [...commonQuestions, ...childQuestions];
 };
 
 const visibleQuestions = (form = {}) =>
   questionsInFlow(form).filter(question => question.show(form) === true);
-const getAnswerString = (question, value) => question.type.getAnswerString(question, value);
+const getAnswerString = (question, value) =>
+  question.type.getAnswerString(question, value);
 
 const keysOfVisibleQuestions = form => {
   const visibleQuestionKeys = visibleQuestions(form).map(q => q.key);
   return Object.keys(form).filter(key => visibleQuestionKeys.includes(key));
 };
 
-const removeAnswersNotInQuestionList = (form) => {
+const removeAnswersNotInQuestionList = form => {
   const visibleQuestionsKeys = keysOfVisibleQuestions(form);
   return visibleQuestionsKeys.reduce((result, key) => {
     result[key] = form[key];
     return result;
-  }, {})
+  }, {});
 };
 
 const nextQuestion = (originalForm, questionKey, currentAnswer) => {
@@ -82,7 +82,8 @@ const questionAt = (index, form) => visibleQuestions(form)[index];
 
 const numberOfQuestions = form => visibleQuestions(form).length;
 
-const questionWithKey = (form, key) => visibleQuestions(form).find(question => question.key === key);
+const questionWithKey = (form, key) =>
+  visibleQuestions(form).find(question => question.key === key);
 
 const numberOfYellows = (form, answerKeys) => {
   const irrelevantQuestionKeys = [fbs, pp2bs, rbs, hba1c].map(
@@ -97,7 +98,8 @@ const numberOfYellows = (form, answerKeys) => {
 
   let yellowQuestions = answerKeys.filter(
     answerKey =>
-      questionWithKey(form, answerKey).output(form).weight === outputWeight.yellow,
+      questionWithKey(form, answerKey).output(form).weight ===
+      outputWeight.yellow,
   );
 
   const relevantYellowQuestions = yellowQuestions.filter(question =>
@@ -141,8 +143,9 @@ const getRecommendation = (answers, additionalQuestion, answer) => {
   const notUseful = outputs.some(
     output => output.weight === outputWeight.black,
   );
-  if (notUseful)
+  if (notUseful) {
     return constructRecommendation(RecommendationType.NotUseful, messages);
+  }
 
   const admitInHospital = outputs.some(
     output => output.weight === outputWeight.red,
@@ -182,5 +185,5 @@ export {
   indexOfQuestion,
   constructRecommendation,
   getAnswerString,
-  removeAnswersNotInQuestionList
+  removeAnswersNotInQuestionList,
 };
