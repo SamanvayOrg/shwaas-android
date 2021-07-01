@@ -19,7 +19,8 @@ import {BackHandler, View} from 'react-native';
 import PrevNextNavigator from '../components/PrevNextNavigator';
 import {useFocusEffect} from '@react-navigation/native';
 import Breadcrumb from '../components/Breadcrumb';
-import RecommendationType from '../domain/RecommendationType';
+import RecommendationType from '../domain/recommendations/recommendationType';
+import ageTypes from '../domain/ageTypes';
 
 const Questionnaire = ({
   form,
@@ -54,8 +55,10 @@ const Questionnaire = ({
     const recommendation = getRecommendation(form, question, value);
 
     if (
-      recommendation.type === RecommendationType.AdmitInHospital ||
-      recommendation.type === RecommendationType.NotUseful
+      recommendation.type ===
+        RecommendationType.AdmitInHospital(ageTypes.ageType(form)) ||
+      recommendation.type ===
+        RecommendationType.NotUseful(ageTypes.ageType(form))
     ) {
       navigation.navigate('Recommendations', {recommendation});
       return;

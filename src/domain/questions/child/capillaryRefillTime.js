@@ -1,10 +1,7 @@
 import questionTypes from '../../questionTypes/questionTypes';
-import {objectify, outputWeight} from '../utils';
-import symptomsDisappearOnSalbutamolNebulization from './symptomsDisappearOnSalbutamolNebulization';
+import {alwaysShow, objectify, outputWeight} from '../utils';
 
 const key = 'capillaryRefillTime';
-const show = form =>
-  form[symptomsDisappearOnSalbutamolNebulization.key] === true;
 
 const output = form => {
   switch (form[key]) {
@@ -25,6 +22,6 @@ export default {
   label: key,
   type: questionTypes.singleChoice,
   options: ['lessThanTwoSeconds', 'twoToThreeSeconds', 'moreThanThreeSeconds'],
-  show,
+  show: alwaysShow,
   output,
 };

@@ -15,7 +15,7 @@ export default ({number, question, onAnswered = () => {}, value}) => {
         label=""
         placeholder={t(question.unit)}
         value={value ? value.toString() : undefined}
-        onChangeText={value => onAnswered(question, parseInt(value))}
+        onChangeText={value => onAnswered(question, parseFloat(value))}
       />
       <QuestionImage image={question.commonImage} />
     </ScrollView>

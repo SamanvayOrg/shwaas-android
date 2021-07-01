@@ -35,53 +35,42 @@ export default ({form = {}}) => {
   );
 
   return (
-    <View>
-      {/*<Button mode={'contained'}*/}
-      {/*        contentStyle={{height: 70}}*/}
-      {/*        labelStyle={{fontSize: 20}}*/}
-      {/*        icon={showAnswers? "arrow-up": "arrow-down"}*/}
-      {/*        color={colors.accent}*/}
-      {/*        onPress={() => setShowAnswers(!showAnswers)}>{showAnswers ? t('hideAnswers') : t('showAnswers')}</Button>*/}
-      {showAnswers && (
-        <View
-          style={{
-            marginHorizontal: 8,
-            marginVertical: 16,
-            padding: 15,
-            backgroundColor: '#EEF0F2',
-            elevation: 2,
-            borderRadius: 8,
-          }}>
-          <Text style={{textAlign: 'center', fontSize: 32}}>
-            {t('answers')}
-          </Text>
-          {answers.map(answer => {
-            return (
+    <View
+      style={{
+        marginHorizontal: 8,
+        marginVertical: 16,
+        padding: 15,
+        backgroundColor: '#EEF0F2',
+        elevation: 2,
+        borderRadius: 8,
+      }}>
+      <Text style={{textAlign: 'center', fontSize: 32}}>{t('answers')}</Text>
+      {answers.map(answer => {
+        return (
+          <View
+            key={answer.question}
+            style={{flexDirection: 'row', marginVertical: 8}}>
+            <View style={{width: 48}}>
               <View
-                key={answer.question}
-                style={{flexDirection: 'row', marginVertical: 8}}>
-                <View style={{width: 48}}>
-                  <View
-                    style={{
-                      width: 36,
-                      height: 36,
-                      borderRadius: 18,
-                      backgroundColor: colors[answer.output],
-                    }}></View>
-                </View>
-                <View style={{minHeight: 24, flex: 1}}>
-                  <Text style={{fontSize: 18, color: colors.primary}}>
-                    {answer.question}
-                  </Text>
-                  <Text style={{fontSize: 18, color: colors.accent}}>
-                    {answer.value}
-                  </Text>
-                </View>
-              </View>
-            );
-          })}
-        </View>
-      )}
+                style={{
+                  width: 36,
+                  height: 36,
+                  borderRadius: 18,
+                  backgroundColor: colors[answer.output],
+                }}
+              />
+            </View>
+            <View style={{minHeight: 24, flex: 1}}>
+              <Text style={{fontSize: 18, color: colors.primary}}>
+                {answer.question}
+              </Text>
+              <Text style={{fontSize: 18, color: colors.accent}}>
+                {answer.value}
+              </Text>
+            </View>
+          </View>
+        );
+      })}
     </View>
   );
 };

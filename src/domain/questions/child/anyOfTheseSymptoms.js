@@ -1,5 +1,5 @@
 import questionTypes from '../../questionTypes/questionTypes';
-import {alwaysShow, objectify, outputWeight, redIfTrue} from '../utils';
+import {alwaysShow, objectify, outputWeight} from '../utils';
 
 const key = 'anyOfTheseSymptoms';
 
@@ -11,8 +11,15 @@ const output = form =>
 export default {
   key,
   label: key,
-  helpText: 'childSymptomsList',
-  type: questionTypes.boolean,
+  type: questionTypes.multichoice,
+  options: [
+    'chestIndrawing',
+    'grunting',
+    'nasalFlaring',
+    'stridor',
+    'wheeze',
+    'apnoea',
+  ],
   show: alwaysShow,
   output,
 };

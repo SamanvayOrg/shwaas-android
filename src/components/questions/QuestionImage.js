@@ -7,8 +7,8 @@ export default ({image}) => {
   const totalWidthOfScreen = Dimensions.get('window').width - 32;
 
   return (
-    <View style={{marginVertical: 16}}>
-      <Image source={image} width={totalWidthOfScreen} />
+    <View style={{marginVertical: 16, alignItems: 'center'}}>
+      <Image source={image} width={totalWidthOfScreen / 2} />
     </View>
   );
 };

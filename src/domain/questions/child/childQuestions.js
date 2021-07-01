@@ -18,8 +18,15 @@ import symptomsDisappearOnSalbutamolNebulization from './symptomsDisappearOnSalb
 import capillaryRefillTime from './capillaryRefillTime';
 import accessToMeasuringTape from './accessToMeasuringTape';
 import midUpperArmCircumference from './midUpperArmCircumference';
+import sex from './sex';
+import accessToNebuliser from './accessToNebuliser';
+import giveNebulisation from './giveNebulisation';
+import accessToWeighingMachine from './accessToWeighingMachine';
+import weight from './weight';
+import stoppedRecognisingMother from './stoppedRecognisingMother';
 
 export default [
+  sex,
   coughInPast14Days,
   feverInPast14Days,
   whenDidSymptomsStart,
@@ -29,6 +36,7 @@ export default [
   vomiting,
   passedUrineInPast6Hours,
   lethargic,
+  stoppedRecognisingMother,
   breathCount,
   accessToPulseOxiMeter,
   oxygenSaturation,
@@ -36,8 +44,12 @@ export default [
   blueFingerTips,
   blueTongue,
   anyOfTheseSymptoms,
+  accessToNebuliser,
+  giveNebulisation,
   symptomsDisappearOnSalbutamolNebulization,
   capillaryRefillTime,
+  accessToWeighingMachine,
+  weight,
   accessToMeasuringTape,
   midUpperArmCircumference,
 ];

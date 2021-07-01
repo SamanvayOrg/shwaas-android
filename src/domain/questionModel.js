@@ -2,7 +2,7 @@ import commonQuestions from './questions/common/commonQuestions';
 import adultQuestions from './questions/adult/adultQuestions';
 import childQuestions from './questions/child/childQuestions';
 import {outputWeight} from './questions/utils';
-import RecommendationType from './RecommendationType';
+import RecommendationType from './recommendations/recommendationType';
 import comorbidities from './questions/adult/comorbidities';
 import fbs from './questions/adult/fbs';
 import pp2bs from './questions/adult/pp2bs';
@@ -10,6 +10,7 @@ import rbs from './questions/adult/rbs';
 import hba1c from './questions/adult/hba1c';
 import _ from 'lodash';
 import {validate} from './validation';
+import ageTypes from './ageTypes';
 
 validate([...commonQuestions, ...adultQuestions]);
 validate([...commonQuestions, ...childQuestions]);
@@ -145,7 +146,10 @@ const getRecommendation = (answers, additionalQuestion, answer) => {
     output => output.weight === outputWeight.black,
   );
   if (notUseful) {
-    return constructRecommendation(RecommendationType.NotUseful, messages);
+    return constructRecommendation(
+      RecommendationType.NotUseful(ageTypes.ageType(form)),
+      messages,
+    );
   }
 
   const admitInHospital = outputs.some(
@@ -153,7 +157,7 @@ const getRecommendation = (answers, additionalQuestion, answer) => {
   );
   if (admitInHospital)
     return constructRecommendation(
-      RecommendationType.AdmitInHospital,
+      RecommendationType.AdmitInHospital(ageTypes.ageType(form)),
       messages,
     );
 
@@ -164,13 +168,19 @@ const getRecommendation = (answers, additionalQuestion, answer) => {
   const yellows = numberOfYellows(form, answerKeys);
 
   if (yellows === 0) {
-    return constructRecommendation(RecommendationType.ManageAtHome, messages);
+    return constructRecommendation(
+      RecommendationType.ManageAtHome(ageTypes.ageType(form)),
+      messages,
+    );
   }
   if (yellows <= 3) {
-    return constructRecommendation(RecommendationType.ReferToDoctor, messages);
+    return constructRecommendation(
+      RecommendationType.ReferToDoctor(ageTypes.ageType(form)),
+      messages,
+    );
   }
   return constructRecommendation(
-    RecommendationType.ReferToDistrictHospital,
+    RecommendationType.ReferToDistrictHospital(ageTypes.ageType(form)),
     messages,
   );
 };
