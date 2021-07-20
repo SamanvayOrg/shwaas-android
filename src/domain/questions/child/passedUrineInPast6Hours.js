@@ -11,4 +11,7 @@ export default {
   type: questionTypes.boolean,
   show: alwaysShow,
   output,
+  optionImages: {
+    no: require('../../../assets/child/noUrine.jpg'),
+  },
 };

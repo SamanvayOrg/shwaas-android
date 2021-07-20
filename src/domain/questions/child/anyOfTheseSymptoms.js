@@ -20,6 +20,11 @@ export default {
     'wheeze',
     'apnoea',
   ],
+  optionImages: {
+    chestIndrawing: require('../../../assets/child/chestIndrawing.jpg'),
+    wheeze: require('../../../assets/child/wheeze.jpg'),
+    apnoea: require('../../../assets/child/apnoea.jpg'),
+  },
   show: alwaysShow,
   output,
 };

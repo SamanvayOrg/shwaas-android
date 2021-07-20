@@ -23,4 +23,5 @@ export default {
   unit: 'cm',
   show,
   output,
+  commonImage: require('../../../assets/child/muac.jpg'),
 };

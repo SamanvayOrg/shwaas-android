@@ -11,5 +11,7 @@ export default {
   type: questionTypes.boolean,
   show,
   output: alwaysGreen,
-  commonImage: require('../../../assets/fever.jpg'),
+  optionImages: {
+    yes: require('../../../assets/fever.jpg'),
+  },
 };

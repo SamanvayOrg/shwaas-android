@@ -112,7 +112,7 @@
     "lessThan3YellowMessage": "3 or fewer yellows",
     "moreThan3YellowMessage": "More than 3 yellows",
     "admitAtHospital": "Admit in a hospital for oxygen, detailed management.",
-    "oxygenSaturationAfter6Minutes": "What is the oxygen saturation reading in pulse oximeter ?",
+    "oxygenSaturationAfter6Minutes": "What is the oxygen saturation reading in pulse oximeter after 6 minutes?",
     "ensureYouDoThe6MinuteWalk": "It is important to do this test after the person walks for six minutes",
     "sixMinuteTimer": "Ask the person to start walking. Press the 'Start Timer' button once they start walking.",
     "takeOximeterReadingAfterThis": "We will take the pulse oximeter reading after 6 minutes of walking.",
@@ -199,7 +199,7 @@
     "moreThanThreeSeconds": "More than 3 seconds",
     "accessToMeasuringTape": "Does the person have access to measuring tape?",
     "midUpperArmCircumference": "What is the mid upper arm circumference ?",
-    "assessUndernutrition": "Assess the child for undernutrition :\n1. Loss of buccal fat pad\n2. Light hairs (bhure bal)\n3. Abdominal Distension (pot belly)\n4. Pedal swelling",
+    "assessUndernutrition": "Assess the child for undernutrition",
     "sex": "Sex",
     "male": "Male",
     "female": "Female",
@@ -211,6 +211,8 @@
     "stoppedRecognisingMotherHelpText": "In terms of smile, speec or, gestures depending on age",
     "childManageAtHomeNextSteps": "Treat the child as upper respiratory tract infection with paracetamol +/- cetrizine, continue feeding, observe for feeding difficulties,danger symtoms and signs.",
     "childReferToDoctor": "Refer to subcenter, PHC (to start oral amoxicilline based on weight, If wheeze add oral/nebulised salbutamol, watch for feeding , danger symtoms/signs).",
-    "childAdmitInHospital": "Refer for starting oxygen, Immediately giving IM/IV ceftriaxone+ Azithromycin syrup/tablet, salbutamol nebulisation if wheeze present, If possible start IV fluids and immediately arrange for referral."
-
+    "childAdmitInHospital": "Refer for starting oxygen, Immediately giving IM/IV ceftriaxone+ Azithromycin syrup/tablet, salbutamol nebulisation if wheeze present, If possible start IV fluids and immediately arrange for referral.",
+    "lossOfBuccalFatPad": "Loss of buccal fat pad",
+    "lightHairs": "Light hairs (bhure bal)",
+    "potBelly": "Abdominal Distension (pot belly)"
 }

@@ -18,5 +18,7 @@ export default {
   options: ['yes', 'no', 'unsure'],
   show,
   output,
-  commonImage: require('../../../assets/reducedUrineOutput.jpg'),
+  optionImages: {
+    yes: require('../../../assets/reducedUrineOutput.jpg'),
+  },
 };

@@ -32,6 +32,9 @@ export default {
     'hiv',
     'cancer',
   ],
+  optionImages: {
+    lungDisease: require('../../../assets/lungDisease.jpg'),
+  },
   show: alwaysShow,
   output,
 };

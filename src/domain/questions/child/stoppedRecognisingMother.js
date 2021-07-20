@@ -12,4 +12,7 @@ export default {
   type: questionTypes.boolean,
   show: alwaysShow,
   output,
+  optionImages: {
+    yes: require('../../../assets/child/notRecognizingMother.jpg'),
+  },
 };

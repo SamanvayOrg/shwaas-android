@@ -9,5 +9,7 @@ export default {
   type: questionTypes.boolean,
   show: alwaysShow,
   output: alwaysGreen,
-  commonImage: require('../../../assets/cough.jpg'),
+  optionImages: {
+    yes: require('../../../assets/cough.jpg'),
+  },
 };

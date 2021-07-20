@@ -17,6 +17,12 @@ export default {
   label: key,
   type: questionTypes.multichoice,
   options: ['palpitations', 'pedalSwelling', 'jaundice', 'abdominalSwelling'],
+  optionImages: {
+    palpitations: require('../../../assets/palpitations.jpg'),
+    pedalSwelling: require('../../../assets/pedalSwelling.jpg'),
+    jaundice: require('../../../assets/jaundice.png'),
+    abdominalSwelling: require('../../../assets/abdominalSwelling.png'),
+  },
   show,
   output,
 };

@@ -12,4 +12,7 @@ export default {
   ...feverInPast14Days,
   label: 'childFeverInPast14Days',
   output,
+  optionImages: {
+    yes: require('../../../assets/child/fever.jpg'),
+  },
 };

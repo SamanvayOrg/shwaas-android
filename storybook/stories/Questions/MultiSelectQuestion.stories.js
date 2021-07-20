@@ -2,31 +2,13 @@ import {storiesOf} from '@storybook/react-native';
 import React from 'react';
 import SelectQuestion from '../../../src/components/questions/SelectQuestion';
 import baseScreenDecorator from '../baseScreenDecorator';
+import anyOfTheseSymptoms from '../../../src/domain/questions/child/anyOfTheseSymptoms';
 
 storiesOf('MultiSelectQuestion', module)
   .add('basic view', () => (
     <SelectQuestion
       number={2}
-      question={{
-        key: 'comorbidities',
-        helpText: 'directlyObserve',
-        options: [
-          'diabetes',
-          'hypertension',
-          'heartDisease',
-          'asthma',
-          'lungDisease',
-          'sickleCellDisease',
-          'liverDisease',
-          'kidneyDisease',
-          'pregnancy',
-          'obesity',
-          'anemia',
-          'hiv',
-          'cancer',
-          'none',
-        ],
-      }}
+      question={anyOfTheseSymptoms}
       selectedAnswers={['diabetes', 'hypertension']}
     />
   ))

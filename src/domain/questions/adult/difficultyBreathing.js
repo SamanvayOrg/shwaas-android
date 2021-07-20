@@ -11,5 +11,7 @@ export default {
   type: questionTypes.boolean,
   show: alwaysShow,
   output,
-  commonImage: require('../../../assets/breathingDifficulty.png'),
+  optionImages: {
+    yes: require('../../../assets/breathless.jpg'),
+  },
 };

@@ -24,6 +24,7 @@ import giveNebulisation from './giveNebulisation';
 import accessToWeighingMachine from './accessToWeighingMachine';
 import weight from './weight';
 import stoppedRecognisingMother from './stoppedRecognisingMother';
+import assessUndernutrition from './assessUndernutrition';
 
 export default [
   sex,
@@ -52,4 +53,5 @@ export default [
   weight,
   accessToMeasuringTape,
   midUpperArmCircumference,
+  assessUndernutrition,
 ];
