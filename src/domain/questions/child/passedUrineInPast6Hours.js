@@ -14,4 +14,5 @@ export default {
   optionImages: {
     no: require('../../../assets/child/noUrine.jpg'),
   },
+  commonImage: require('../../../assets/child/noUrine.jpg'),
 };

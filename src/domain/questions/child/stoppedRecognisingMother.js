@@ -15,4 +15,5 @@ export default {
   optionImages: {
     yes: require('../../../assets/child/notRecognizingMother.jpg'),
   },
+  commonImage: require('../../../assets/child/notRecognizingMother.jpg'),
 };

@@ -14,4 +14,5 @@ export default {
   optionImages: {
     yes: require('../../../assets/fever.jpg'),
   },
+  commonImage: require('../../../assets/fever.jpg'),
 };

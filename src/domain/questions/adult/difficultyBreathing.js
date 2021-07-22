@@ -14,4 +14,5 @@ export default {
   optionImages: {
     yes: require('../../../assets/breathless.jpg'),
   },
+  commonImage: require('../../../assets/breathless.jpg'),
 };

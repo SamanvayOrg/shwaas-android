@@ -14,4 +14,5 @@ export default {
   optionImages: {
     yes: require('../../../assets/child/stoppedFeeding.jpg'),
   },
+  commonImage: require('../../../assets/child/stoppedFeeding.jpg'),
 };

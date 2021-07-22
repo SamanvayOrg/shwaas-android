@@ -5,4 +5,5 @@ export default {
   optionImages: {
     yes: require('../../../assets/blueLips.jpg'),
   },
+  commonImage: require('../../../assets/blueLips.jpg'),
 };

@@ -14,4 +14,5 @@ export default {
   optionImages: {
     yes: require('../../../assets/child/lethargic.jpg'),
   },
+  commonImage: require('../../../assets/child/lethargic.jpg'),
 };

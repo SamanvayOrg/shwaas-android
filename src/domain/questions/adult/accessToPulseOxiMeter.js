@@ -12,4 +12,5 @@ export default {
   optionImages: {
     yes: require('../../../assets/pulseOximeter.png'),
   },
+  commonImage: require('../../../assets/pulseOximeter.png'),
 };

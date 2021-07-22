@@ -12,4 +12,5 @@ export default {
   optionImages: {
     yes: require('../../../assets/bpMachine.jpg'),
   },
+  commonImage: require('../../../assets/bpMachine.jpg'),
 };

@@ -14,4 +14,5 @@ export default {
   optionImages: {
     yes: require('../../../assets/child/vomiting.jpg'),
   },
+  commonImage: require('../../../assets/child/vomiting.jpg'),
 };
