@@ -13,6 +13,9 @@ const output = form => {
   if (ageInMonths <= 12) {
     return outputFor(value, 30, 50);
   }
+  if (ageInMonths <= 60) {
+    return outputFor(value, 20, 40);
+  }
   return outputFor(value, 18, 30);
 };
 
