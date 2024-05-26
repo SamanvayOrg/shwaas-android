@@ -21,7 +21,7 @@
     "appcenter-crashes": "^4.1.0",
     "lodash": "4.17.21",
     "react": "17.0.1",
-    "react-native": "0.64.0",
+    "react-native": "0.64.4",
     "react-native-code-push": "^7.0.1",
     "react-native-dotenv": "^2.5.5",
     "react-native-gesture-handler": "^1.10.3",
