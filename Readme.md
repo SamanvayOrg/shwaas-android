@@ -3,6 +3,7 @@
 ### Some details to know before development
 
 - Uses plain redux
+- Uses Java 8. Use [jenv](https://www.jenv.be/) if you want to automatically switch versions
 - All questions are in the domain directory
 - Stories in the storybook directory. Link [here](https://github.com/storybookjs/react-native)
 - Uses [React Native Paper](https://callstack.github.io/react-native-paper/) for components
