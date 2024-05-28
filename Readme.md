@@ -1,5 +1,11 @@
 [![Build status](https://build.appcenter.ms/v0.1/apps/8b5a7d09-9b99-4138-b6eb-a774b6d2e8b3/branches/main/badge)](https://appcenter.ms)
 
+## Shwaas Android App
+Shwaas is a tool that can be used by semiliterate field workers in identifying high risk conditions that require a need to visit a medical care facility. 
+
+Shwaas was originally developed during Covid to identify those who are at risk of pneumonia. We now plan to expand the scope of Shwaas to include other ailments as well. Details to follow. 
+
+
 ### Some details to know before development
 
 - Uses plain redux
