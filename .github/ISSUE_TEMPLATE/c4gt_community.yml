@@ -80,6 +80,7 @@ body:
         - ShikshaLokam
         - Tech4Dev
         - Tibil
+        - Samanvay
     validations:
       required: true
 
