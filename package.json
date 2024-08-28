@@ -9,6 +9,7 @@
     "test": "jest",
     "lint": "eslint .",
     "prettier-all": "prettier --write \"src/**/*.js\""
+    "prepare": "husky install"
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.15.4",
