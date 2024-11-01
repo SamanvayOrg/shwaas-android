@@ -7,7 +7,7 @@ import {
     DefaultTheme,
     PaperProvider,
 } from 'react-native-paper';
-import {Colors} from '../constants/Colors';
+import {Colors} from '@/constants/Colors';
 
 const colors = Colors.light;
 
