@@ -7,7 +7,7 @@ import {
 import {atom} from 'jotai';
 
 const resetForm = () => ({form: {}});
-const resetCurrentQuestionKey = () => nextQuestion().key;
+const resetCurrentQuestionKey = () => nextQuestion(undefined, undefined, undefined).key;
 const getValue = (key, value) => {
     const obj = {};
     obj[key] = value;

@@ -1,42 +1,43 @@
 import {Colors} from '@/constants/Colors';
-const alwaysShow = () => true;
+
+const alwaysShow = ():boolean => true;
 const colors = Colors.light;
 
-const outputWeight = {
-  green: 'green',
-  yellow: 'yellow',
-  red: 'red',
-  black: 'black', //The tool cannot be used in such a scenario
-};
+enum outputWeight {
+    green = 'green',
+    yellow = 'yellow',
+    red = 'red',
+    black = 'black',
+}
 
-const outputColors = {
-  green: colors.green,
-  yellow: colors.yellow,
-  red: colors.red,
-  black: colors.black,
-};
+enum outputColors {
+    green = colors.green,
+    yellow = colors.yellow,
+    red = colors.red,
+    black = colors.black,
+}
 
-const alwaysGreen = message => ({weight: outputWeight.green, message});
+const alwaysGreen = (message:string) => ({weight: outputWeight.green, message});
 
-const redIfBoolean = (value, message, booleanValue) =>
-  value === booleanValue
-    ? {weight: outputWeight.red, message}
-    : {weight: outputWeight.green};
+const redIfBoolean = (value:boolean, message:string, booleanValue:boolean) =>
+    value === booleanValue
+        ? {weight: outputWeight.red, message}
+        : {weight: outputWeight.green};
 
-const redIfTrue = (value, message) => redIfBoolean(value, message, true);
-const redIfFalse = (value, message) => redIfBoolean(value, message, false);
+const redIfTrue = (value:boolean, message:string) => redIfBoolean(value, message, true);
+const redIfFalse = (value:boolean, message:string) => redIfBoolean(value, message, false);
 
-const objectify = (weight, message) => ({weight, message});
+const objectify = (weight, message?:string) => ({weight, message});
 
-const isDefined = item => item !== undefined && item !== null;
+const isDefined = (item:any) => item !== undefined && item !== null;
 
 export {
-  alwaysShow,
-  alwaysGreen,
-  outputWeight,
-  redIfTrue,
-  redIfFalse,
-  outputColors,
-  isDefined,
-  objectify,
+    alwaysShow,
+    alwaysGreen,
+    outputWeight,
+    redIfTrue,
+    redIfFalse,
+    outputColors,
+    isDefined,
+    objectify,
 };
