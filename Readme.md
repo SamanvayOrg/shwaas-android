@@ -1,64 +1,50 @@
-[![Build status](https://build.appcenter.ms/v0.1/apps/8b5a7d09-9b99-4138-b6eb-a774b6d2e8b3/branches/main/badge)](https://appcenter.ms)
+# Welcome to your Expo app 👋
 
-## Shwaas Android App
-Shwaas is a tool that can be used by semiliterate field workers in identifying high risk conditions that require a need to visit a medical care facility. 
+This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
-Shwaas was originally developed during Covid to identify those who are at risk of pneumonia. We now plan to expand the scope of Shwaas to include other ailments as well. Details to follow. 
+## Get started
 
+1. Install dependencies
 
-### Some details to know before development
+   ```bash
+   npm install
+   ```
 
-- Uses plain redux
-- Uses Java version specified in the .java-version file. Use [jenv](https://www.jenv.be/) if you want to automatically switch versions
-- All questions are in the domain directory
-- Stories in the storybook directory. Link [here](https://github.com/storybookjs/react-native)
-- Uses [React Native Paper](https://callstack.github.io/react-native-paper/) for components
-- Use eslint cleanup in Intellij if you find too many red lines. You might need to set up node to do this.
+2. Start the app
 
-### Development
+   ```bash
+    npx expo start
+   ```
 
-- Clone this repository
-- Start an emulator
-- yarn
-- See storybook section below to figure out what you are running
-- yarn run android
-- Optionally, you might need yarn start to run the packager
+In the output, you'll find options to open the app in a
 
-### Storybook
+- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
+- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
+- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
+- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
 
-App.js has two lines in the end
+You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
 
+## Get a fresh project
+
+When you're ready, run:
+
+```bash
+npm run reset-project
 ```
-export default codePush(App);
-export {default} from './storybook';
-```
 
-If you want to run the app, uncomment the first line. Else uncomment the second line.
+This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
 
-### Links
+## Learn more
 
-[Design](https://www.figma.com/file/8Y8xJ5rJP5xYieDJHrhAng/covid-tool?node-id=109%3A1715)
+To learn more about developing your project with Expo, look at the following resources:
 
-[Trello](https://trello.com/b/WbzPBJrf/pneumonia-app)
+- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
+- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
 
-[Documentation](https://drive.google.com/drive/folders/16lVSZA2ki3nhjJ35WkUwU6Zy7Tky_Ohx)
+## Join the community
 
-### Release apk to staging
+Join our community of developers creating universal apps.
 
-- Get values for ~/.gradle/gradle.properties and shwaas.keystore (android/app)
-- Change value of CodePushDeploymentKey in android/app/src/main/values/strings.xml to production
-- `make create-bundle`
-- Upload bundle
-
-### Release apk to production
-
-- Update versionCode and versionName in android/app/build.gradle
-- Get values for ~/.gradle/gradle.properties and shwaas.keystore (put it in android/app) from Keeweb
-- Change value of CodePushDeploymentKey in android/app/src/main/values/strings.xml to production
-- `make create-bundle`
-- Upload bundle
-
-### Codepush
-
-Staging - `make codepush-staging`
-Production - `make codepush-production`
+- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
+- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
