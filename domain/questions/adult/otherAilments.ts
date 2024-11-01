@@ -1,5 +1,6 @@
 import questionTypes from '../../questionTypes/questionTypes';
 import {objectify, outputWeight} from '../utils';
+import {Question} from "@/domain/Question";
 
 const key = 'otherAilments';
 
@@ -12,7 +13,7 @@ const output = form => {
   }
 };
 
-export default {
+export default <Question>{
   key,
   label: key,
   type: questionTypes.multichoice,

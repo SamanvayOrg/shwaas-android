@@ -1,34 +1,34 @@
-import {outputColors} from '../questions/utils';
+import {outputColor} from '../questions/utils';
 import createRecommendationType from './createRecommendationType';
 
 const NotUseful = createRecommendationType(
   'notUseful',
   'forThisPerson',
-  outputColors.black,
+  outputColor.black,
   'toolUnlikelyToHelpPerson',
 );
 const ManageAtHome = createRecommendationType(
   'greenRecommendationShortMessageLine2',
   'greenRecommendationShortMessageLine1',
-  outputColors.green,
+  outputColor.green,
   'manageAtHomeNextSteps',
 );
 const ReferToDoctor = createRecommendationType(
   'yellowRecommendationShortMessageLine2',
   'yellowRecommendationShortMessageLine1',
-  outputColors.yellow,
+  outputColor.yellow,
   'referToDoctor',
 );
 const ReferToDistrictHospital = createRecommendationType(
   'yellowRecommendationShortMessageLine2',
   'yellowRecommendationShortMessageLine1',
-  outputColors.yellow,
+  outputColor.yellow,
   'referToDistrictHospital',
 );
 const AdmitInHospital = createRecommendationType(
   'redRecommendationShortMessageLine2',
   'redRecommendationShortMessageLine1',
-  outputColors.red,
+  outputColor.red,
   'admitInHospital',
 );
 

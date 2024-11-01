@@ -1,11 +1,12 @@
 import questionTypes from '../../questionTypes/questionTypes';
 import {alwaysShow, redIfTrue} from '../utils';
+import {Question} from "@/domain/Question";
 
 const key = 'difficultyBreathing';
 
 const output = form => redIfTrue(form[key], 'difficultyBreathingSuggestion');
 
-export default {
+export default <Question>{
   key,
   label: key,
   type: questionTypes.boolean,

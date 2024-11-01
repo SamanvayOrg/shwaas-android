@@ -1,6 +1,7 @@
 import questionTypes from '../../questionTypes/questionTypes';
 import {objectify, outputWeight} from '../utils';
 import accessToMeasuringTape from './accessToMeasuringTape';
+import {Question} from "@/domain/Question";
 
 const key = 'midUpperArmCircumference';
 const show = form => form[accessToMeasuringTape.key] === true;
@@ -16,7 +17,7 @@ const output = form => {
   return objectify(outputWeight.green);
 };
 
-export default {
+export default <Question>{
   key,
   label: key,
   type: questionTypes.numeric,

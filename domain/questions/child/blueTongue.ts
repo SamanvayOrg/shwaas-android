@@ -1,6 +1,7 @@
 import blueTongue from '../adult/blueTongue';
+import {Question} from "@/domain/Question";
 
-export default {
+export default <Question>{
   ...blueTongue,
   label: 'childBlueTongue',
   optionImages: {

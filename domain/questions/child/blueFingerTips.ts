@@ -1,6 +1,7 @@
 import blueFingerTips from '../adult/blueFingerTips';
+import {Question} from "@/domain/Question";
 
-export default {
+export default <Question>{
   ...blueFingerTips,
   label: 'childBlueFingerTips',
   optionImages: {

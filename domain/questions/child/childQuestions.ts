@@ -25,8 +25,9 @@ import accessToWeighingMachine from './accessToWeighingMachine';
 import weight from './weight';
 import stoppedRecognisingMother from './stoppedRecognisingMother';
 import assessUndernutrition from './assessUndernutrition';
+import {Question} from "@/domain/Question";
 
-export default [
+export default <Question[]>[
   sex,
   coughInPast14Days,
   feverInPast14Days,

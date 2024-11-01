@@ -1,5 +1,6 @@
 import questionTypes from '../../questionTypes/questionTypes';
 import {alwaysShow, objectify, outputWeight} from '../utils';
+import {Question} from "@/domain/Question";
 
 const key = 'breathCount';
 
@@ -11,7 +12,7 @@ const output = form => {
   if (form[key] >= 29) return objectify(outputWeight.red, 'breathCountRed');
 };
 
-export default {
+export default <Question>{
   key,
   label: key,
   type: questionTypes.breathCount,

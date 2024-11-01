@@ -1,5 +1,6 @@
 import questionTypes from '../../questionTypes/questionTypes';
 import {alwaysShow, objectify, outputWeight} from '../utils';
+import {Question} from "@/domain/Question";
 
 const key = 'capillaryRefillTime';
 
@@ -17,7 +18,7 @@ const output = form => {
   }
 };
 
-export default {
+export default <Question>{
   key,
   label: key,
   type: questionTypes.singleChoice,

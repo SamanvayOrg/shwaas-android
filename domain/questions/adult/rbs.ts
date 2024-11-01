@@ -1,5 +1,6 @@
 import questionTypes from '../../questionTypes/questionTypes';
 import {objectify, outputWeight} from '../utils';
+import {Question} from "@/domain/Question";
 
 const key = 'rbs';
 
@@ -11,7 +12,7 @@ const output = form =>
     ? objectify(outputWeight.green)
     : outputWeight.yellow;
 
-export default {
+export default <Question>{
   key,
   label: key,
   type: questionTypes.singleChoice,

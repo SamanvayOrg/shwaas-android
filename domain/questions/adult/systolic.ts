@@ -1,5 +1,6 @@
 import questionTypes from '../../questionTypes/questionTypes';
 import {objectify, outputWeight} from '../utils';
+import {Question} from "@/domain/Question";
 
 const key = 'systolic';
 
@@ -21,7 +22,7 @@ const output = form => {
   return objectify(outputWeight.red, 'lowSystolicRed');
 };
 
-export default {
+export default <Question>{
   key,
   label: key,
   unit: 'mmHg',

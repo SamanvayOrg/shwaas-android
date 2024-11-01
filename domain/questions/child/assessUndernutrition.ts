@@ -1,13 +1,14 @@
 import questionTypes from '../../questionTypes/questionTypes';
 import midUpperArmCircumference from './midUpperArmCircumference';
 import weight from './weight';
+import {Question} from "@/domain/Question";
 
 const key = 'assessUndernutrition';
 
 const show = form => !form[midUpperArmCircumference.key] && !form[weight.key];
 const output = form => form[key].length > 0;
 
-export default {
+export default <Question>{
   key,
   label: key,
   type: questionTypes.multichoice,

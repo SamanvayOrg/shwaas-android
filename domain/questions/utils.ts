@@ -10,7 +10,7 @@ enum outputWeight {
     black = 'black',
 }
 
-enum outputColors {
+enum outputColor {
     green = colors.green,
     yellow = colors.yellow,
     red = colors.red,
@@ -24,8 +24,8 @@ const redIfBoolean = (value:boolean, message:string, booleanValue:boolean) =>
         ? {weight: outputWeight.red, message}
         : {weight: outputWeight.green};
 
-const redIfTrue = (value:boolean, message:string) => redIfBoolean(value, message, true);
-const redIfFalse = (value:boolean, message:string) => redIfBoolean(value, message, false);
+const redIfTrue = (value:boolean, message:string = undefined) => redIfBoolean(value, message, true);
+const redIfFalse = (value:boolean, message:string = undefined) => redIfBoolean(value, message, false);
 
 const objectify = (weight, message?:string) => ({weight, message});
 
@@ -37,7 +37,7 @@ export {
     outputWeight,
     redIfTrue,
     redIfFalse,
-    outputColors,
+    outputColor,
     isDefined,
     objectify,
 };

@@ -1,6 +1,7 @@
 import coughInPast14Days from '../adult/coughInPast14Days';
+import {Question} from "@/domain/Question";
 
-export default {
+export default <Question>{
   ...coughInPast14Days,
   label: 'childCoughInPast14Days',
   optionImages: {

@@ -1,5 +1,6 @@
 import questionTypes from '../../questionTypes/questionTypes';
 import {alwaysGreen, objectify, outputWeight} from '../utils';
+import {Question} from "@/domain/Question";
 
 const key = 'threeOrMoreOfBelowSymptoms';
 
@@ -14,7 +15,7 @@ const output = form => {
     : objectify(outputWeight.green);
 };
 
-export default {
+export default <Question>{
   key,
   label: key,
   helpText: 'threeOrMoreOfBelowSymptomsSubtext',

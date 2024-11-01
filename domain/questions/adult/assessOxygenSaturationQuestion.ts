@@ -1,5 +1,6 @@
 import questionTypes from '../../questionTypes/questionTypes';
 import {objectify, outputWeight} from '../utils';
+import {Question} from "@/domain/Question";
 
 export default key => {
   const show = form => form.accessToPulseOximeter === false;
@@ -20,7 +21,7 @@ export default key => {
     return objectify(outputWeight.green);
   };
 
-  return {
+  return <Question> {
     key,
     label: key,
     type: questionTypes.singleChoice,

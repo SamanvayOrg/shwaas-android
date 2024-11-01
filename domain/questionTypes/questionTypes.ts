@@ -1,7 +1,7 @@
 import {t} from 'i18next';
 import {getUnit} from '@/domain/questionTypes/questionUnit';
 
-enum questionTypes {
+export enum questionTypes {
     boolean = 'boolean',
     breathCount = 'breathCount',
     information = 'information',

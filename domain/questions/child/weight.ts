@@ -4,6 +4,7 @@ import age from '../common/age';
 import sex from './sex';
 import weightForAgeGrade3 from './weightForAgeGrade3';
 import accessToWeighingMachine from './accessToWeighingMachine';
+import {Question} from "@/domain/Question";
 
 const key = 'childWeight';
 
@@ -20,7 +21,7 @@ const output = form => {
     : objectify(outputWeight.green);
 };
 
-export default {
+export default <Question>{
   key,
   label: key,
   type: questionTypes.numeric,

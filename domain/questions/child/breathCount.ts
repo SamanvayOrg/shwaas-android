@@ -1,6 +1,7 @@
 import questionTypes from '../../questionTypes/questionTypes';
 import {alwaysShow, objectify, outputWeight} from '../utils';
 import age from '../common/age';
+import {Question} from "@/domain/Question";
 
 const key = 'breathCount';
 
@@ -25,7 +26,7 @@ const outputFor = (value, lowerLimit, upperLimit) => {
   if (value >= upperLimit) return objectify(outputWeight.red, 'breathCountRed');
 };
 
-export default {
+export default <Question>{
   key,
   label: key,
   type: questionTypes.breathCount,

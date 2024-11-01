@@ -1,5 +1,6 @@
 import feverInPast14Days from '../adult/feverInPast14Days';
 import {objectify, outputWeight} from '../utils';
+import {Question} from "@/domain/Question";
 
 const output = form => {
   return form.coughInPast14Days === false &&
@@ -8,7 +9,7 @@ const output = form => {
     : objectify(outputWeight.green);
 };
 
-export default {
+export default <Question>{
   ...feverInPast14Days,
   label: 'childFeverInPast14Days',
   output,

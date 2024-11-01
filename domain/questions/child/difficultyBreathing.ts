@@ -1,6 +1,7 @@
 import difficultyBreathing from '../adult/difficultyBreathing';
+import {Question} from "@/domain/Question";
 
-export default {
+export default <Question>{
   ...difficultyBreathing,
   label: 'childDifficultyBreathing',
   optionImages: {

@@ -1,5 +1,6 @@
 import questionTypes from '../../questionTypes/questionTypes';
 import {alwaysShow, objectify, outputWeight} from '../utils';
+import {Question} from "@/domain/Question";
 
 const key = 'comorbidities';
 
@@ -11,7 +12,7 @@ const output = form => {
   return outputWeight.green;
 };
 
-export default {
+export default <Question>{
   key,
   label: key,
   helpText: 'comorbiditiesHelpText',

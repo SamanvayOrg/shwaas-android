@@ -1,6 +1,7 @@
 import blueLips from '../adult/blueLips';
+import {Question} from "@/domain/Question";
 
-export default {
+export default <Question>{
   ...blueLips,
   label: 'childBlueLips',
   optionImages: {

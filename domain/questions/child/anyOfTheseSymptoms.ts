@@ -1,5 +1,6 @@
 import questionTypes from '../../questionTypes/questionTypes';
 import {alwaysShow, objectify, outputWeight} from '../utils';
+import {Question} from "@/domain/Question";
 
 const key = 'anyOfTheseSymptoms';
 
@@ -8,7 +9,7 @@ const output = form =>
     ? objectify(outputWeight.yellow)
     : objectify(outputWeight.green);
 
-export default {
+export default <Question>{
   key,
   label: key,
   type: questionTypes.multichoice,

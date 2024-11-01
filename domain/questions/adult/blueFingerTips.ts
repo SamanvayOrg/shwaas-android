@@ -1,6 +1,7 @@
 import assessOxygenSaturationQuestion from './assessOxygenSaturationQuestion';
+import {Question} from "@/domain/Question";
 
-export default {
+export default <Question>{
   ...assessOxygenSaturationQuestion('blueFingerTips'),
   optionImages: {
     yes: require('../../../assets/images/blueFingerTips.png'),

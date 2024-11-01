@@ -1,5 +1,6 @@
 import questionTypes from '../../questionTypes/questionTypes';
 import {objectify, outputWeight} from '../utils';
+import {Question} from "@/domain/Question";
 
 const key = 'oxygenSaturationAfter6Minutes';
 
@@ -11,7 +12,7 @@ const output = form => {
   return objectify(outputWeight.green);
 };
 
-export default {
+export default <Question>{
   key,
   label: key,
   helpText: 'ensureYouDoThe6MinuteWalk',

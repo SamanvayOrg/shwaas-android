@@ -1,6 +1,7 @@
 import questionTypes from '../../questionTypes/questionTypes';
 import {objectify, outputWeight} from '../utils';
 import {t} from 'i18next';
+import {Question} from "@/domain/Question";
 
 const key = 'diabetesStatus';
 
@@ -40,7 +41,7 @@ const value = form => {
     : t('diabetesUncontrolled');
 };
 
-export default {
+export default <Question>{
   key,
   label: key,
   type: questionTypes.information,

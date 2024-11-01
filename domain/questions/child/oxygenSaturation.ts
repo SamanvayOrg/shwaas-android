@@ -1,5 +1,6 @@
 import oxygenSaturation from '../adult/oxygenSaturation';
+import {Question} from "@/domain/Question";
 
-export default {
+export default <Question>{
   ...oxygenSaturation,
 };

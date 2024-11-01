@@ -1,5 +1,6 @@
 import questionTypes from '../../questionTypes/questionTypes';
 import {objectify, outputWeight} from '../utils';
+import {Question} from "@/domain/Question";
 
 const key = 'diastolic';
 
@@ -15,7 +16,7 @@ const output = form => {
   return objectify(outputWeight.red);
 };
 
-export default {
+export default <Question>{
   key,
   label: key,
   type: questionTypes.numeric,

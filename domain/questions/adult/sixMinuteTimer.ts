@@ -1,11 +1,12 @@
 import questionTypes from '../../questionTypes/questionTypes';
 import {alwaysGreen, alwaysShow} from '../utils';
+import {Question} from "@/domain/Question";
 
 const key = 'sixMinuteTimer';
 
 const show = form => form.accessToPulseOximeter === true;
 
-export default {
+export default <Question>{
   key,
   label: key,
   helpText: 'takeOximeterReadingAfterThis',

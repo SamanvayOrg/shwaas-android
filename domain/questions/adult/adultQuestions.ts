@@ -38,8 +38,9 @@ import whenDidSymptomsStart from './whenDidSymptomsStart';
 import lossOfTasteOrSmellInPast14Days from './lossOfTasteOrSmellInPast14Days';
 import threeOrMoreOfBelowSymptoms from './threeOrMoreOfBelowSymptoms';
 import otherAilments from './otherAilments';
+import {Question} from "@/domain/Question";
 
-export default [
+export default <Question[]> [
   coughInPast14Days,
   feverInPast14Days,
   lossOfTasteOrSmellInPast14Days,
