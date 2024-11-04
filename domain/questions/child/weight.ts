@@ -1,4 +1,4 @@
-import questionTypes from '../../questionTypes/questionTypes';
+import questionTypes from '../../questionTypes/QuestionType';
 import {objectify, outputWeight} from '../utils';
 import age from '../common/age';
 import sex from './sex';

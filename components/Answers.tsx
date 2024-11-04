@@ -1,11 +1,11 @@
 import {View} from 'react-native';
 import {Text} from 'react-native-paper';
 import React, {useState} from 'react';
-import {visibleQuestions} from '../domain/questionModel';
-import _ from 'lodash';
-import {Colors} from '../constants/Colors';
 import {useTranslation} from 'react-i18next';
-import {answerString} from '@/domain/questionTypes/questionTypes';
+import {visibleQuestions} from '@/domain/questionModel';
+import {answerString} from '@/domain/questionTypes/QuestionType';
+import {Colors} from '@/constants/Colors';
+import _ from 'lodash';
 
 const colors = Colors.light;
 

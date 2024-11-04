@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import {Text, Icon} from 'react-native-paper';
 import QuestionBase from './QuestionBase';
-import questionTypes from '@/domain/questionTypes/questionTypes';
+import questionTypes from '@/domain/questionTypes/QuestionType';
 import {isDefined} from '@/domain/questions/utils';
 import QuestionImage from './QuestionImage';
 import get from 'lodash/get';

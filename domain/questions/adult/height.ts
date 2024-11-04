@@ -1,4 +1,4 @@
-import questionTypes from '../../questionTypes/questionTypes';
+import questionTypes from '../../questionTypes/QuestionType';
 import {alwaysGreen} from '../utils';
 import {Question} from "@/domain/Question";
 

@@ -1,4 +1,5 @@
 import {Colors} from '@/constants/Colors';
+import {Output} from "@/domain/Question";
 
 const alwaysShow = ():boolean => true;
 const colors = Colors.light;
@@ -17,15 +18,15 @@ enum outputColor {
     black = colors.black,
 }
 
-const alwaysGreen = (message:string) => ({weight: outputWeight.green, message});
+const alwaysGreen = (message:string):Output => ({weight: outputWeight.green, message});
 
-const redIfBoolean = (value:boolean, message:string, booleanValue:boolean) =>
+const redIfBoolean = (value:boolean, message:string, booleanValue:boolean):Output =>
     value === booleanValue
         ? {weight: outputWeight.red, message}
-        : {weight: outputWeight.green};
+        : ({weight: outputWeight.green});
 
-const redIfTrue = (value:boolean, message:string = undefined) => redIfBoolean(value, message, true);
-const redIfFalse = (value:boolean, message:string = undefined) => redIfBoolean(value, message, false);
+const redIfTrue = (value:boolean, message:string = undefined):Output => redIfBoolean(value, message, true);
+const redIfFalse = (value:boolean, message:string = undefined):Output => redIfBoolean(value, message, false);
 
 const objectify = (weight, message?:string) => ({weight, message});
 

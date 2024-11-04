@@ -1,4 +1,4 @@
-import questionTypes from '../../questionTypes/questionTypes';
+import questionTypes from '../../questionTypes/QuestionType';
 import {alwaysGreen} from '../utils';
 import age from '../common/age';
 import accessToWeighingMachine from './accessToWeighingMachine';

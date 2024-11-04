@@ -1,4 +1,4 @@
-import questionTypes from '../../questionTypes/questionTypes';
+import questionTypes from '../../questionTypes/QuestionType';
 import {objectify, outputWeight} from '../utils';
 import {t} from 'i18next';
 import {Question} from "@/domain/Question";

@@ -1,4 +1,4 @@
-import questionTypes from '../../questionTypes/questionTypes';
+import questionTypes from '../../questionTypes/QuestionType';
 import midUpperArmCircumference from './midUpperArmCircumference';
 import weight from './weight';
 import {Question} from "@/domain/Question";

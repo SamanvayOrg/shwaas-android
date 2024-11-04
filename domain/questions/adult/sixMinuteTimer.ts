@@ -1,10 +1,10 @@
-import questionTypes from '../../questionTypes/questionTypes';
-import {alwaysGreen, alwaysShow} from '../utils';
+import questionTypes from '../../questionTypes/QuestionType';
+import {alwaysGreen} from '../utils';
 import {Question} from "@/domain/Question";
 
 const key = 'sixMinuteTimer';
 
-const show = form => form.accessToPulseOximeter === true;
+const show = form => form.accessToPulseOximeter;
 
 export default <Question>{
   key,

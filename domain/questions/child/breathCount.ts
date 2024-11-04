@@ -1,4 +1,4 @@
-import questionTypes from '../../questionTypes/questionTypes';
+import questionTypes from '../../questionTypes/QuestionType';
 import {alwaysShow, objectify, outputWeight} from '../utils';
 import age from '../common/age';
 import {Question} from "@/domain/Question";
