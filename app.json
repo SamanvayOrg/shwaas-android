@@ -8,7 +8,6 @@
     "scheme": "shwaas",
     "userInterfaceStyle": "automatic",
     "splash": {
-      "image": "./assets/images/handShow.svg",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
