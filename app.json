@@ -19,7 +19,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/shwaas-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.pneumoniaapp"
     },
     "web": {
       "bundler": "metro",
@@ -32,6 +33,11 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "eas": {
+        "projectId": "5f219b5f-6847-4d46-832a-65f83d734b28"
+      }
     }
   }
 }
