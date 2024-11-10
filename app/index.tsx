@@ -90,7 +90,7 @@ const Home = () => {
                 icon="arrow-right"
                 style={styles.buttonStyle}
                 contentStyle={{width: '100%', height: 70, flexDirection: 'row-reverse'}}
-                labelStyle={{fontSize: 20}}
+                labelStyle={{fontSize: 20, lineHeight: 28}}
                 mode={'contained'}
                 onPress={() => {
                     if (disclaimerAccepted) {
