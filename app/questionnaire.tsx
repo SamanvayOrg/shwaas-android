@@ -90,7 +90,7 @@ const Questionnaire = () => {
     const onAnswered = (question, value) => {
         setValue({key: question.key, value});
         if (question.type.isBoolean || question.type.isSingleChoice) {
-            goToNextQuestionIfNecessary({question, value});
+            goToNextQuestionIfNecessary(question, value);
         }
     };
 
