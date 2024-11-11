@@ -6,7 +6,7 @@ import {Colors} from '@/constants/Colors';
 import {Image} from "expo-image";
 import { useTranslation } from "react-i18next";
 import {useSetAtom} from "jotai";
-import {disclaimerAcceptedAction} from "@/atoms/settings";
+import {disclaimerAcceptedAtom} from "@/atoms/settings";
 
 const colors = Colors.light;
 
@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
 
 export default () => {
     const { t } = useTranslation();
-    const acceptDisclaimer = useSetAtom(disclaimerAcceptedAction);
+    const acceptDisclaimer = useSetAtom(disclaimerAcceptedAtom);
 
     return (
         <ScrollView
@@ -49,7 +49,7 @@ export default () => {
                             mode={'contained'}
                             contentStyle={{height: 70}}
                             onPress={() => {
-                                acceptDisclaimer();
+                                acceptDisclaimer(true);
                                 router.back();
                             }}>
                             {t('accept')}

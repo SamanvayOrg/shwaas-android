@@ -1,6 +1,5 @@
 import i18n from "i18next";
-import { initReactI18next } from "react-i18next";
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import {initReactI18next} from "react-i18next";
 import messages_en from './locales/en/translation.json';
 import messages_hi_In from './locales/hi_IN/translation.json';
 import messages_kn_In from './locales/kn_IN/translation.json';
@@ -32,7 +31,7 @@ const resources = {
 };
 
 const initI18n = async () => {
-    let savedLanguage = store.get(languageAtom);
+    let savedLanguage = await store.get(languageAtom);
 
     if (!savedLanguage) {
         savedLanguage = 'en';

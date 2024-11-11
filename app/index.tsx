@@ -1,11 +1,11 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Button, Text} from 'react-native-paper';
 import {Dimensions, ScrollView, StyleSheet, View} from 'react-native';
 import Menu, {Menus} from '../components/Menu';
 import {Colors} from '@/constants/Colors';
 import {useNavigation} from 'expo-router';
 import {Image} from "expo-image";
-import { useTranslation } from "react-i18next";
+import {useTranslation} from "react-i18next";
 import {useAtomValue, useSetAtom} from "jotai";
 import {startOverAction} from "@/atoms/form";
 import {languageAtom, disclaimerAcceptedAtom} from '@/atoms/settings';
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
 });
 
 const Home = () => {
-    const { t } = useTranslation();
+    const {t} = useTranslation();
     const navigation = useNavigation();
     const {width, height} = Dimensions.get('window');
     const isPortrait = height > width;
@@ -54,12 +54,26 @@ const Home = () => {
     const disclaimerAccepted = useAtomValue(disclaimerAcceptedAtom);
 
     useEffect(() => navigation.addListener('focus', startOver), []);
+    let [label, setLabel] = useState('readDisclaimer');
+    let [nextRoute, setNextRoute] = useState('disclaimer');
 
-    const label = disclaimerAccepted
-        ? 'getStarted'
-        : language
-            ? 'readDisclaimer'
-            : 'selectLanguage';
+    useEffect(() => {
+        setLabel(disclaimerAccepted
+                ? 'getStarted'
+                : language
+                    ? 'readDisclaimer'
+                    : 'selectLanguage');
+
+        let nextRouteTemp;
+        if (disclaimerAccepted) {
+            nextRouteTemp = 'questionnaire';
+        } else if (language) {
+            nextRouteTemp = 'disclaimer';
+        } else {
+            nextRouteTemp = 'language';
+        }
+        setNextRoute(nextRouteTemp);
+    }, [disclaimerAccepted, language]);
 
     return (
         <View style={{flex: 1}}>
@@ -92,15 +106,7 @@ const Home = () => {
                 contentStyle={{width: '100%', height: 70, flexDirection: 'row-reverse'}}
                 labelStyle={{fontSize: 20, lineHeight: 28}}
                 mode={'contained'}
-                onPress={() => {
-                    if (disclaimerAccepted) {
-                        navigation.navigate('questionnaire');
-                    } else if (language) {
-                        navigation.navigate('disclaimer');
-                    } else {
-                        navigation.navigate('language');
-                    }
-                }}>
+                onPress={() => { navigation.navigate(nextRoute)}}>
                 {t(label)}
             </Button>
         </View>
