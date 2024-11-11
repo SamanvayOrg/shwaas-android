@@ -1,6 +1,6 @@
 import React from 'react';
 import {ScrollView, StyleSheet, View} from 'react-native';
-import {Button, Text} from 'react-native-paper';
+import {Text} from 'react-native-paper';
 import Answers from '@/components/Answers';
 import {Colors} from '@/constants/Colors';
 import {useTranslation} from "react-i18next";
@@ -9,6 +9,7 @@ import {recommendationsAtom} from "@/atoms/recommendations";
 import {formAtom, startOverAction} from "@/atoms/form";
 import {useNavigation} from 'expo-router';
 import BottomButton from "@/components/common/BottomButton";
+
 const colors = Colors.light;
 
 const styles = StyleSheet.create({

@@ -55,8 +55,8 @@ const Home = () => {
     const disclaimerAccepted = useAtomValue(disclaimerAcceptedAtom);
 
     useEffect(() => navigation.addListener('focus', startOver), []);
-    let [label, setLabel] = useState('readDisclaimer');
-    let [nextRoute, setNextRoute] = useState('disclaimer');
+    let [label, setLabel] = useState<string>('readDisclaimer');
+    let [nextRoute, setNextRoute] = useState<string>('disclaimer');
 
     useEffect(() => {
         setLabel(disclaimerAccepted
