@@ -93,7 +93,6 @@ const Questionnaire = () => {
             goToNextQuestionIfNecessary({question, value});
         }
     };
-    console.log('question', question);
 
     return (
         <View style={{flex: 1, backgroundColor: '#fafafa'}}>

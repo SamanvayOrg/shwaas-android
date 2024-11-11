@@ -41,14 +41,15 @@ export const createQuestionType = questionType => ({
 });
 
 export const answerString = (question, value) => {
-    if (question.isBoolean) return value === true ? t('yes') : t('no');
-    if (question.isBreathCount) return `${value} ${getUnit(question)}`;
-    if (question.isInformation) return '';
-    if (question.isMultiChoice) return value.map(item => t(item)).join(', ');
-    if (question.isNumeric) return `${value} ${getUnit(question)}`;
-    if (question.isSingleChoice) return `${t(value)} ${getUnit(question)}`;
-    if (question.isTimer) return `${value} ${getUnit(question)}`;
-    if (question.isAge) {
+    const type = question.type;
+    if (type.isBoolean) return value === true ? t('yes') : t('no');
+    if (type.isBreathCount) return `${value} ${getUnit(question)}`;
+    if (type.isInformation) return '';
+    if (type.isMultiChoice) return value.map(item => t(item)).join(', ');
+    if (type.isNumeric) return `${value} ${getUnit(question)}`;
+    if (type.isSingleChoice) return `${t(value)} ${getUnit(question)}`;
+    if (type.isTimer) return `${value} ${getUnit(question)}`;
+    if (type.isAge) {
         {
             const years = Math.floor(value / 12);
             const months = value % 12;
