@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Button, Text} from 'react-native-paper';
+import {Text} from 'react-native-paper';
 import {Dimensions, ScrollView, StyleSheet, View} from 'react-native';
 import Menu, {Menus} from '../components/Menu';
 import {Colors} from '@/constants/Colors';
@@ -8,7 +8,8 @@ import {Image} from "expo-image";
 import {useTranslation} from "react-i18next";
 import {useAtomValue, useSetAtom} from "jotai";
 import {startOverAction} from "@/atoms/form";
-import {languageAtom, disclaimerAcceptedAtom} from '@/atoms/settings';
+import {disclaimerAcceptedAtom, languageAtom} from '@/atoms/settings';
+import BottomButton from "@/components/common/BottomButton";
 
 const colors = Colors.light;
 const styles = StyleSheet.create({
@@ -100,15 +101,9 @@ const Home = () => {
                     }
                 }}
             />
-            <Button
-                icon="arrow-right"
-                style={styles.buttonStyle}
-                contentStyle={{width: '100%', height: 70, flexDirection: 'row-reverse'}}
-                labelStyle={{fontSize: 20, lineHeight: 28}}
-                mode={'contained'}
-                onPress={() => { navigation.navigate(nextRoute)}}>
+            <BottomButton icon="arrow-right" onPress={() => { navigation.navigate(nextRoute)}}>
                 {t(label)}
-            </Button>
+            </BottomButton>
         </View>
     );
 };

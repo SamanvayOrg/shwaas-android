@@ -8,6 +8,7 @@ import {useAtomValue, useSetAtom} from "jotai";
 import {recommendationsAtom} from "@/atoms/recommendations";
 import {formAtom, startOverAction} from "@/atoms/form";
 import {useNavigation} from 'expo-router';
+import BottomButton from "@/components/common/BottomButton";
 const colors = Colors.light;
 
 const styles = StyleSheet.create({
@@ -63,6 +64,10 @@ export default () => {
     const validMessages = messages.filter(
         message => message && message.length > 0,
     );
+    let restart = () => {
+        onStartOver();
+        goHome();
+    };
     return (
         <View style={styles.container}>
             <ScrollView style={styles.contentContainer}>
@@ -101,18 +106,11 @@ export default () => {
                 </View>
                 <Answers form={form} />
             </ScrollView>
-            <Button
-                style={styles.buttonStyle}
-                contentStyle={{height: 70}}
-                labelStyle={{fontSize: 20}}
+            <BottomButton
                 icon="restart"
-                mode="contained"
-                onPress={() => {
-                    onStartOver();
-                    goHome();
-                }}>
+                onPress={restart}>
                 {t('startOver')}
-            </Button>
+            </BottomButton>
         </View>
     );
 };
