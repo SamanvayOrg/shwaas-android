@@ -15,6 +15,7 @@
       "supportsTablet": true
     },
     "android": {
+      "googleServicesFile": "./assets/google-services.json", //google json file path
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/shwaas-icon.png",
         "backgroundColor": "#ffffff"
@@ -28,7 +29,8 @@
     },
     "plugins": [
       "expo-router",
-      "expo-localization"
+      "expo-localization",
+      "@react-native-firebase/app" //firebase plugin
     ],
     "experiments": {
       "typedRoutes": true
