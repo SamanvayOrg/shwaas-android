@@ -19,7 +19,7 @@
         "foregroundImage": "./assets/images/shwaas-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.pneumoniaapp"
+      "package": "com.pneumoniaapp" //package name
     },
     "web": {
       "bundler": "metro",
