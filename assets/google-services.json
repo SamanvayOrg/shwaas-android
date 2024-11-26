@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "864599202776",
+    "project_id": "shwaas-android",
+    "storage_bucket": "shwaas-android.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:864599202776:android:6bc77f25bac1dd9a2470ad",
+        "android_client_info": {
+          "package_name": "com.pneumoniaapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCjDpIt0ebqc-Up0-56Ke8PFScRHPDhgBI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
