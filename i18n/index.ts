@@ -7,6 +7,7 @@ import messages_te_In from './locales/te_IN/translation.json';
 import messages_bn_In from './locales/bn_In/translation.json';
 import messages_ta_In from './locales/ta_IN/translation.json';
 import messages_mr from './locales/mr/translation.json';
+import messages_ml from './locales/ml/translation.json';
 import {languageAtom} from "@/atoms/settings";
 import store from "@/atoms/atomStore";
 
@@ -18,6 +19,7 @@ export const languageOptions = [
     {label: 'বাংলা', locale: 'bn_In', labelInEnglish: 'Bangla'},
     {label: 'தமிழ்', locale: 'ta_In', labelInEnglish: 'Tamil'},
     {label: 'मराठी', locale: 'mr', labelInEnglish: 'Marathi'},
+    {label: 'മലയാളം', locale: 'ml', labelInEnglish: 'Malayalam'},
 ];
 
 const resources = {
@@ -28,6 +30,7 @@ const resources = {
     "ta_In": { translation: messages_ta_In },
     "kn_In": { translation: messages_kn_In },
     "mr": { translation: messages_mr },
+    "ml": { translation: messages_ml },
 };
 
 const initI18n = async () => {
