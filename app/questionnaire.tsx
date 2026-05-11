@@ -80,7 +80,7 @@ const Questionnaire = () => {
 
     useEffect(() => {
         if (question.type.isInformation) {
-            setValue({key: question, value: question.value(form)});
+            setValue({key: question.key, value: question.value(form)});
         }
     }, [currentQuestionKey]);
 

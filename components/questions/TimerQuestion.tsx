@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {ScrollView, Vibration} from 'react-native';
-import {Colors, Button, Card, ProgressBar} from 'react-native-paper';
+import {Button, Card, ProgressBar} from 'react-native-paper';
 import QuestionBase from './QuestionBase';
 import _ from 'lodash';
 import QuestionImage from './QuestionImage';
@@ -71,7 +71,7 @@ export default ({number, question, onAnswered = () => {}, value}) => {
           </Card>
           <ProgressBar
             progress={seconds / totalSeconds}
-            color={Colors.green900}
+            color={'#1B5E20'}
             style={{marginTop: 5, marginBottom: 10}}
           />
         </>
